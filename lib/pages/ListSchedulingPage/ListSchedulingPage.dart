@@ -92,7 +92,7 @@ class _ListSchedulingPageState extends State<ListSchedulingPage> with WidgetsBin
 
   @override
   Widget build(BuildContext context) {
-    fToast = FToast(context);
+    fToast = FToast();
     bool filteredTime = Provider.of<ListCalendarData>(context, listen: false).filterTimeToggle;
     // String dayOfWeek = DateFormat('EEE').format(DateTime.now()).toString();
     AuditorList auditorList = Provider.of<ListCalendarData>(context).auditorList;

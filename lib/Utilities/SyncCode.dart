@@ -127,7 +127,7 @@ void _showToast(BuildContext context, String message, Icon icon, Color color) {
     ),
   );
 
-  FToast(context).showToast(
+  FToast().showToast(
     child: toast,
     gravity: ToastGravity.BOTTOM,
     toastDuration: Duration(seconds: 2),

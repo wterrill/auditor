@@ -581,7 +581,7 @@ class Dialogs {
 
   static void showToast(BuildContext context, Widget toast) {
     // fToast = FToast(context);
-    FToast(context).showToast(
+    FToast().showToast(
       child: toast,
       gravity: ToastGravity.BOTTOM,
       toastDuration: Duration(seconds: 3),
