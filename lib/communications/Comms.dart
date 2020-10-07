@@ -17,8 +17,13 @@ NTLMClient client = NTLMClient(
   domain: "",
   workstation: "LAPTOP",
   username: "MXOTestAud1",
-  password: "Password1",
+  password: "Testing111!",
 );
+
+// MXOTestAud1/ Testing111!
+// MXOTestMGR1/ Testing111!
+// MXOTestMGR2/ Testing222!
+// MXOTestMGR3/ Testing333!
 
 class Authentication {
   static Future<bool> getAuthentication() async {
