@@ -5,7 +5,7 @@ import 'package:auditor/providers/GeneralData.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:ntlm/ntlm.dart';
-import 'dart:io';
+// import 'dart:io';
 // import 'package:image_picker_web/image_picker_web.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:typed_data';
@@ -50,7 +50,7 @@ class _TestAuthenticationState extends State<TestAuthentication> {
       // }
 
 //ios
-      File _image;
+      // File _image;
       final picker = ImagePicker();
       PickedFile fromPicker = await picker.getImage(source: ImageSource.gallery);
       pickedImage = await fromPicker.readAsBytes();

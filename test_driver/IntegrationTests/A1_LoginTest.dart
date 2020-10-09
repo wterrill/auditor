@@ -12,6 +12,7 @@ void A1_LoginTest() {
     final login = find.byValueKey('login');
     final keepMeLoggedIn = find.byValueKey('keepMeLoggedIn');
     final beer = find.byValueKey('beer');
+    print(beer);
 
     FlutterDriver driver;
 

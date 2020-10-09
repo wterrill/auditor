@@ -6,6 +6,8 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:hive/hive.dart';
 import 'dart:io' show Platform;
 
+import 'package:path_provider/path_provider.dart';
+
 class GeneralData with ChangeNotifier {
   String username;
   double safeAreaDiff = 0.0;
@@ -33,7 +35,7 @@ class GeneralData with ChangeNotifier {
   }
 
   void initializeApp() async {
-    initHive();
+    await initHive();
     backgroundDisable = false;
     numberOfDaysShown = 8;
 
@@ -68,7 +70,9 @@ class GeneralData with ChangeNotifier {
     notifyListeners();
   }
 
-  void initHive() {
+  void initHive() async {
+    var dir = await getApplicationDocumentsDirectory();
+    Hive.init(dir.path);
     Future generalFuture = Hive.openBox<String>('generalBox');
     Future.wait<dynamic>([generalFuture]).then((List<dynamic> value) {
       print("generalBox HIVE INTIALIZED");

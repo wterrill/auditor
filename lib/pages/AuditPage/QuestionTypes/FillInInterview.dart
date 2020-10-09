@@ -3,11 +3,11 @@ import 'package:auditor/Definitions/AuditClasses/Section.dart';
 // import 'package:auditor/Definitions/Dialogs.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
 // import 'package:auditor/pages/AuditPage/QuestionTypes/commonQuestionMethods.dart';
-import 'package:auditor/providers/AuditData.dart';
-import 'package:auditor/providers/GeneralData.dart';
+// import 'package:auditor/providers/AuditData.dart';
+// import 'package:auditor/providers/GeneralData.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+// import 'package:provider/provider.dart';
 
 // import 'CommentSection.dart';
 

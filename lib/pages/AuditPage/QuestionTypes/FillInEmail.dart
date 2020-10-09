@@ -3,11 +3,11 @@ import 'package:auditor/Definitions/AuditClasses/Section.dart';
 // import 'package:auditor/Definitions/Dialogs.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
 // import 'package:auditor/pages/AuditPage/QuestionTypes/commonQuestionMethods.dart';
-import 'package:auditor/providers/AuditData.dart';
-import 'package:auditor/providers/GeneralData.dart';
+// import 'package:auditor/providers/AuditData.dart';
+// import 'package:auditor/providers/GeneralData.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+// import 'package:provider/provider.dart';
 
 // import 'CommentSection.dart';
 
@@ -30,21 +30,21 @@ class _FillInEmailState extends State<FillInEmail> {
 
   @override
   Widget build(BuildContext context) {
-    bool emailValidated(String emailString) {
-      bool emailValidated = true;
-      List<String> emailList = emailString.split(";");
-      for (String email in emailList) {
-        email = email.replaceAll(" ", "");
-        if ((!email.contains(RegExp(r'^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$')) && email != "")) {
-          emailValidated = false;
-        }
-      }
-      print(emailList);
-      print("wtf?");
-      print(emailValidated);
-      // Provider.of<GeneralData>(context, listen: false).emailValidated = emailValidated;
-      return emailValidated;
-    }
+    // bool emailValidated(String emailString) {
+    //   bool emailValidated = true;
+    //   List<String> emailList = emailString.split(";");
+    //   for (String email in emailList) {
+    //     email = email.replaceAll(" ", "");
+    //     if ((!email.contains(RegExp(r'^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$')) && email != "")) {
+    //       emailValidated = false;
+    //     }
+    //   }
+    //   print(emailList);
+    //   print("wtf?");
+    //   print(emailValidated);
+    //   // Provider.of<GeneralData>(context, listen: false).emailValidated = emailValidated;
+    //   return emailValidated;
+    // }
 
     int index = widget.index;
     // Section activeSection = widget.activeSection;

@@ -3,7 +3,7 @@ import 'package:auditor/Definitions/AuditClasses/Question.dart';
 import 'package:auditor/Definitions/Dialogs.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
 import 'package:auditor/providers/AuditData.dart';
-import 'package:auditor/providers/GeneralData.dart';
+// import 'package:auditor/providers/GeneralData.dart';
 import 'package:auditor/providers/ListCalendarData.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signature_pad/flutter_signature_pad.dart';
@@ -43,16 +43,16 @@ class _VerificationBadPageState extends State<VerificationBadPage> {
   DateTime selectedDate;
   @override
   Widget build(BuildContext context) {
-    TextStyle getScoreColor(double auditScore) {
-      TextStyle scoreStyle = ColorDefs.textRedScore;
-      if (auditScore >= 40) {
-        scoreStyle = ColorDefs.textOrangeScore;
-      }
-      if (auditScore > 70) {
-        scoreStyle = ColorDefs.textGreenScore;
-      }
-      return scoreStyle;
-    }
+    // TextStyle getScoreColor(double auditScore) {
+    //   TextStyle scoreStyle = ColorDefs.textRedScore;
+    //   if (auditScore >= 40) {
+    //     scoreStyle = ColorDefs.textOrangeScore;
+    //   }
+    //   if (auditScore > 70) {
+    //     scoreStyle = ColorDefs.textGreenScore;
+    //   }
+    //   return scoreStyle;
+    // }
 
     followupReqVal = -1;
     if (widget.activeAudit.siteVisitRequired != null) {
@@ -440,7 +440,7 @@ In order to be fully certified and in good standing with the Greater Chicago Foo
                     color: color,
                     key: _sign,
                     onSign: () {
-                      final sign = _sign.currentState;
+                      // final sign = _sign.currentState;
                       // debugPrint('${sign.points.length} points in the signature');
                     },
                     backgroundPainter: _WatermarkPaint("2.0", "2.0"),
@@ -605,7 +605,7 @@ In order to be fully certified and in good standing with the Greater Chicago Foo
                     color: color,
                     key: _sign2,
                     onSign: () {
-                      final sign = _sign2.currentState;
+                      // final sign = _sign2.currentState;
                       // debugPrint('${sign.points.length} points in the signature');
                     },
                     backgroundPainter: _WatermarkPaint("2.0", "2.0"),

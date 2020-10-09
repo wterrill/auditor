@@ -6,7 +6,7 @@ import 'package:auditor/providers/GeneralData.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:clay_containers/clay_containers.dart';
+// import 'package:clay_containers/clay_containers.dart';
 
 class SectionButton extends StatefulWidget {
   final Section section;

@@ -1,5 +1,5 @@
 import 'package:auditor/Definitions/CalendarClasses/CalendarResult.dart';
-import 'package:auditor/Utilities/SyncCode.dart';
+// import 'package:auditor/Utilities/SyncCode.dart';
 import 'package:auditor/pages/ListSchedulingPage/ApptDataTable/ColorAdapter.dart';
 import 'package:auditor/providers/AuditData.dart';
 import 'package:auditor/providers/SiteData.dart';
@@ -25,11 +25,11 @@ import 'Definitions/colorDefs.dart';
 import 'pages/developer/hiveTest/Contact.dart';
 import 'package:auditor/pages/developer/hiveTest/Contact.dart';
 import 'package:flutter/services.dart';
-import 'package:connectivity/connectivity.dart';
+// import 'package:connectivity/connectivity.dart';
 // import 'package:background_fetch/background_fetch.dart';
 import 'package:sentry/sentry.dart';
 // import 'package:flutter_sentry/flutter_sentry.dart';
-import 'dart:async';
+// import 'dart:async';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 final SentryClient sentry =

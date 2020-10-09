@@ -21,7 +21,6 @@ class ReviewDateQuestion extends StatefulWidget {
 }
 
 class _ReviewDateQuestionState extends State<ReviewDateQuestion> {
-  @override
   DateTime selectedDate;
   Widget build(BuildContext context) {
     int index = widget.index;

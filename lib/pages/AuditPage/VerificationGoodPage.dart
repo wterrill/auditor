@@ -1,7 +1,7 @@
 import 'package:auditor/Definitions/AuditClasses/Audit.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
 import 'package:auditor/providers/AuditData.dart';
-import 'package:auditor/providers/GeneralData.dart';
+// import 'package:auditor/providers/GeneralData.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signature_pad/flutter_signature_pad.dart';
 import 'dart:ui' as ui;
@@ -102,7 +102,7 @@ If violations of the agreement above occur or non-compliance of Membership Eligi
                     color: color,
                     key: _sign,
                     onSign: () {
-                      final sign = _sign.currentState;
+                      // final sign = _sign.currentState;
                       // debugPrint('${sign.points.length} points in the signature');
                     },
                     backgroundPainter: _WatermarkPaint("2.0", "2.0"),

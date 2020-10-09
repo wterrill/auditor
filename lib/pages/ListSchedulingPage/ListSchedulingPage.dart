@@ -1,12 +1,12 @@
 import 'dart:ui';
 import 'package:auditor/Definitions/AuditorClasses/AuditorList.dart';
 import 'package:auditor/Definitions/Dialogs.dart';
-import 'package:auditor/Definitions/SiteClasses/SiteList.dart';
+// import 'package:auditor/Definitions/SiteClasses/SiteList.dart';
 import 'package:auditor/Utilities/SyncCode.dart';
 import 'package:auditor/pages/ListSchedulingPage/ApptDataTable/ApptDataTable.dart';
-import 'package:auditor/providers/AuditData.dart';
+// import 'package:auditor/providers/AuditData.dart';
 import 'package:auditor/providers/GeneralData.dart';
-import 'package:auditor/providers/SiteData.dart';
+// import 'package:auditor/providers/SiteData.dart';
 import 'package:flutter/material.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

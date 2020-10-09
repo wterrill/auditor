@@ -258,7 +258,7 @@ class ListCalendarData with ChangeNotifier {
       CalendarResult preResult = calendarBox.get(toBeSentKeys[i]) as CalendarResult;
       CalendarResult anotherEvent = preResult.clone();
 
-      DateTime temp = DateTime.parse(anotherEvent.startTime);
+      // DateTime temp = DateTime.parse(anotherEvent.startTime);
       addCalendarOrderedItem(anotherEvent, "Add");
     }
     // sendScheduledToCloud(deviceid); /  / / / / / / / / / / / / / / / / / / / / / / /  <<<<<<<
@@ -344,7 +344,6 @@ class ListCalendarData with ChangeNotifier {
 
     if (dynResult != null) {
       for (CalendarResult result in downloadedCalendarResults) {
-        // TODO handle if result == null
         if (result.status != -1 && result.status != "Deleted") {
           addCalendarItem(result);
         } else {

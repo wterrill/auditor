@@ -1,4 +1,4 @@
-import 'package:auditor/Definitions/Dialogs.dart';
+// import 'package:auditor/Definitions/Dialogs.dart';
 import 'package:auditor/Definitions/SiteClasses/SiteList.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
 import 'package:auditor/Utilities/handleSentryError.dart';
@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 
 import 'package:connectivity/connectivity.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:sentry/sentry.dart';
+// import 'package:sentry/sentry.dart';
 
 void totalDataSync(BuildContext context) async {
   try {
@@ -103,6 +103,7 @@ void totalDataSync(BuildContext context) async {
   } catch (err, stackTrace) {
     print("failed");
     print(err);
+    print(stackTrace);
     _showToast(context, "Sync Unsuccessful: $err", Icon(Icons.close), ColorDefs.colorChatRequired);
 
     handleSentryError(

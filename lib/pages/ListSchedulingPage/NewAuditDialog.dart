@@ -17,7 +17,7 @@ class NewAuditDialog extends StatefulWidget {
   final CalendarResult calendarResult;
   final bool followup;
   final Site loadSite;
-  bool alreadyExists;
+  final bool alreadyExists;
   NewAuditDialog({Key key, this.calendarResult, @required this.followup, this.loadSite, this.alreadyExists})
       : super(key: key);
 

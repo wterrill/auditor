@@ -12,10 +12,10 @@ import 'dart:convert';
 import 'package:http/http.dart' show Response, get;
 import 'package:provider/provider.dart';
 import 'dart:typed_data';
-import 'dart:io';
+// import 'dart:io';
 
 import 'AuditData.dart';
-import 'GeneralData.dart';
+// import 'GeneralData.dart';
 
 Future<dynamic> buildAuditFromIncoming(dynamic fromServer, SiteList siteList) async {
   List<Audit> newAudits = [];

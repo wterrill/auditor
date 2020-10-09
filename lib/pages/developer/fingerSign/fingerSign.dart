@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: color,
                   key: _sign,
                   onSign: () {
-                    final sign = _sign.currentState;
+                    // final sign = _sign.currentState;
                     // debugPrint('${sign.points.length} points in the signature');
                   },
                   backgroundPainter: _WatermarkPaint("2.0", "2.0"),

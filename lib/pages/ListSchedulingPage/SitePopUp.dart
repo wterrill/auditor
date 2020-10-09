@@ -18,7 +18,6 @@ class SitePopUp extends StatefulWidget {
 }
 
 class _SitePopUpState extends State<SitePopUp> {
-  @override
   Site selectedSite;
   @override
   Widget build(BuildContext context) {
@@ -100,17 +99,17 @@ class _SitePopUpState extends State<SitePopUp> {
                               children: [
                                 if (selectedSite.city != null)
                                   Text(
-                                    selectedSite?.city + ", ",
+                                    selectedSite?.city ?? "" + ", ",
                                     style: ColorDefs.textBodyBlack20,
                                   ),
                                 if (selectedSite.state != null)
                                   Text(
-                                    selectedSite?.state + " ",
+                                    selectedSite?.state ?? "" + " ",
                                     style: ColorDefs.textBodyBlack20,
                                   ),
                                 if (selectedSite.zip != null)
                                   Text(
-                                    selectedSite?.zip + ", ",
+                                    selectedSite?.zip ?? "" + ", ",
                                     style: ColorDefs.textBodyBlack20,
                                   ),
                               ],

@@ -2,7 +2,7 @@ import 'package:auditor/Definitions/AuditClasses/Audit.dart';
 import 'package:auditor/Definitions/AuditClasses/Section.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
 import 'package:auditor/providers/AuditData.dart';
-import 'package:auditor/providers/GeneralData.dart';
+// import 'package:auditor/providers/GeneralData.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -211,14 +211,14 @@ class _FillInEmailInterviewState extends State<FillInEmailInterview> {
                         if (section.name == "Review") break;
                       }
                     }
-                    for (Section section in activeAudit.sections) {
-                      // if (section.name == "*Developer*") {
-                      //   section.status = Status.available;
-                      //   section.lastStatus = Status.available;
-                      //   widget.activeSection.status = Status.completed;
-                      //   widget.activeSection.lastStatus = Status.completed;
-                      // }
-                    }
+                    // for (Section section in activeAudit.sections) {
+                    //   // if (section.name == "*Developer*") {
+                    //   //   section.status = Status.available;
+                    //   //   section.lastStatus = Status.available;
+                    //   //   widget.activeSection.status = Status.completed;
+                    //   //   widget.activeSection.lastStatus = Status.completed;
+                    //   // }
+                    // }
                     setState(() {});
                     if (activeAudit.calendarResult.auditType == "Follow Up") {
                       Provider.of<AuditData>(context, listen: false).makeCitations();

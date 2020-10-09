@@ -1,11 +1,11 @@
 import 'package:auditor/Definitions/AuditClasses/Audit.dart';
-import 'package:auditor/Definitions/Dialogs.dart';
+// import 'package:auditor/Definitions/Dialogs.dart';
 import 'package:auditor/Definitions/SiteClasses/Site.dart';
-import 'package:auditor/Definitions/SiteClasses/SiteList.dart';
+// import 'package:auditor/Definitions/SiteClasses/SiteList.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
-import 'package:auditor/providers/SiteData.dart';
+// import 'package:auditor/providers/SiteData.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+// import 'package:provider/provider.dart';
 
 class ScoringPopUp extends StatefulWidget {
   const ScoringPopUp({
@@ -19,7 +19,6 @@ class ScoringPopUp extends StatefulWidget {
 }
 
 class _ScoringPopUpState extends State<ScoringPopUp> {
-  @override
   Site selectedSite;
   @override
   Widget build(BuildContext context) {

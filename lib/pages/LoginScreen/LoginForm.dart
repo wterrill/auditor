@@ -1,4 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
+// import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
 import 'package:auditor/communications/Comms.dart';
