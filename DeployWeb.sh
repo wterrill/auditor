@@ -21,7 +21,8 @@ echo "Continuing flutter build"
 echo "building web version"
 flutter build web -t lib/websiteMain.dart --release
 echo "moving built web version to websiteTesting"
-cp -fr ./build/web/* ./websiteTesting/ 
+cp -fr ./build/web/* ./websiteTesting/
+cp -fr ./assets/* ./websiteTesting/ 
 cd websiteTesting
 echo "pushing new version to github"
 git add .

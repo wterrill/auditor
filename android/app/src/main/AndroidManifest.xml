@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.auditor">
+    package="com.terrilltech.auditor">
    <application
         android:label="auditor"
         android:icon="@mipmap/launcher_icon">
