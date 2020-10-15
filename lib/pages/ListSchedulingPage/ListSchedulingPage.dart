@@ -34,6 +34,8 @@ class _ListSchedulingPageState extends State<ListSchedulingPage> with WidgetsBin
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    var fToast = FToast();
+    fToast.init(context);
 
     // syncIfYouCan();
     // WidgetsBinding.instance
@@ -48,23 +50,17 @@ class _ListSchedulingPageState extends State<ListSchedulingPage> with WidgetsBin
     super.dispose();
   }
 
-  void syncIfYouCan() async {
-    if (!kIsWeb) {
-      var connectivityResult = await (Connectivity().checkConnectivity());
-      if (connectivityResult == ConnectivityResult.mobile || connectivityResult == ConnectivityResult.wifi) {
-        // I am connected to a mobile network. or a wifi network
-        print("######### CONNECTED site sync #########");
-        await totalDataSync(context);
-      }
+  // void syncIfYouCan() async {
+  //   if (!kIsWeb) {
+  //     var connectivityResult = await (Connectivity().checkConnectivity());
+  //     if (connectivityResult == ConnectivityResult.mobile || connectivityResult == ConnectivityResult.wifi) {
+  //       // I am connected to a mobile network. or a wifi network
+  //       print("######### CONNECTED site sync #########");
+  //       await totalDataSync(context);
+  //     }
 
-      await totalDataSync(context);
-    }
-  }
-
-  // void dispose() {
-  //   // Clean up the controller when the widget is disposed.
-  //   filterTextController.dispose();
-  //   super.dispose();
+  //     await totalDataSync(context);
+  //   }
   // }
 
   @override
@@ -77,7 +73,7 @@ class _ListSchedulingPageState extends State<ListSchedulingPage> with WidgetsBin
         if (connectivityResult == ConnectivityResult.mobile || connectivityResult == ConnectivityResult.wifi) {
           // I am connected to a mobile network. or a wifi network
           print("######### CONNECTED total data sync #########");
-          await totalDataSync(context);
+          // await totalDataSync(context);  // BACKGROUND CHECK.  this fails for adding pictures
         }
       }
 
@@ -92,7 +88,6 @@ class _ListSchedulingPageState extends State<ListSchedulingPage> with WidgetsBin
 
   @override
   Widget build(BuildContext context) {
-    fToast = FToast();
     bool filteredTime = Provider.of<ListCalendarData>(context, listen: false).filterTimeToggle;
     // String dayOfWeek = DateFormat('EEE').format(DateTime.now()).toString();
     AuditorList auditorList = Provider.of<ListCalendarData>(context).auditorList;

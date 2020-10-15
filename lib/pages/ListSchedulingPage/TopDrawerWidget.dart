@@ -283,7 +283,7 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
                           Icon(Icons.sync, color: ColorDefs.colorAudit2),
-                          Center(child: Text("Full Upload", style: ColorDefs.textBodyBlue20)),
+                          Center(child: Text("Prep Full Upload", style: ColorDefs.textBodyBlue20)),
                           Container(
                             height: 20,
                             width: 20,
@@ -513,8 +513,11 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                       child: Center(child: Text("", style: ColorDefs.textBodyBlue20))),
                   GestureDetector(
                     onTap: () async {
-                      deleteAuditDB();
-                      deleteListCalendarDB();
+                      Function callBack = () {
+                        deleteAuditDB();
+                        deleteListCalendarDB();
+                      };
+                      await Dialogs.toggleDeleteDB(context, callBack);
 
                       String newPortNumber = "";
                       if (portNumber == "88") {

@@ -261,7 +261,8 @@ class ListCalendarData with ChangeNotifier {
       // DateTime temp = DateTime.parse(anotherEvent.startTime);
       addCalendarOrderedItem(anotherEvent, "Add");
     }
-    // sendScheduledToCloud(deviceid); /  / / / / / / / / / / / / / / / / / / / / / / /  <<<<<<<
+    // sendScheduledToCloud(deviceid); ///  / / / / / / / / / / / / / / / / / / / / / / /  <<<<<<<
+    print("done");
   }
 
   void getScheduledFromCloud({BuildContext context, SiteList siteList, bool fullSync}) async {

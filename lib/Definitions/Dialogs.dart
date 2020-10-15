@@ -128,6 +128,79 @@ class Dialogs {
     );
   }
 
+  static void notATestCheck(BuildContext context, Function continueCallBack) async {
+    AlertDialog alert = AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50.0))),
+      elevation: 6.0,
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+              'You are logged in with a test account and attempting to sync with the production server. Are you sure you want to do this?'),
+        ],
+      ),
+      actions: <Widget>[
+        new FlatButton(
+          child: new Text("Yes"),
+          onPressed: () {
+            Navigator.of(context).pop(true);
+          },
+        ),
+        new FlatButton(
+          child: Text("No"),
+          onPressed: () {
+            continueCallBack();
+            Navigator.of(context).pop(false);
+          },
+        ),
+      ],
+    );
+    await showDialog<void>(
+      barrierDismissible: true,
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  static void toggleDeleteDB(BuildContext context, Function continueCallBack) async {
+    AlertDialog alert = AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50.0))),
+      elevation: 6.0,
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text('Would you like to delete the local database before toggling?'),
+        ],
+      ),
+      actions: <Widget>[
+        new FlatButton(
+          child: new Text("Yes"),
+          onPressed: () {
+            continueCallBack();
+            Navigator.of(context).pop(true);
+          },
+        ),
+        new FlatButton(
+          child: Text("No"),
+          onPressed: () {
+            Navigator.of(context).pop(false);
+          },
+        ),
+      ],
+    );
+    await showDialog<void>(
+      barrierDismissible: true,
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
   static void timeInPast(BuildContext context, Function continueCallBack) async {
     AlertDialog alert = AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50.0))),
@@ -580,8 +653,9 @@ class Dialogs {
   }
 
   static void showToast(BuildContext context, Widget toast) {
-    // fToast = FToast(context);
-    FToast().showToast(
+    var fToast = FToast();
+    fToast.init(context);
+    fToast.showToast(
       child: toast,
       gravity: ToastGravity.BOTTOM,
       toastDuration: Duration(seconds: 3),

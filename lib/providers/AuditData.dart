@@ -712,7 +712,8 @@ class AuditData with ChangeNotifier {
           '${temp.toString()}-${anotherEvent.calendarResult.agencyNumber}-${anotherEvent.calendarResult.programNum}-${anotherEvent.calendarResult.auditor}-${anotherEvent.calendarResult.auditType}',
           anotherEvent);
     }
-    sendAuditsToCloud(deviceid);
+    // sendAuditsToCloud(deviceid);
+    print("test");
   }
 
   void sendAuditsToCloud(String deviceid) async {

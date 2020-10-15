@@ -81,7 +81,7 @@ Map<String, dynamic> buildAuditToSend(Audit outgoingAudit, String deviceidProvid
             print("moving on");
           }
         }
-        print("go again");
+        // print("go again");
       }
     }
   }
