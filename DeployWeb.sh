@@ -4,7 +4,7 @@ echo "Building flutterVersion.dart"
 echo "const Map<String,String> version = " >> lib/buildTime/flutterVersion.dart
 flutter --version --machine >> lib/buildTime/flutterVersion.dart
 echo ";" >> lib/buildTime/flutterVersion.dart
-echo 'const String appVersion = "1.1.1 build 2";' >> lib/buildTime/flutterVersion.dart
+echo 'const String appVersion = "1.1.2 build 1";' >> lib/buildTime/flutterVersion.dart
 
 rm lib/buildTime/flutterDate.dart
 echo "Building flutterdate.dart"
