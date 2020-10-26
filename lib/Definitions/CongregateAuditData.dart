@@ -1178,9 +1178,9 @@ List<Map<String, dynamic>> audit2Section5Questions = [
 
   <String, dynamic>{
     'text': 'USDA Tag Unit #1',
-    'type': 'fillInNum',
+    'type': 'fillIn',
     'databaseVar': 'USDATagNumberOne',
-    'databaseVarType': 'int',
+    'databaseVarType': 'string',
   },
   <String, dynamic>{
     'text': 'Serial Unit #1',
@@ -1196,9 +1196,9 @@ List<Map<String, dynamic>> audit2Section5Questions = [
   },
   <String, dynamic>{
     'text': 'USDA Tag Unit #2',
-    'type': 'fillInNum',
+    'type': 'fillIn',
     'databaseVar': 'USDATagNumberTwo',
-    'databaseVarType': 'int',
+    'databaseVarType': 'string',
   },
   <String, dynamic>{
     'text': 'Serial Unit #2',
@@ -1214,9 +1214,9 @@ List<Map<String, dynamic>> audit2Section5Questions = [
   },
   <String, dynamic>{
     'text': 'USDA Tag Unit #3',
-    'type': 'fillInNum',
+    'type': 'fillIn',
     'databaseVar': 'USDATagNumberThree',
-    'databaseVarType': 'int',
+    'databaseVarType': 'string',
   },
   <String, dynamic>{
     'text': 'Serial Unit #3',
@@ -1232,9 +1232,9 @@ List<Map<String, dynamic>> audit2Section5Questions = [
   },
   <String, dynamic>{
     'text': 'USDA Tag Unit #4',
-    'type': 'fillInNum',
+    'type': 'fillIn',
     'databaseVar': 'USDATagNumberFour',
-    'databaseVarType': 'int',
+    'databaseVarType': 'string',
   },
   <String, dynamic>{
     'text': 'Serial Unit #4',
@@ -1248,24 +1248,24 @@ List<Map<String, dynamic>> audit2Section5Questions = [
     'databaseVar': 'TypeFour',
     'databaseVarType': 'string',
   },
-  <String, dynamic>{
-    'text': 'USDA Tag #5',
-    'type': 'fillInNum',
-    'databaseVar': 'USDATagNumberFive',
-    'databaseVarType': 'int',
-  },
-  <String, dynamic>{
-    'text': 'Serial #5',
-    'type': 'fillInNum',
-    'databaseVar': 'SerialNumberFive',
-    'databaseVarType': 'int',
-  },
-  <String, dynamic>{
-    'text': 'Unit #5 Type',
-    'type': 'fillIn',
-    'databaseVar': 'TypeFive',
-    'databaseVarType': 'string',
-  },
+  // <String, dynamic>{
+  //   'text': 'USDA Tag #5',
+  //   'type': 'fillIn',
+  //   'databaseVar': 'USDATagNumberFive',
+  //   'databaseVarType': 'string',
+  // },
+  // <String, dynamic>{
+  //   'text': 'Serial #5',
+  //   'type': 'fillInNum',
+  //   'databaseVar': 'SerialNumberFive',
+  //   'databaseVarType': 'int',
+  // },
+  // <String, dynamic>{
+  //   'text': 'Unit #5 Type',
+  //   'type': 'fillIn',
+  //   'databaseVar': 'TypeFive',
+  //   'databaseVarType': 'string',
+  // },
   <String, dynamic>{
     'text': '*Units should not be shared with other programs ',
     'type': 'Display',

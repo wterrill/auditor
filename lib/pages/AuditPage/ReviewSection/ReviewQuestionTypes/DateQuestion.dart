@@ -57,8 +57,12 @@ class _ReviewDateQuestionState extends State<ReviewDateQuestion> {
                   widget.activeSection.questions[index].userResponse = selectedDate.toString();
                   Provider.of<AuditData>(context, listen: false)
                       .updateSectionStatus(checkSectionDone(widget.activeSection));
-                  Provider.of<AuditData>(context, listen: false)
-                      .tallySingleQuestion(index: index, section: widget.activeSection, audit: widget.activeAudit);
+
+                  if (widget.activeAudit.calendarResult.programType == "Pantry" ||
+                      widget.activeAudit.calendarResult.programType == "Congregate") {
+                    Provider.of<AuditData>(context, listen: false)
+                        .tallySingleQuestion(index: index, section: widget.activeSection, audit: widget.activeAudit);
+                  }
                   Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
                   Provider.of<AuditData>(context, listen: false).saveAuditLocally(thisAudit);
                   setState(() {});

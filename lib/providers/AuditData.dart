@@ -541,7 +541,7 @@ class AuditData with ChangeNotifier {
         }
         section.questions[index].scoreAdded = false;
       }
-    }
+    } // TODO 6307899103
 
     if (audit.maxPoints != 0) audit.auditScore = 100 * audit.currentPoints / audit.maxPoints;
     print('currentPoints: ${audit.currentPoints}');
@@ -761,7 +761,7 @@ class AuditData with ChangeNotifier {
       } catch (err) {
         errorMessage = idNumOrErr;
         handleSentryError(
-            errorMessage: errorMessage,
+            errorMessage: "Audit Upload attempt: " + errorMessage,
             auditor: Provider.of<GeneralData>(navigatorKey.currentContext, listen: false).username);
       }
 
@@ -802,7 +802,6 @@ class AuditData with ChangeNotifier {
     result.idNum = idNum;
     result.uploaded = true;
     print(auditBox.keys.toList());
-    print("beer");
   }
 
   bool checkAllActiveSent() {

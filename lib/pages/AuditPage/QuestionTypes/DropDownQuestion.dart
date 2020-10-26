@@ -52,8 +52,11 @@ class _DropDownQuestionState extends State<DropDownQuestion> {
                       widget.activeSection.questions[index].userResponse = result;
                       Provider.of<AuditData>(context, listen: false)
                           .updateSectionStatus(checkSectionDone(widget.activeSection));
-                      Provider.of<AuditData>(context, listen: false)
-                          .tallySingleQuestion(index: index, section: activeSection, audit: widget.activeAudit);
+                      if (widget.activeAudit.calendarResult.programType == "Pantry" ||
+                          widget.activeAudit.calendarResult.programType == "Congregate") {
+                        Provider.of<AuditData>(context, listen: false)
+                            .tallySingleQuestion(index: index, section: activeSection, audit: widget.activeAudit);
+                      }
                       Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
                       Provider.of<AuditData>(context, listen: false).saveAuditLocally(thisAudit);
                       setState(() {});
@@ -98,8 +101,11 @@ class _DropDownQuestionState extends State<DropDownQuestion> {
                       }
                       Provider.of<AuditData>(context, listen: false)
                           .updateSectionStatus(checkSectionDone(widget.activeSection));
-                      Provider.of<AuditData>(context, listen: false)
-                          .tallySingleQuestion(index: index, section: widget.activeSection, audit: widget.activeAudit);
+                      if (widget.activeAudit.calendarResult.programType == "Pantry" ||
+                          widget.activeAudit.calendarResult.programType == "Congregate") {
+                        Provider.of<AuditData>(context, listen: false)
+                            .tallySingleQuestion(index: index, section: activeSection, audit: widget.activeAudit);
+                      }
                       Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
                       Provider.of<AuditData>(context, listen: false).saveAuditLocally(thisAudit);
                     });

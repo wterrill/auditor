@@ -4,7 +4,7 @@ echo "Building flutterVersion.dart"
 echo "const Map<String,String> version = " >> lib/buildTime/flutterVersion.dart
 flutter --version --machine >> lib/buildTime/flutterVersion.dart
 echo ";" >> lib/buildTime/flutterVersion.dart
-echo 'const String appVersion = "1.1.2 build 1";' >> lib/buildTime/flutterVersion.dart
+echo 'const String appVersion = "1.1.2 build 3";' >> lib/buildTime/flutterVersion.dart
 
 rm lib/buildTime/flutterDate.dart
 echo "Building flutterdate.dart"
@@ -19,7 +19,8 @@ echo "Continuing flutter build"
 #############
 
 echo "building web version"
-flutter build web -t lib/websiteMain.dart --release
+# flutter build web -t lib/websiteMain.dart --release
+flutter build web --profile --dart-define=Dart2jsOptimization=O0
 echo "moving built web version to websiteTesting"
 cp -fr ./build/web/* ./websiteTesting/
 cp -fr ./assets/* ./websiteTesting/ 
