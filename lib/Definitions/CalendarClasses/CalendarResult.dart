@@ -58,7 +58,10 @@ class CalendarResult extends HiveObject {
       this.programTypeColor,
       @required this.siteInfo,
       @required this.deviceid,
-      this.citationsToFollowUp}) {
+      this.citationsToFollowUp,
+      this.endDateTime,
+      this.idNum,
+      this.uploaded}) {
     startDateTime = DateTime.parse(startTime);
     var lookup = programTypeTextAndColorLookup(programType);
     programTypeColor = lookup["color"] as Color;
@@ -90,7 +93,10 @@ class CalendarResult extends HiveObject {
         message: message,
         siteInfo: siteInfo,
         deviceid: deviceid,
-        citationsToFollowUp: citationsToFollowUp);
+        citationsToFollowUp: citationsToFollowUp,
+        endDateTime: endDateTime,
+        idNum: idNum,
+        uploaded: uploaded);
   }
 
   String toString() {

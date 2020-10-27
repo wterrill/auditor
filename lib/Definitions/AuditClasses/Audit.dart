@@ -111,7 +111,10 @@ class Audit extends HiveObject {
     clonedAudit.sections = List.from(sections);
     clonedAudit.completed = completed;
     // clonedAudit.metadata = List.from(metadata);
+
+    clonedAudit.questionnaire = questionnaire;
     clonedAudit.citations = List.from(citations);
+    clonedAudit.calendarResult = calendarResult;
     clonedAudit.putProgramOnImmediateHold = putProgramOnImmediateHold;
     clonedAudit.photoSig = Map.from(photoSig);
     clonedAudit.photoList = List.from(photoList);
@@ -119,7 +122,15 @@ class Audit extends HiveObject {
     clonedAudit.correctiveActionPlanDueDate = correctiveActionPlanDueDate;
     clonedAudit.detailsConfirmed = detailsConfirmed;
     clonedAudit.activateConfirmDetails = activateConfirmDetails;
+    clonedAudit.actionItemList = actionItemList;
     clonedAudit.previousCitations = List.from(previousCitations);
+    clonedAudit.maxPoints = maxPoints;
+    clonedAudit.currentPoints = currentPoints;
+    clonedAudit.auditScore = auditScore;
+    clonedAudit.programHoldPointsAdded = programHoldPointsAdded;
+    clonedAudit.visitRequiredPointsAdded = visitRequiredPointsAdded;
+    clonedAudit.idNum = idNum;
+    clonedAudit.uploaded = uploaded;
     return clonedAudit;
   }
 

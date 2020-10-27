@@ -173,8 +173,7 @@ class ListCalendarData with ChangeNotifier {
     CalendarResult result = calendarBox.get(truncated) as CalendarResult;
     result.idNum = idNum;
     result.uploaded = true;
-    print(calendarBox.keys.toList());
-    print("beer");
+    calendarBox.put(truncated, result);
   }
 
   bool checkAllActiveSent() {

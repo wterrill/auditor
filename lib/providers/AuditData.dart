@@ -801,6 +801,7 @@ class AuditData with ChangeNotifier {
     Audit result = auditBox.get(truncated) as Audit;
     result.idNum = idNum;
     result.uploaded = true;
+    auditBox.put(truncated, result);
     print(auditBox.keys.toList());
   }
 
