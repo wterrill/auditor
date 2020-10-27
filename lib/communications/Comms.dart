@@ -20,7 +20,8 @@ NTLMClient client = NTLMClient(
   password: "Testing111!",
 );
 
-// MXOTestAud1/ Testing111!
+// MXOTestAud1/ Testing111! <-- Development Server
+// MXOTestAud2/ Testing222! <-- Production Server
 // MXOTestMGR1/ Testing111!
 // MXOTestMGR2/ Testing222!
 // MXOTestMGR3/ Testing333!

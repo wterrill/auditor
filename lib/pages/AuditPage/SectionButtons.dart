@@ -110,7 +110,8 @@ class _SectionButtonsState extends State<SectionButtons> {
                           ),
                         ),
                         if (widget.activeAudit.calendarResult.programType != "Older Adults Program" &&
-                            widget.activeAudit.calendarResult.programType != "Healthy Student Market")
+                            widget.activeAudit.calendarResult.programType != "Healthy Student Market" &&
+                            widget.activeAudit.calendarResult.auditType != "Follow Up")
                           Container(
                             // height: double.infinity,
                             child: Column(

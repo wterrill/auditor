@@ -174,6 +174,7 @@ class ListCalendarData with ChangeNotifier {
     result.idNum = idNum;
     result.uploaded = true;
     calendarBox.put(truncated, result);
+    print(calendarBox.keys.toList());
   }
 
   bool checkAllActiveSent() {

@@ -249,7 +249,7 @@ class _LoginFormState extends State<LoginForm> {
         } else {
           throw ("No internet connection found");
         }
-        if (_username.toLowerCase().contains("mxotest")) {
+        if (_username.toLowerCase().contains("mxotestaud1")) {
           // This opens the app in TEST mode for an mxotestaud1 account"
           Provider.of<GeneralData>(context, listen: false).portNumber = "90";
         }
