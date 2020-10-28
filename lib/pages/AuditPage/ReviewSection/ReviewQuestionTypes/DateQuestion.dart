@@ -64,7 +64,7 @@ class _ReviewDateQuestionState extends State<ReviewDateQuestion> {
                         .tallySingleQuestion(index: index, section: widget.activeSection, audit: widget.activeAudit);
                   }
                   Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
-                  Provider.of<AuditData>(context, listen: false).saveAuditLocally(thisAudit);
+                  Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
                   setState(() {});
                 },
                 child: Icon(Icons.calendar_today,

@@ -461,7 +461,8 @@ class _RescheduleFollowUpAuditDialogState extends State<RescheduleFollowUpAuditD
                                 copy_retrieved.calendarResult.startDateTime =
                                     DateTime.parse(newEvent['startTime'] as String);
 
-                                Provider.of<AuditData>(context, listen: false).saveAuditLocally(copy_retrieved);
+                                Provider.of<AuditData>(context, listen: false)
+                                    .saveAuditLocally(incomingAudit: copy_retrieved);
                                 if (widget.calendarResult.auditType == "Follow Up")
                                   Provider.of<ListCalendarData>(context, listen: false)
                                       .deleteCalendarItem(alreadyExistedCalendarResult);

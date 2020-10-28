@@ -152,7 +152,6 @@ class _SectionButtonState extends State<SectionButton> {
                         widget.activeAudit.calendarResult.auditType != "Follow Up")
                     ? Text(getVericationPoints() + "/" + "30")
                     : Text(""),
-
               Container(
                 width: 122,
                 height: 60,

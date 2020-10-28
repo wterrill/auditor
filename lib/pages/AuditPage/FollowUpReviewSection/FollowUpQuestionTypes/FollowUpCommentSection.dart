@@ -84,7 +84,7 @@ class _FollowUpCommentSectionState extends State<FollowUpCommentSection> {
             }
 
             Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
-            Provider.of<AuditData>(context, listen: false).saveAuditLocally(thisAudit);
+            Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
           }
         },
         maxLines: null,

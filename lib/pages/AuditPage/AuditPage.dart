@@ -194,7 +194,8 @@ class _AuditPageState extends State<AuditPage> {
                               }
 
                               activeAudit.calendarResult.status = status;
-                              Provider.of<AuditData>(context, listen: false).saveAuditLocally(activeAudit);
+                              Provider.of<AuditData>(context, listen: false)
+                                  .saveAuditLocally(incomingAudit: activeAudit);
                               // the calendar item needs to be updated due to the status change.
                               Provider.of<ListCalendarData>(context, listen: false)
                                   .addCalendarItem(activeAudit.calendarResult);
@@ -241,7 +242,8 @@ class _AuditPageState extends State<AuditPage> {
                             ),
                             onPressed: () {
                               Provider.of<AuditData>(context, listen: false).toggleStartAudit();
-                              Provider.of<AuditData>(context, listen: false).saveAuditLocally(activeAudit);
+                              Provider.of<AuditData>(context, listen: false)
+                                  .saveAuditLocally(incomingAudit: activeAudit);
                               Provider.of<AuditData>(context, listen: false).resetAudit();
 
                               Navigator.of(context).pop();

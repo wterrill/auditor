@@ -57,7 +57,7 @@ class _YesNoNaQuestionState extends State<YesNoNaQuestion> {
                           .tallySingleQuestion(index: index, section: activeSection, audit: widget.activeAudit);
                     }
                     Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
-                    Provider.of<AuditData>(context, listen: false).saveAuditLocally(thisAudit);
+                    Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
                     setState(() {});
                   }
                 },
@@ -90,7 +90,7 @@ class _YesNoNaQuestionState extends State<YesNoNaQuestion> {
                           .tallySingleQuestion(index: index, section: activeSection, audit: widget.activeAudit);
                     }
                     Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
-                    Provider.of<AuditData>(context, listen: false).saveAuditLocally(thisAudit);
+                    Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
                     setState(() {});
                   }
                 },
@@ -125,7 +125,7 @@ class _YesNoNaQuestionState extends State<YesNoNaQuestion> {
                           .tallySingleQuestion(index: index, section: activeSection, audit: widget.activeAudit);
                     }
                     Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
-                    Provider.of<AuditData>(context, listen: false).saveAuditLocally(thisAudit);
+                    Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
                     setState(() {});
                   }
                 },

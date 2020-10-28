@@ -1,9 +1,11 @@
 // import 'package:auditor/Definitions/AuditClasses/Audit.dart';
 import 'package:auditor/Definitions/AuditClasses/Question.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
+import 'package:auditor/providers/AuditData.dart';
 // import 'package:auditor/providers/AuditData.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 // import 'package:provider/provider.dart';
 
 import 'FollowUpCommentSection.dart';
@@ -37,20 +39,16 @@ class _FollowUpYesNoQuestionState extends State<FollowUpYesNoQuestion> {
           children: [
             Expanded(
               child: AutoSizeText(widget.citations[index].text,
-                  maxLines: 3,
-                  group: widget.questionAutoGroup,
-                  style: ColorDefs.textBodyBlack20),
+                  maxLines: 3, group: widget.questionAutoGroup, style: ColorDefs.textBodyBlack20),
             ),
             GestureDetector(
               onTap: () {
-                String result = setQuestionValue(
-                    widget.citations[index].userResponse as String, "Yes");
+                String result = setQuestionValue(widget.citations[index].userResponse as String, "Yes");
                 widget.citations[index].userResponse = result;
 
                 // Audit thisAudit =
                 //     Provider.of<AuditData>(context, listen: false).activeAudit;
-                // Provider.of<AuditData>(context, listen: false)
-                //     .saveAuditLocally(thisAudit);
+                Provider.of<AuditData>(context, listen: false).saveAuditLocally();
                 setState(() {});
               },
               child: Container(
@@ -60,19 +58,16 @@ class _FollowUpYesNoQuestionState extends State<FollowUpYesNoQuestion> {
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 width: 80,
-                child: Center(
-                    child: Text("Yes", style: ColorDefs.textBodyBlack20)),
+                child: Center(child: Text("Yes", style: ColorDefs.textBodyBlack20)),
               ),
             ),
             GestureDetector(
               onTap: () {
-                String result = setQuestionValue(
-                    widget.citations[index].userResponse as String, "No");
+                String result = setQuestionValue(widget.citations[index].userResponse as String, "No");
                 widget.citations[index].userResponse = result;
                 // Audit thisAudit =
                 //     Provider.of<AuditData>(context, listen: false).activeAudit;
-                // Provider.of<AuditData>(context, listen: false)
-                //     .saveAuditLocally(thisAudit);
+                Provider.of<AuditData>(context, listen: false).saveAuditLocally();
                 setState(() {});
               },
               child: Container(
@@ -84,14 +79,12 @@ class _FollowUpYesNoQuestionState extends State<FollowUpYesNoQuestion> {
                   //     Border.all(width: 2.0, color: Colors.grey)
                 ),
                 width: 80,
-                child:
-                    Center(child: Text("No", style: ColorDefs.textBodyBlack20)),
+                child: Center(child: Text("No", style: ColorDefs.textBodyBlack20)),
               ),
             ),
             GestureDetector(
               onTap: () {
-                widget.citations[index].textBoxRollOut =
-                    !widget.citations[index].textBoxRollOut;
+                widget.citations[index].textBoxRollOut = !widget.citations[index].textBoxRollOut;
                 setState(() {});
               },
               child: Padding(
@@ -105,11 +98,7 @@ class _FollowUpYesNoQuestionState extends State<FollowUpYesNoQuestion> {
           ],
         ),
         FollowUpCommentSection(
-            index: index,
-            citations: widget.citations,
-            key: UniqueKey(),
-            numKeyboard: false,
-            mandatory: false)
+            index: index, citations: widget.citations, key: UniqueKey(), numKeyboard: false, mandatory: false)
       ],
     );
   }

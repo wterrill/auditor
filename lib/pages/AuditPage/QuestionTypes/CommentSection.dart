@@ -101,7 +101,7 @@ class _CommentSectionState extends State<CommentSection> {
               }
 
               Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
-              Provider.of<AuditData>(context, listen: false).saveAuditLocally(thisAudit);
+              Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
               // Provider.of<SiteData>(context, listen: false).notifyTheListeners();
               widget.bubbleCallback(value);
             }

@@ -82,7 +82,10 @@ class AuditData with ChangeNotifier {
     print(auditBox.keys.length);
   }
 
-  void saveAuditLocally(Audit incomingAudit) {
+  void saveAuditLocally({Audit incomingAudit}) {
+    if (incomingAudit == null) {
+      incomingAudit = activeAudit;
+    }
     if (!auditStarted) {
       prepAuditForSaving(incomingAudit);
     }
@@ -175,20 +178,24 @@ class AuditData with ChangeNotifier {
   Map<String, dynamic> getAuditCitationsObject(
       // this uses the questions in the citations object to create the outgoing citations object.
       // also called '
-      {CalendarResult newCalendarResult}) {
+      {CalendarResult newCalendarResult,
+      @required SiteList siteList}) {
     Audit retrievedAudit;
     // check to see if it's a reschedule of a followup audit
     if (newCalendarResult.auditType == "Follow Up") {
       DateTime translate =
           DateTime.parse(newCalendarResult.citationsToFollowUp['PreviousEvent']['StartTime'] as String);
+      String agencyNumber = siteList.agencyNameFromProgramNumber(
+          newCalendarResult.citationsToFollowUp['PreviousEvent']['ProgramNumber'] as String);
       retrievedAudit = auditBox.get(
-              '${translate.toString()}-${newCalendarResult.citationsToFollowUp['PreviousEvent']['AgencyName']}-${newCalendarResult.citationsToFollowUp['PreviousEvent']['ProgramNumber']}-${newCalendarResult.citationsToFollowUp['PreviousEvent']['Auditor']}-${newCalendarResult.citationsToFollowUp['PreviousEvent']['AuditType']}')
+              '${translate.toString()}-${agencyNumber}-${newCalendarResult.citationsToFollowUp['PreviousEvent']['ProgramNumber']}-${newCalendarResult.citationsToFollowUp['PreviousEvent']['Auditor']}-${newCalendarResult.citationsToFollowUp['PreviousEvent']['AuditType']}')
           as Audit;
     } else {
       retrievedAudit = auditBox.get(
               '${newCalendarResult.startTime}-${newCalendarResult.agencyNumber}-${newCalendarResult.programNum}-${newCalendarResult.auditor}-${newCalendarResult.auditType}')
           as Audit;
     }
+
     Map<String, dynamic> citationsMap = <String, dynamic>{};
 
     for (Question citation in retrievedAudit.citations) {
@@ -652,7 +659,7 @@ class AuditData with ChangeNotifier {
   }
 
   void saveActiveAudit() {
-    saveAuditLocally(activeAudit);
+    saveAuditLocally(incomingAudit: activeAudit);
   }
 
   void createNewAudit(CalendarResult calendarResult) {
@@ -851,7 +858,7 @@ class AuditData with ChangeNotifier {
       for (Audit audit in newAudits) {
         print(audit);
 
-        saveAuditLocally(audit);
+        saveAuditLocally(incomingAudit: audit);
       }
       notifyListeners();
     }

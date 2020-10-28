@@ -14,12 +14,9 @@ class FollowUpDropDownQuestion extends StatefulWidget {
   final int index;
   final List<Question> citations;
   final AutoSizeGroup questionAutoGroup;
-  FollowUpDropDownQuestion(
-      {Key key, this.index, this.citations, this.questionAutoGroup})
-      : super(key: key);
+  FollowUpDropDownQuestion({Key key, this.index, this.citations, this.questionAutoGroup}) : super(key: key);
   @override
-  _FollowUpDropDownQuestionState createState() =>
-      _FollowUpDropDownQuestionState();
+  _FollowUpDropDownQuestionState createState() => _FollowUpDropDownQuestionState();
 }
 
 class _FollowUpDropDownQuestionState extends State<FollowUpDropDownQuestion> {
@@ -33,9 +30,7 @@ class _FollowUpDropDownQuestionState extends State<FollowUpDropDownQuestion> {
           children: [
             Expanded(
               child: AutoSizeText(widget.citations[index].text,
-                  maxLines: 3,
-                  group: widget.questionAutoGroup,
-                  style: ColorDefs.textBodyBlack20),
+                  maxLines: 3, group: widget.questionAutoGroup, style: ColorDefs.textBodyBlack20),
             ),
             DropdownButton<String>(
               value: widget.citations[index].userResponse as String ?? "Select",
@@ -45,20 +40,13 @@ class _FollowUpDropDownQuestionState extends State<FollowUpDropDownQuestion> {
               style: ColorDefs.textBodyBlack20,
               underline: Container(
                 height: 2,
-                color: (widget.citations[index].userResponse == "Select")
-                    ? Colors.red
-                    : Colors.green,
+                color: (widget.citations[index].userResponse == "Select") ? Colors.red : Colors.green,
               ),
               onChanged: (String newValue) {
-                if (Provider.of<AuditData>(context, listen: false)
-                        .activeAudit
-                        .calendarResult
-                        .status !=
-                    "Scheduled") {
+                if (Provider.of<AuditData>(context, listen: false).activeAudit.calendarResult.status != "Scheduled") {
                   Dialogs.showMessage(
                       context: context,
-                      message:
-                          "This audit has already been submitted, and cannot be edited",
+                      message: "This audit has already been submitted, and cannot be edited",
                       dismissable: true);
                 } else {
                   setState(() {
@@ -72,13 +60,11 @@ class _FollowUpDropDownQuestionState extends State<FollowUpDropDownQuestion> {
                     // Audit thisAudit =
                     //     Provider.of<AuditData>(context, listen: false)
                     //         .activeAudit;
-                    // Provider.of<AuditData>(context, listen: false)
-                    //     .saveAuditLocally(thisAudit);
+                    Provider.of<AuditData>(context, listen: false).saveAuditLocally();
                   });
                 }
               },
-              items: widget.citations[index].dropDownMenu
-                  .map<DropdownMenuItem<String>>((String value) {
+              items: widget.citations[index].dropDownMenu.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
@@ -87,8 +73,7 @@ class _FollowUpDropDownQuestionState extends State<FollowUpDropDownQuestion> {
             ),
             GestureDetector(
               onTap: () {
-                widget.citations[index].textBoxRollOut =
-                    !widget.citations[index].textBoxRollOut;
+                widget.citations[index].textBoxRollOut = !widget.citations[index].textBoxRollOut;
                 setState(() {});
               },
               child: Padding(
@@ -102,11 +87,7 @@ class _FollowUpDropDownQuestionState extends State<FollowUpDropDownQuestion> {
           ],
         ),
         FollowUpCommentSection(
-            index: index,
-            citations: widget.citations,
-            key: UniqueKey(),
-            numKeyboard: false,
-            mandatory: false)
+            index: index, citations: widget.citations, key: UniqueKey(), numKeyboard: false, mandatory: false)
       ],
     );
   }

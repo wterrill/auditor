@@ -10,13 +10,10 @@ class ReviewFillInNumQuestion extends StatefulWidget {
   final int index;
   final Section activeSection;
   final AutoSizeGroup questionAutoGroup;
-  ReviewFillInNumQuestion(
-      {Key key, this.index, this.activeSection, this.questionAutoGroup})
-      : super(key: key);
+  ReviewFillInNumQuestion({Key key, this.index, this.activeSection, this.questionAutoGroup}) : super(key: key);
 
   @override
-  _ReviewFillInNumQuestionState createState() =>
-      _ReviewFillInNumQuestionState();
+  _ReviewFillInNumQuestionState createState() => _ReviewFillInNumQuestionState();
 }
 
 class _ReviewFillInNumQuestionState extends State<ReviewFillInNumQuestion> {
@@ -37,25 +34,20 @@ class _ReviewFillInNumQuestionState extends State<ReviewFillInNumQuestion> {
           children: [
             Expanded(
               child: AutoSizeText(widget.activeSection.questions[index].text,
-                  maxLines: 3,
-                  group: widget.questionAutoGroup,
-                  style: ColorDefs.textBodyBlack20),
+                  maxLines: 3, group: widget.questionAutoGroup, style: ColorDefs.textBodyBlack20),
             ),
             GestureDetector(
               onTap: () {
                 widget.activeSection.questions[index].textBoxRollOut =
                     !widget.activeSection.questions[index].textBoxRollOut;
-                Audit thisAudit =
-                    Provider.of<AuditData>(context, listen: false).activeAudit;
-                Provider.of<AuditData>(context, listen: false)
-                    .saveAuditLocally(thisAudit);
+                Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
+                Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
                 setState(() {});
               },
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Icon(Icons.chat_bubble,
-                    color: widget.activeSection.questions[index].userResponse ==
-                            null
+                    color: widget.activeSection.questions[index].userResponse == null
                         ? ColorDefs.colorChatRequired
                         // : ColorDefs.colorChatSelected),
                         : ColorDefs.colorButtonYes),

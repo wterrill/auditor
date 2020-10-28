@@ -54,8 +54,7 @@ class _FollowUpYesNoNaQuestionState extends State<FollowUpYesNoNaQuestion> {
                   // Audit thisAudit =
                   //     Provider.of<AuditData>(context, listen: false)
                   //         .activeAudit;
-                  // Provider.of<AuditData>(context, listen: false)
-                  //     .saveAuditLocally(thisAudit);
+                  Provider.of<AuditData>(context, listen: false).saveAuditLocally();
                   setState(() {});
                 }
               },
@@ -85,8 +84,7 @@ class _FollowUpYesNoNaQuestionState extends State<FollowUpYesNoNaQuestion> {
                   // Audit thisAudit =
                   //     Provider.of<AuditData>(context, listen: false)
                   //         .activeAudit;
-                  // Provider.of<AuditData>(context, listen: false)
-                  //     .saveAuditLocally(thisAudit);
+                  Provider.of<AuditData>(context, listen: false).saveAuditLocally();
                   setState(() {});
                 }
               },
@@ -118,8 +116,7 @@ class _FollowUpYesNoNaQuestionState extends State<FollowUpYesNoNaQuestion> {
                   // Audit thisAudit =
                   //     Provider.of<AuditData>(context, listen: false)
                   //         .activeAudit;
-                  // Provider.of<AuditData>(context, listen: false)
-                  //     .saveAuditLocally(thisAudit);
+                  Provider.of<AuditData>(context, listen: false).saveAuditLocally();
                   setState(() {});
                 }
               },

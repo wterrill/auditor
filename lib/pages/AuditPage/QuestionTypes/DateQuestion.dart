@@ -63,7 +63,7 @@ class _DateQuestionState extends State<DateQuestion> {
                       }
 
                       Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
-                      Provider.of<AuditData>(context, listen: false).saveAuditLocally(thisAudit);
+                      Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
                       setState(() {});
                     }
                   },
@@ -130,7 +130,7 @@ class _DateQuestionState extends State<DateQuestion> {
                               .tallySingleQuestion(index: index, section: activeSection, audit: widget.activeAudit);
                         }
                         Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
-                        Provider.of<AuditData>(context, listen: false).saveAuditLocally(thisAudit);
+                        Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
                         setState(() {});
                       }
                     }

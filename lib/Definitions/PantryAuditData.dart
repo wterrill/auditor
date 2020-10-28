@@ -172,12 +172,12 @@ List<Map<String, dynamic>> audit1Section1Questions = [
     'databaseVar': 'FoodServiceSanitationManagerCerts',
     'databaseVarType': 'string',
   },
-  // <String, dynamic>{
-  //   'text': 'Names and expiration dates of FSSM certificates:',
-  //   'type': 'fillIn',
-  //   'databaseVar': 'RemoveField',
-  //   'databaseVarType': 'string',
-  // },
+  <String, dynamic>{
+    'text': 'FSSM certificates to be removed:',
+    'type': 'fillIn',
+    'databaseVar': 'RemoveField',
+    'databaseVarType': 'string',
+  },
   <String, dynamic>{
     'text': 'Last Order Date:',
     'type': 'date',

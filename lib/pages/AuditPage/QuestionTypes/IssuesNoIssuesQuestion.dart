@@ -61,7 +61,7 @@ class _IssuesNoIssuesQuestionState extends State<IssuesNoIssuesQuestion> {
                     }
 
                     Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
-                    Provider.of<AuditData>(context, listen: false).saveAuditLocally(thisAudit);
+                    Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
                     setState(() {});
                   }
                 },
@@ -97,7 +97,7 @@ class _IssuesNoIssuesQuestionState extends State<IssuesNoIssuesQuestion> {
                           .tallySingleQuestion(index: index, section: activeSection, audit: widget.activeAudit);
                     }
                     Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
-                    Provider.of<AuditData>(context, listen: false).saveAuditLocally(thisAudit);
+                    Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
                     setState(() {});
                   }
                 },
