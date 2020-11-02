@@ -185,7 +185,7 @@ class AuditData with ChangeNotifier {
     if (newCalendarResult.auditType == "Follow Up") {
       DateTime translate =
           DateTime.parse(newCalendarResult.citationsToFollowUp['PreviousEvent']['StartTime'] as String);
-      String agencyNumber = siteList.agencyNameFromProgramNumber(
+      String agencyNumber = siteList.agencyNumberFromProgramNumber(
           newCalendarResult.citationsToFollowUp['PreviousEvent']['ProgramNumber'] as String);
       retrievedAudit = auditBox.get(
               '${translate.toString()}-${agencyNumber}-${newCalendarResult.citationsToFollowUp['PreviousEvent']['ProgramNumber']}-${newCalendarResult.citationsToFollowUp['PreviousEvent']['Auditor']}-${newCalendarResult.citationsToFollowUp['PreviousEvent']['AuditType']}')

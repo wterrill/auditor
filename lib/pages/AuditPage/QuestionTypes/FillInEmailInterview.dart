@@ -84,7 +84,7 @@ class _FillInEmailInterviewState extends State<FillInEmailInterview> {
               child: Container(
                 decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(25))),
                 child: TextField(
-                  readOnly: activeAudit.detailsConfirmed ? true : false,
+                  // readOnly: activeAudit.detailsConfirmed ? true : false, // Removed to allow for editing after the fact
                   enableInteractiveSelection: true,
                   decoration: new InputDecoration(
                       enabledBorder: OutlineInputBorder(
@@ -139,7 +139,7 @@ class _FillInEmailInterviewState extends State<FillInEmailInterview> {
               child: Container(
                 decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(25))),
                 child: TextField(
-                  readOnly: activeAudit.detailsConfirmed ? true : false,
+                  // readOnly: activeAudit.detailsConfirmed ? true : false,  // Removed to allow for editing after the fact
                   enableInteractiveSelection: true,
                   decoration: new InputDecoration(
                       enabledBorder: OutlineInputBorder(
@@ -212,12 +212,12 @@ class _FillInEmailInterviewState extends State<FillInEmailInterview> {
                       }
                     }
                     // for (Section section in activeAudit.sections) {
-                    //   // if (section.name == "*Developer*") {
-                    //   //   section.status = Status.available;
-                    //   //   section.lastStatus = Status.available;
-                    //   //   widget.activeSection.status = Status.completed;
-                    //   //   widget.activeSection.lastStatus = Status.completed;
-                    //   // }
+                    //   if (section.name == "*Developer*") {
+                    //     section.status = Status.available;
+                    //     section.lastStatus = Status.available;
+                    //     widget.activeSection.status = Status.completed;
+                    //     widget.activeSection.lastStatus = Status.completed;
+                    //   }
                     // }
                     setState(() {});
                     if (activeAudit.calendarResult.auditType == "Follow Up") {

@@ -10,4 +10,4 @@ const Map<String,String> version =
   "flutterRoot": "/Users/williamterrill/git/flutter/flutter"
 }
 ;
-const String appVersion = "version: 1.1.2+8";
+const String appVersion = "version: 1.1.2+9";
