@@ -112,7 +112,12 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                         startSync = true;
                       });
                       //// Site Data /////
-                      Dialogs.showMessage(context: context, message: "Syncing Site Data", dismissable: false);
+                      Dialogs.showMessage(
+                          context: context,
+                          message: "Syncing Site Data",
+                          dismissable: false,
+                          textStyle: ColorDefs.textWhiteTerminal,
+                          bckcolor: ColorDefs.colorDarkBackground);
                       String deviceid = Provider.of<GeneralData>(context, listen: false).deviceid;
                       print("before siteSync");
 
@@ -127,7 +132,9 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                       Dialogs.showMessage(
                           context: context,
                           message: "Syncing Scheduling data: upload and download",
-                          dismissable: false);
+                          dismissable: false,
+                          textStyle: ColorDefs.textWhiteTerminal,
+                          bckcolor: ColorDefs.colorDarkBackground);
                       await Provider.of<ListCalendarData>(context, listen: false)
                           .dataSync(context: context, siteList: siteList, deviceid: deviceid, fullSync: false);
                       Navigator.of(context).pop();
@@ -137,7 +144,9 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                       Dialogs.showMessage(
                           context: context,
                           message: "Syncing Audit calendar data: upload and download",
-                          dismissable: false);
+                          dismissable: false,
+                          textStyle: ColorDefs.textWhiteTerminal,
+                          bckcolor: ColorDefs.colorDarkBackground);
 
                       await Provider.of<AuditData>(context, listen: false)
                           .dataSync(context: context, siteList: siteList, deviceid: deviceid, fullSync: false);
@@ -190,7 +199,9 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                       Dialogs.showMessage(
                           context: context,
                           message: "Syncing Scheduling data: upload and download",
-                          dismissable: false);
+                          dismissable: false,
+                          textStyle: ColorDefs.textWhiteTerminal,
+                          bckcolor: ColorDefs.colorDarkBackground);
                       await Provider.of<ListCalendarData>(context, listen: false)
                           .dataSync(context: context, siteList: siteList, deviceid: deviceid, fullSync: true);
                       Navigator.of(context).pop();
@@ -200,7 +211,9 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                       Dialogs.showMessage(
                           context: context,
                           message: "Syncing Audit calendar data: upload and download",
-                          dismissable: false);
+                          dismissable: false,
+                          textStyle: ColorDefs.textWhiteTerminal,
+                          bckcolor: ColorDefs.colorDarkBackground);
 
                       await Provider.of<AuditData>(context, listen: false)
                           .dataSync(context: context, siteList: siteList, deviceid: deviceid, fullSync: true);
@@ -242,28 +255,26 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                         startSync = true;
                       });
                       //// Site Data /////
-                      // Dialogs.showMessage(
-                      //     context: context,
-                      //     message: "Uploading Scheduled Data:",
-                      //     dismissable: false);
+
                       String deviceid = Provider.of<GeneralData>(context, listen: false).deviceid;
 
-                      // SiteList siteList =
-                      //     Provider.of<SiteData>(context, listen: false)
-                      //         .siteList;
-                      // Navigator.of(context).pop();
-
-                      /// Schedule data ///
                       Dialogs.showMessage(
-                          context: context, message: "Force Uploading Scheduled Data:", dismissable: false);
+                          context: context,
+                          message: "Force Uploading Scheduled Data:",
+                          dismissable: false,
+                          textStyle: ColorDefs.textWhiteTerminal,
+                          bckcolor: ColorDefs.colorDarkBackground);
                       await Provider.of<ListCalendarData>(context, listen: false).forceScheduleDataUpload(
                         deviceid: deviceid,
                       );
                       Navigator.of(context).pop();
 
-                      /// Audit Data ///
-                      // Navigator.of(context).pop();
-                      Dialogs.showMessage(context: context, message: "Force Uploading Audit Data:", dismissable: false);
+                      Dialogs.showMessage(
+                          context: context,
+                          message: "Force Uploading Audit Data:",
+                          dismissable: false,
+                          textStyle: ColorDefs.textWhiteTerminal,
+                          bckcolor: ColorDefs.colorDarkBackground);
 
                       await Provider.of<AuditData>(context, listen: false).forceAuditDataUpload(
                         deviceid: deviceid,
@@ -384,7 +395,12 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                           .replaceAll("] ", "")
                           .replaceAll("]", "");
 
-                      Dialogs.showMessage(context: context, message: databaseInfo, dismissable: true);
+                      Dialogs.showMessage(
+                          context: context,
+                          message: databaseInfo,
+                          dismissable: true,
+                          textStyle: ColorDefs.textWhiteTerminal,
+                          bckcolor: ColorDefs.colorDarkBackground);
                     },
                     child: Container(
                       height: 35.4,

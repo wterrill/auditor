@@ -58,7 +58,9 @@ class _FollowUpCommentSectionState extends State<FollowUpCommentSection> {
             Dialogs.showMessage(
                 context: context,
                 message: "This audit has already been submitted, and cannot be edited",
-                dismissable: true);
+                dismissable: true,
+                textStyle: ColorDefs.textWhiteTerminal,
+                bckcolor: ColorDefs.colorDarkBackground);
           } else {
             if (widget.mandatory) {
               if (widget.numKeyboard) {

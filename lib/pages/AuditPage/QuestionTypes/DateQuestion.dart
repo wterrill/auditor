@@ -47,7 +47,9 @@ class _DateQuestionState extends State<DateQuestion> {
                       Dialogs.showMessage(
                           context: context,
                           message: "This audit has already been submitted, and cannot be edited",
-                          dismissable: true);
+                          dismissable: true,
+                          textStyle: ColorDefs.textWhiteTerminal,
+                          bckcolor: ColorDefs.colorDarkBackground);
                     } else {
                       String result = setQuestionValue(
                           widget.activeSection.questions[index].userResponse as String, '1972-06-05 00:00:00.000');
@@ -106,7 +108,9 @@ class _DateQuestionState extends State<DateQuestion> {
                       Dialogs.showMessage(
                           context: context,
                           message: "This audit has already been submitted, and cannot be edited",
-                          dismissable: true);
+                          dismissable: true,
+                          textStyle: ColorDefs.textWhiteTerminal,
+                          bckcolor: ColorDefs.colorDarkBackground);
                     } else {
                       selectedDate = await showDatePicker(
                         context: context,

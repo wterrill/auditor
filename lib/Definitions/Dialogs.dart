@@ -63,7 +63,12 @@ class Dialogs {
     );
   }
 
-  static void showMessage({@required BuildContext context, @required String message, @required bool dismissable}) {
+  static void showMessage(
+      {@required BuildContext context,
+      @required String message,
+      @required TextStyle textStyle,
+      @required bool dismissable,
+      @required Color bckcolor}) {
     AlertDialog alert = AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50.0))),
       elevation: 6.0,
@@ -71,7 +76,7 @@ class Dialogs {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(message, style: ColorDefs.textWhiteTerminal),
+          Text(message, style: textStyle),
         ],
       ),
     );
@@ -79,7 +84,7 @@ class Dialogs {
       barrierDismissible: dismissable,
       context: context,
       builder: (BuildContext context) {
-        return alert;
+        return Theme(data: Theme.of(context).copyWith(dialogBackgroundColor: bckcolor), child: alert);
       },
     );
   }

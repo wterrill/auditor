@@ -47,7 +47,9 @@ class _IssuesNoIssuesQuestionState extends State<IssuesNoIssuesQuestion> {
                     Dialogs.showMessage(
                         context: context,
                         message: "This audit has already been submitted, and cannot be edited",
-                        dismissable: true);
+                        dismissable: true,
+                        textStyle: ColorDefs.textWhiteTerminal,
+                        bckcolor: ColorDefs.colorDarkBackground);
                   } else {
                     String result =
                         setQuestionValue(widget.activeSection.questions[index].userResponse as String, "No Issues");
@@ -84,7 +86,9 @@ class _IssuesNoIssuesQuestionState extends State<IssuesNoIssuesQuestion> {
                     Dialogs.showMessage(
                         context: context,
                         message: "This audit has already been submitted, and cannot be edited",
-                        dismissable: true);
+                        dismissable: true,
+                        textStyle: ColorDefs.textWhiteTerminal,
+                        bckcolor: ColorDefs.colorDarkBackground);
                   } else {
                     String result =
                         setQuestionValue(widget.activeSection.questions[index].userResponse as String, "Issues");

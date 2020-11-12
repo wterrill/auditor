@@ -44,7 +44,9 @@ class _FollowUpYesNoNaQuestionState extends State<FollowUpYesNoNaQuestion> {
                   Dialogs.showMessage(
                       context: context,
                       message: "This audit has already been submitted, and cannot be edited",
-                      dismissable: true);
+                      dismissable: true,
+                      textStyle: ColorDefs.textWhiteTerminal,
+                      bckcolor: ColorDefs.colorDarkBackground);
                 } else {
                   String result = setQuestionValue(widget.citations[index].userResponse as String, "Yes");
                   widget.citations[index].userResponse = result;
@@ -74,7 +76,9 @@ class _FollowUpYesNoNaQuestionState extends State<FollowUpYesNoNaQuestion> {
                   Dialogs.showMessage(
                       context: context,
                       message: "This audit has already been submitted, and cannot be edited",
-                      dismissable: true);
+                      dismissable: true,
+                      textStyle: ColorDefs.textWhiteTerminal,
+                      bckcolor: ColorDefs.colorDarkBackground);
                 } else {
                   String result = setQuestionValue(widget.citations[index].userResponse as String, "No");
                   widget.citations[index].userResponse = result;
@@ -106,7 +110,9 @@ class _FollowUpYesNoNaQuestionState extends State<FollowUpYesNoNaQuestion> {
                   Dialogs.showMessage(
                       context: context,
                       message: "This audit has already been submitted, and cannot be edited",
-                      dismissable: true);
+                      dismissable: true,
+                      textStyle: ColorDefs.textWhiteTerminal,
+                      bckcolor: ColorDefs.colorDarkBackground);
                 } else {
                   String result = setQuestionValue(widget.citations[index].userResponse as String, 'N/A');
                   widget.citations[index].userResponse = result;

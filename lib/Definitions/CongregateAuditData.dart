@@ -90,6 +90,7 @@ List<Map<String, dynamic>> audit2Section1Questions = [
     'type': 'fillIn',
     'databaseVar': 'PopulationServed',
     'databaseVarType': 'string',
+    'characterLimit': 255
   },
   <String, dynamic>{
     'text': 'How do you count the number of meals served as reported to the Food Depository?',
@@ -281,6 +282,7 @@ List<Map<String, dynamic>> audit2Section3Questions = [
     'type': 'fillIn',
     'databaseVar': 'GuestDisposition',
     'databaseVarType': 'string',
+    'characterLimit': 255
   },
   <String, dynamic>{
     'text': "Guests served during the site visit:",
@@ -319,6 +321,7 @@ List<Map<String, dynamic>> audit2Section3Questions = [
     'type': 'fillIn',
     'databaseVar': 'VolunteerDisposition',
     'databaseVarType': 'string',
+    'characterLimit': 255
   },
   <String, dynamic>{
     'text': "# of Intake Volunteers:",
@@ -1193,6 +1196,7 @@ List<Map<String, dynamic>> audit2Section5Questions = [
     'type': 'fillIn',
     'databaseVar': 'TypeOne',
     'databaseVarType': 'string',
+    'characterLimit': 255
   },
   <String, dynamic>{
     'text': 'USDA Tag Unit #2',
@@ -1211,6 +1215,7 @@ List<Map<String, dynamic>> audit2Section5Questions = [
     'type': 'fillIn',
     'databaseVar': 'TypeTwo',
     'databaseVarType': 'string',
+    'characterLimit': 255
   },
   <String, dynamic>{
     'text': 'USDA Tag Unit #3',
@@ -1229,6 +1234,7 @@ List<Map<String, dynamic>> audit2Section5Questions = [
     'type': 'fillIn',
     'databaseVar': 'TypeThree',
     'databaseVarType': 'string',
+    'characterLimit': 255
   },
   <String, dynamic>{
     'text': 'USDA Tag Unit #4',
@@ -1247,6 +1253,7 @@ List<Map<String, dynamic>> audit2Section5Questions = [
     'type': 'fillIn',
     'databaseVar': 'TypeFour',
     'databaseVarType': 'string',
+    'characterLimit': 255
   },
   // <String, dynamic>{
   //   'text': 'USDA Tag #5',
@@ -1619,7 +1626,8 @@ List<Map<String, dynamic>> audit2Section7Questions = [
     'text': 'Name of Pest Control Company:',
     'type': 'fillIn',
     'databaseVar': 'PestControlCompany',
-    'databaseVarType': 'string'
+    'databaseVarType': 'string',
+    'characterLimit': 255
   },
   <String, dynamic>{
     'text': 'Last Pest Control Service Date:',
@@ -1775,6 +1783,7 @@ List<Map<String, dynamic>> audit2Section8Questions = [
     'type': 'fillIn',
     'databaseVarType': 'string',
     'databaseVar': 'ReVerifiedBy',
+    'characterLimit': 255
   },
   // <String, dynamic>{
   //   'text': 'GCFD Monitor:',
@@ -1787,6 +1796,7 @@ List<Map<String, dynamic>> audit2Section8Questions = [
     'type': 'fillIn',
     'databaseVarType': 'string',
     'databaseVar': 'ReviewedBy',
+    'characterLimit': 255
   },
   // <String, dynamic>{
   //   'text': 'Findings Found:',

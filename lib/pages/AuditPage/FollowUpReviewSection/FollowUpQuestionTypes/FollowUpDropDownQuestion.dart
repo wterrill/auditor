@@ -47,7 +47,9 @@ class _FollowUpDropDownQuestionState extends State<FollowUpDropDownQuestion> {
                   Dialogs.showMessage(
                       context: context,
                       message: "This audit has already been submitted, and cannot be edited",
-                      dismissable: true);
+                      dismissable: true,
+                      textStyle: ColorDefs.textWhiteTerminal,
+                      bckcolor: ColorDefs.colorDarkBackground);
                 } else {
                   setState(() {
                     widget.citations[index].userResponse = newValue;

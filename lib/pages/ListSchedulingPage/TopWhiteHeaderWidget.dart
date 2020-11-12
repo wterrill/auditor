@@ -26,7 +26,7 @@ class _TopWhiteHeaderWidgetState extends State<TopWhiteHeaderWidget> {
 
   @override
   Widget build(BuildContext context) {
-    String portNumber = Provider.of<GeneralData>(context).portNumber;
+    String portNumber = Provider.of<GeneralData>(context, listen: false).portNumber;
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Container(

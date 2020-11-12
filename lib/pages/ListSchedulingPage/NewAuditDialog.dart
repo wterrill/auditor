@@ -477,6 +477,8 @@ class _NewAuditDialogState extends State<NewAuditDialog> {
                               Dialogs.showMessage(
                                   context: context,
                                   dismissable: true,
+                                  textStyle: ColorDefs.textWhiteTerminal,
+                                  bckcolor: ColorDefs.colorDarkBackground,
                                   message:
                                       "An audit exists at this location for the same time and same auditor. \nPlease check your entry and try again.");
                             }

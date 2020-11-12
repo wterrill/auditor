@@ -38,7 +38,7 @@ echo "new version pushed to github."
 flutter analyze
 flutter test  # <-- unit test
 # flutter drive --target=test_driver/app.dart  # <-- U/I test
-flutter build ios -t lib/main.dart --release --analyze-size  # <-- build 
+flutter build ios --release #-t lib/main.dart --release --analyze-size  # <-- build 
 
 
 # 1. doesn't stop when there's an issue

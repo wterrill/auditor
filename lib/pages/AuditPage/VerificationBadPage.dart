@@ -510,14 +510,18 @@ In order to be fully certified and in good standing with the Greater Chicago Foo
                           Dialogs.showMessage(
                               context: context,
                               message: "These action items must be updated prior to signing: \n $affectedIssues",
-                              dismissable: true);
+                              dismissable: true,
+                              textStyle: ColorDefs.textWhiteTerminal,
+                              bckcolor: ColorDefs.colorDarkBackground);
                         }
                         if (checkVisitAndHoldItems()) {
                           Dialogs.showMessage(
                               context: context,
                               message:
                                   "Please select if a follow up site visit is needed, \nor if the program should be put on hold.",
-                              dismissable: true);
+                              dismissable: true,
+                              textStyle: ColorDefs.textWhiteTerminal,
+                              bckcolor: ColorDefs.colorDarkBackground);
                         }
                       },
                     ),
@@ -676,14 +680,18 @@ In order to be fully certified and in good standing with the Greater Chicago Foo
                           Dialogs.showMessage(
                               context: context,
                               message: "These action items must be updated: + $affectedIssues",
-                              dismissable: true);
+                              dismissable: true,
+                              textStyle: ColorDefs.textWhiteTerminal,
+                              bckcolor: ColorDefs.colorDarkBackground);
                         }
                         if (checkVisitAndHoldItems()) {
                           Dialogs.showMessage(
                               context: context,
                               message:
                                   "Please select if a follow up site visit is needed, \nor if the program should be put on hold.",
-                              dismissable: true);
+                              dismissable: true,
+                              textStyle: ColorDefs.textWhiteTerminal,
+                              bckcolor: ColorDefs.colorDarkBackground);
                         }
                       },
                     ),

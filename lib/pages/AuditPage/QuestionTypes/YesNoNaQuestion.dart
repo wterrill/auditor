@@ -44,7 +44,9 @@ class _YesNoNaQuestionState extends State<YesNoNaQuestion> {
                     Dialogs.showMessage(
                         context: context,
                         message: "This audit has already been submitted, and cannot be edited",
-                        dismissable: true);
+                        dismissable: true,
+                        textStyle: ColorDefs.textWhiteTerminal,
+                        bckcolor: ColorDefs.colorDarkBackground);
                   } else {
                     String result =
                         setQuestionValue(widget.activeSection.questions[index].userResponse as String, "Yes");
@@ -77,7 +79,9 @@ class _YesNoNaQuestionState extends State<YesNoNaQuestion> {
                     Dialogs.showMessage(
                         context: context,
                         message: "This audit has already been submitted, and cannot be edited",
-                        dismissable: true);
+                        dismissable: true,
+                        textStyle: ColorDefs.textWhiteTerminal,
+                        bckcolor: ColorDefs.colorDarkBackground);
                   } else {
                     String result =
                         setQuestionValue(widget.activeSection.questions[index].userResponse as String, "No");
@@ -112,7 +116,9 @@ class _YesNoNaQuestionState extends State<YesNoNaQuestion> {
                     Dialogs.showMessage(
                         context: context,
                         message: "This audit has already been submitted, and cannot be edited",
-                        dismissable: true);
+                        dismissable: true,
+                        textStyle: ColorDefs.textWhiteTerminal,
+                        bckcolor: ColorDefs.colorDarkBackground);
                   } else {
                     String result =
                         setQuestionValue(widget.activeSection.questions[index].userResponse as String, 'N/A');

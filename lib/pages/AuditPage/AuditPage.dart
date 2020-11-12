@@ -113,6 +113,7 @@ class _AuditPageState extends State<AuditPage> {
                         thickness: 1,
                       ),
                     ),
+
                     if (activeSection?.name == "Review")
                       ReviewPage(
                         activeAudit: activeAudit,
