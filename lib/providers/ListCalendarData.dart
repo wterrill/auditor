@@ -261,7 +261,6 @@ class ListCalendarData with ChangeNotifier {
       // DateTime temp = DateTime.parse(anotherEvent.startTime);
       addCalendarOrderedItem(anotherEvent, "Add");
     }
-    // sendScheduledToCloud(deviceid); ///  / / / / / / / / / / / / / / / / / / / / / / /  <<<<<<<
     print("done");
   }
 

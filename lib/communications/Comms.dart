@@ -113,6 +113,11 @@ class FullAuditComms {
   }
 
   static Future<dynamic> getFullAudit({int allNotMe, String deviceid, @required BuildContext context}) async {
+    bool preppedFullDownload = Provider.of<GeneralData>(context, listen: false).prepFullDownload;
+    if (preppedFullDownload) {
+      allNotMe = 1;
+      Provider.of<GeneralData>(context, listen: false).prepFullDownload = false;
+    }
     String portNumber = Provider.of<GeneralData>(context, listen: false).portNumber;
     var queryParameters = {"MyDeviceId": kIsWeb ? "website" : deviceid, "QueryType": allNotMe.toString()};
     print("========== getFullAudit =========");
@@ -209,6 +214,10 @@ class ScheduleAuditComms {
   static Future<dynamic> getScheduled({int allNotMe, String deviceid, @required BuildContext context}) async {
     String portNumber = Provider.of<GeneralData>(context, listen: false).portNumber;
     // allNotMe = 1;
+    bool preppedFullDownload = Provider.of<GeneralData>(context, listen: false).prepFullDownload;
+    if (preppedFullDownload) {
+      allNotMe = 1;
+    }
     var queryParameters = {
       "MyDeviceId": kIsWeb ? "website" : deviceid,
       "QueryType": allNotMe.toString(), // "1: Query All   0: Query All But Me"

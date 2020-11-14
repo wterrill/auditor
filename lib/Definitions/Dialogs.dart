@@ -206,6 +206,43 @@ class Dialogs {
     );
   }
 
+  static void messageContinue(
+      {@required BuildContext context, @required Function continueCallBack, @required String message}) async {
+    AlertDialog alert = AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50.0))),
+      elevation: 6.0,
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(message),
+        ],
+      ),
+      actions: <Widget>[
+        new FlatButton(
+          child: new Text("Yes"),
+          onPressed: () {
+            Navigator.of(context).pop(true);
+            continueCallBack();
+          },
+        ),
+        new FlatButton(
+          child: Text("Cancel"),
+          onPressed: () {
+            Navigator.of(context).pop(false);
+          },
+        ),
+      ],
+    );
+    await showDialog<void>(
+      barrierDismissible: true,
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
   static void timeInPast(BuildContext context, Function continueCallBack) async {
     AlertDialog alert = AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50.0))),

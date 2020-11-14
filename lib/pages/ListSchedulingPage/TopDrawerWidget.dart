@@ -101,61 +101,141 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
               child: Column(
                 children: [
                   Container(height: 40, width: double.infinity, color: ColorDefs.colorTopDrawerBackground),
+                  // Container(
+                  //     height: 35.4,
+                  //     width: double.infinity,
+                  //     child: Center(child: Text("", style: ColorDefs.textBodyBlue20))),
+                  // GestureDetector(
+                  //   onTap: () async {
+                  //     // Sync all data
+                  //     setState(() {
+                  //       startSync = true;
+                  //     });
+                  //     //// Site Data /////
+                  //     Dialogs.showMessage(
+                  //         context: context,
+                  //         message: "Syncing Site Data",
+                  //         dismissable: false,
+                  //         textStyle: ColorDefs.textWhiteTerminal,
+                  //         bckcolor: ColorDefs.colorDarkBackground);
+                  //     String deviceid = Provider.of<GeneralData>(context, listen: false).deviceid;
+                  //     print("before siteSync");
+
+                  //     await Provider.of<SiteData>(context, listen: false).siteSync();
+
+                  //     print("After siteSync");
+                  //     SiteList siteList = Provider.of<SiteData>(context, listen: false).siteList;
+                  //     print("after siteList load");
+                  //     Navigator.of(context).pop();
+
+                  //     /// Schedule data ///
+                  //     Dialogs.showMessage(
+                  //         context: context,
+                  //         message: "Syncing Scheduling data: upload and download",
+                  //         dismissable: false,
+                  //         textStyle: ColorDefs.textWhiteTerminal,
+                  //         bckcolor: ColorDefs.colorDarkBackground);
+                  //     await Provider.of<ListCalendarData>(context, listen: false)
+                  //         .dataSync(context: context, siteList: siteList, deviceid: deviceid, fullSync: false);
+                  //     Navigator.of(context).pop();
+
+                  //     /// Audit Data ///
+                  //     // Navigator.of(context).pop();
+                  //     Dialogs.showMessage(
+                  //         context: context,
+                  //         message: "Syncing Audit calendar data: upload and download",
+                  //         dismissable: false,
+                  //         textStyle: ColorDefs.textWhiteTerminal,
+                  //         bckcolor: ColorDefs.colorDarkBackground);
+
+                  //     await Provider.of<AuditData>(context, listen: false)
+                  //         .dataSync(context: context, siteList: siteList, deviceid: deviceid, fullSync: false);
+                  //     Navigator.of(context).pop();
+
+                  //     /// Done with sync
+                  //     setState(() {
+                  //       startSync = false;
+                  //     });
+                  //   },
+                  //   child: Container(
+                  //     height: 35.4,
+                  //     width: double.infinity,
+                  //     color: ColorDefs.colorTopDrawerAlternating,
+                  //     child: Row(
+                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //       children: <Widget>[
+                  //         Icon(Icons.sync, color: ColorDefs.colorAudit2),
+                  //         Center(child: Text("Sync", style: ColorDefs.textBodyBlue20)),
+                  //         Container(
+                  //           height: 20,
+                  //           width: 20,
+                  //           child: startSync
+                  //               ? CircularProgressIndicator()
+                  //               : Icon(Icons.sync, color: ColorDefs.colorTopDrawerBackground),
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
                   Container(
                       height: 35.4,
                       width: double.infinity,
                       child: Center(child: Text("", style: ColorDefs.textBodyBlue20))),
                   GestureDetector(
                     onTap: () async {
+                      Function callBack = () {
+                        Provider.of<GeneralData>(context, listen: false).prepFullDownload = true;
+                      };
+                      await Dialogs.messageContinue(
+                          context: context,
+                          continueCallBack: callBack,
+                          message: "This will make the next sync a full download sync. Would you like to continue?");
+
                       // Sync all data
-                      setState(() {
-                        startSync = true;
-                      });
-                      //// Site Data /////
-                      Dialogs.showMessage(
-                          context: context,
-                          message: "Syncing Site Data",
-                          dismissable: false,
-                          textStyle: ColorDefs.textWhiteTerminal,
-                          bckcolor: ColorDefs.colorDarkBackground);
-                      String deviceid = Provider.of<GeneralData>(context, listen: false).deviceid;
-                      print("before siteSync");
+                      // setState(() {
+                      //   startSync = true;
+                      // });
+                      // //// Site Data /////
+                      // Dialogs.showMessage(
+                      //     context: context,
+                      //     message: "Syncing Site Data",
+                      //     dismissable: false,
+                      //     textStyle: ColorDefs.textWhiteTerminal,
+                      //     bckcolor: ColorDefs.colorDarkBackground);
+                      // String deviceid = Provider.of<GeneralData>(context, listen: false).deviceid;
+                      // await Provider.of<SiteData>(context, listen: false).siteSync();
 
-                      await Provider.of<SiteData>(context, listen: false).siteSync();
-
-                      print("After siteSync");
-                      SiteList siteList = Provider.of<SiteData>(context, listen: false).siteList;
-                      print("after siteList load");
-                      Navigator.of(context).pop();
-
-                      /// Schedule data ///
-                      Dialogs.showMessage(
-                          context: context,
-                          message: "Syncing Scheduling data: upload and download",
-                          dismissable: false,
-                          textStyle: ColorDefs.textWhiteTerminal,
-                          bckcolor: ColorDefs.colorDarkBackground);
-                      await Provider.of<ListCalendarData>(context, listen: false)
-                          .dataSync(context: context, siteList: siteList, deviceid: deviceid, fullSync: false);
-                      Navigator.of(context).pop();
-
-                      /// Audit Data ///
+                      // SiteList siteList = Provider.of<SiteData>(context, listen: false).siteList;
                       // Navigator.of(context).pop();
-                      Dialogs.showMessage(
-                          context: context,
-                          message: "Syncing Audit calendar data: upload and download",
-                          dismissable: false,
-                          textStyle: ColorDefs.textWhiteTerminal,
-                          bckcolor: ColorDefs.colorDarkBackground);
 
-                      await Provider.of<AuditData>(context, listen: false)
-                          .dataSync(context: context, siteList: siteList, deviceid: deviceid, fullSync: false);
-                      Navigator.of(context).pop();
+                      // /// Schedule data ///
+                      // Dialogs.showMessage(
+                      //     context: context,
+                      //     message: "Syncing Scheduling data: upload and download",
+                      //     dismissable: false,
+                      //     textStyle: ColorDefs.textWhiteTerminal,
+                      //     bckcolor: ColorDefs.colorDarkBackground);
+                      // await Provider.of<ListCalendarData>(context, listen: false)
+                      //     .dataSync(context: context, siteList: siteList, deviceid: deviceid, fullSync: true);
+                      // Navigator.of(context).pop();
 
-                      /// Done with sync
-                      setState(() {
-                        startSync = false;
-                      });
+                      // /// Audit Data ///
+                      // // Navigator.of(context).pop();
+                      // Dialogs.showMessage(
+                      //     context: context,
+                      //     message: "Syncing Audit calendar data: upload and download",
+                      //     dismissable: false,
+                      //     textStyle: ColorDefs.textWhiteTerminal,
+                      //     bckcolor: ColorDefs.colorDarkBackground);
+
+                      // await Provider.of<AuditData>(context, listen: false)
+                      //     .dataSync(context: context, siteList: siteList, deviceid: deviceid, fullSync: true);
+                      // Navigator.of(context).pop();
+
+                      // /// Done with sync
+                      // setState(() {
+                      //   startSync = false;
+                      // });
                     },
                     child: Container(
                       height: 35.4,
@@ -165,7 +245,7 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
                           Icon(Icons.sync, color: ColorDefs.colorAudit2),
-                          Center(child: Text("Sync", style: ColorDefs.textBodyBlue20)),
+                          Center(child: Text("Prep Full Download", style: ColorDefs.textBodyBlue20)),
                           Container(
                             height: 20,
                             width: 20,
@@ -183,108 +263,47 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                       child: Center(child: Text("", style: ColorDefs.textBodyBlue20))),
                   GestureDetector(
                     onTap: () async {
-                      // Sync all data
-                      setState(() {
-                        startSync = true;
-                      });
-                      //// Site Data /////
-                      Dialogs.showMessage(context: context, message: "Syncing Site Data", dismissable: false);
-                      String deviceid = Provider.of<GeneralData>(context, listen: false).deviceid;
-                      await Provider.of<SiteData>(context, listen: false).siteSync();
+                      Function callBack = () async {
+                        setState(() {
+                          startSync = true;
+                        });
+                        //// Site Data /////
 
-                      SiteList siteList = Provider.of<SiteData>(context, listen: false).siteList;
-                      Navigator.of(context).pop();
+                        String deviceid = Provider.of<GeneralData>(context, listen: false).deviceid;
 
-                      /// Schedule data ///
-                      Dialogs.showMessage(
+                        Dialogs.showMessage(
+                            context: context,
+                            message: "Force Uploading Scheduled Data:",
+                            dismissable: false,
+                            textStyle: ColorDefs.textWhiteTerminal,
+                            bckcolor: ColorDefs.colorDarkBackground);
+                        await Provider.of<ListCalendarData>(context, listen: false).forceScheduleDataUpload(
+                          deviceid: deviceid,
+                        );
+                        Navigator.of(context).pop();
+
+                        Dialogs.showMessage(
+                            context: context,
+                            message: "Force Uploading Audit Data:",
+                            dismissable: false,
+                            textStyle: ColorDefs.textWhiteTerminal,
+                            bckcolor: ColorDefs.colorDarkBackground);
+
+                        await Provider.of<AuditData>(context, listen: false).forceAuditDataUpload(
+                          deviceid: deviceid,
+                        );
+                        Navigator.of(context).pop();
+
+                        /// Done with sync
+                        setState(() {
+                          startSync = false;
+                        });
+                      };
+                      await Dialogs.messageContinue(
                           context: context,
-                          message: "Syncing Scheduling data: upload and download",
-                          dismissable: false,
-                          textStyle: ColorDefs.textWhiteTerminal,
-                          bckcolor: ColorDefs.colorDarkBackground);
-                      await Provider.of<ListCalendarData>(context, listen: false)
-                          .dataSync(context: context, siteList: siteList, deviceid: deviceid, fullSync: true);
-                      Navigator.of(context).pop();
-
-                      /// Audit Data ///
-                      // Navigator.of(context).pop();
-                      Dialogs.showMessage(
-                          context: context,
-                          message: "Syncing Audit calendar data: upload and download",
-                          dismissable: false,
-                          textStyle: ColorDefs.textWhiteTerminal,
-                          bckcolor: ColorDefs.colorDarkBackground);
-
-                      await Provider.of<AuditData>(context, listen: false)
-                          .dataSync(context: context, siteList: siteList, deviceid: deviceid, fullSync: true);
-                      Navigator.of(context).pop();
-
-                      /// Done with sync
-                      setState(() {
-                        startSync = false;
-                      });
-                    },
-                    child: Container(
-                      height: 35.4,
-                      width: double.infinity,
-                      color: ColorDefs.colorTopDrawerAlternating,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          Icon(Icons.sync, color: ColorDefs.colorAudit2),
-                          Center(child: Text("Full Download", style: ColorDefs.textBodyBlue20)),
-                          Container(
-                            height: 20,
-                            width: 20,
-                            child: startSync
-                                ? CircularProgressIndicator()
-                                : Icon(Icons.sync, color: ColorDefs.colorTopDrawerBackground),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Container(
-                      height: 35.4,
-                      width: double.infinity,
-                      child: Center(child: Text("", style: ColorDefs.textBodyBlue20))),
-                  GestureDetector(
-                    onTap: () async {
-                      // Sync all data
-                      setState(() {
-                        startSync = true;
-                      });
-                      //// Site Data /////
-
-                      String deviceid = Provider.of<GeneralData>(context, listen: false).deviceid;
-
-                      Dialogs.showMessage(
-                          context: context,
-                          message: "Force Uploading Scheduled Data:",
-                          dismissable: false,
-                          textStyle: ColorDefs.textWhiteTerminal,
-                          bckcolor: ColorDefs.colorDarkBackground);
-                      await Provider.of<ListCalendarData>(context, listen: false).forceScheduleDataUpload(
-                        deviceid: deviceid,
-                      );
-                      Navigator.of(context).pop();
-
-                      Dialogs.showMessage(
-                          context: context,
-                          message: "Force Uploading Audit Data:",
-                          dismissable: false,
-                          textStyle: ColorDefs.textWhiteTerminal,
-                          bckcolor: ColorDefs.colorDarkBackground);
-
-                      await Provider.of<AuditData>(context, listen: false).forceAuditDataUpload(
-                        deviceid: deviceid,
-                      );
-                      Navigator.of(context).pop();
-
-                      /// Done with sync
-                      setState(() {
-                        startSync = false;
-                      });
+                          continueCallBack: callBack,
+                          message:
+                              "This will prepare your local database to upload all calendar events, and all completed audits. After this is pressed, you'll have to sync using the normal method. Would you like to continue?");
                     },
                     child: Container(
                       height: 35.4,
@@ -312,12 +331,18 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                       child: Center(child: Text("", style: ColorDefs.textBodyBlue20))),
                   GestureDetector(
                     onTap: () async {
-                      // Sync all data
-                      Navigator.of(context).pop();
-                      Navigator.push<dynamic>(
-                        context,
-                        MaterialPageRoute<dynamic>(builder: (context) => DeveloperMenu()),
-                      );
+                      Function callBack = () {
+                        // Navigator.of(context).pop();
+                        Navigator.of(context).pop();
+                        Navigator.push<dynamic>(
+                          context,
+                          MaterialPageRoute<dynamic>(builder: (context) => DeveloperMenu()),
+                        );
+                      };
+                      await Dialogs.messageContinue(
+                          context: context,
+                          continueCallBack: callBack,
+                          message: "This will open the Developer Menu. Would you like to continue?");
                     },
                     child: Container(
                       height: 35.4,
@@ -457,21 +482,13 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                       child: Center(child: Text("", style: ColorDefs.textBodyBlue20))),
                   GestureDetector(
                     onTap: () async {
-                      deleteAuditDB();
-                      // List<dynamic> result = Provider.of<AuditData>(context, listen: false).auditBox.keys.toList();
-
-                      // for (dynamic key in result) {
-                      //   String keyString = key as String;
-                      //   Provider.of<AuditData>(context, listen: false).auditBox.delete(keyString);
-                      // }
-                      // result = Provider.of<AuditData>(context, listen: false).auditOutBox.keys.toList();
-
-                      // for (dynamic key in result) {
-                      //   String keyString = key as String;
-                      //   Provider.of<AuditData>(context, listen: false).auditOutBox.delete(keyString);
-                      // }
-                      // result = <String>["All Audit data deleted"];
-                      // setState(() {});
+                      Function callBack = () {
+                        deleteAuditDB();
+                      };
+                      await Dialogs.messageContinue(
+                          context: context,
+                          continueCallBack: callBack,
+                          message: "This will delete the local Audit database. Would you like to continue?");
                     },
                     child: Container(
                       height: 35.4,
@@ -499,7 +516,13 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                       child: Center(child: Text("", style: ColorDefs.textBodyBlue20))),
                   GestureDetector(
                     onTap: () async {
-                      deleteListCalendarDB();
+                      Function callBack = () {
+                        deleteListCalendarDB();
+                      };
+                      await Dialogs.messageContinue(
+                          context: context,
+                          continueCallBack: callBack,
+                          message: "This will delete the local Calendar database. Would you like to continue?");
                     },
                     child: Container(
                       height: 35.4,

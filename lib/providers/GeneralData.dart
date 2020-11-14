@@ -25,6 +25,7 @@ class GeneralData with ChangeNotifier {
   Box generalBox;
   bool generalInitialized = false;
   bool alreadyStarted = false;
+  bool prepFullDownload = false;
   ScrollController questionScrollController = ScrollController();
 
   //SchedulingPage

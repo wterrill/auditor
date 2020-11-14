@@ -715,9 +715,11 @@ class AuditData with ChangeNotifier {
       Audit anotherEvent = preResult.clone();
 
       DateTime temp = DateTime.parse(anotherEvent.calendarResult.startTime);
-      auditOutBox.put(
-          '${temp.toString()}-${anotherEvent.calendarResult.agencyNumber}-${anotherEvent.calendarResult.programNum}-${anotherEvent.calendarResult.auditor}-${anotherEvent.calendarResult.auditType}',
-          anotherEvent);
+      if (preResult.completed == true) {
+        auditOutBox.put(
+            '${temp.toString()}-${anotherEvent.calendarResult.agencyNumber}-${anotherEvent.calendarResult.programNum}-${anotherEvent.calendarResult.auditor}-${anotherEvent.calendarResult.auditType}',
+            anotherEvent);
+      }
     }
     // sendAuditsToCloud(deviceid);
     print("test");

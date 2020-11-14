@@ -30,21 +30,25 @@ class DeveloperMenu extends StatelessWidget {
     DateTime selectedDate;
     TimeOfDay selectedTime;
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            child: FlatButton(
-                color: Colors.red,
-                child: Text("Navigate back"),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                  Navigator.push<dynamic>(
-                    context,
-                    MaterialPageRoute<dynamic>(builder: (context) => ListSchedulingPage()),
-                  );
-                }),
-          ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              child: FlatButton(
+                  color: Colors.green,
+                  child: Text("Navigate back"),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    Navigator.push<dynamic>(
+                      context,
+                      MaterialPageRoute<dynamic>(builder: (context) => ListSchedulingPage()),
+                    );
+                  }),
+            ),
+            SizedBox(
+              height: 20,
+            ),
 //          Container(
 //            child: FlatButton(
 //                color: Colors.red,
@@ -69,190 +73,200 @@ class DeveloperMenu extends StatelessWidget {
 //              },
 //            ),
 //          ),
-          FlatButton(
-            color: Colors.red,
-            child: Text("finger signing"),
-            onPressed: () {
-              Navigator.push<dynamic>(
-                context,
-                MaterialPageRoute<dynamic>(builder: (context) => FingerSign()),
-              );
-            },
-          ),
+            FlatButton(
+              color: Colors.red,
+              child: Text("finger signing"),
+              onPressed: () {
+                Navigator.push<dynamic>(
+                  context,
+                  MaterialPageRoute<dynamic>(builder: (context) => FingerSign()),
+                );
+              },
+            ),
 
-          FlatButton(
-            color: Colors.red,
-            child: Text("Look Ahead"),
-            onPressed: () {
-              Navigator.push<dynamic>(
-                context,
-                MaterialPageRoute<dynamic>(builder: (context) => LookAhead()),
-              );
-            },
-          ),
+            FlatButton(
+              color: Colors.red,
+              child: Text("Look Ahead"),
+              onPressed: () {
+                Navigator.push<dynamic>(
+                  context,
+                  MaterialPageRoute<dynamic>(builder: (context) => LookAhead()),
+                );
+              },
+            ),
 
-          FlatButton(
-            color: Colors.red,
-            child: Text("Pdf generation and display"),
-            onPressed: () {
-              Navigator.push<dynamic>(
-                context,
-                MaterialPageRoute<dynamic>(builder: (context) => PdfDemo()),
-              );
-            },
-          ),
+            FlatButton(
+              color: Colors.red,
+              child: Text("Pdf generation and display"),
+              onPressed: () {
+                Navigator.push<dynamic>(
+                  context,
+                  MaterialPageRoute<dynamic>(builder: (context) => PdfDemo()),
+                );
+              },
+            ),
 
-          FlatButton(
-            color: Colors.red,
-            child: Text("Date picker"),
-            onPressed: () async {
-              selectedDate = await showDatePicker(
-                context: context,
-                initialDate: (selectedDate != null) ? selectedDate : DateTime.now(),
-                firstDate: DateTime(2018),
-                lastDate: DateTime(2030),
-                builder: (BuildContext context, Widget child) {
-                  return Theme(
-                    data: ThemeData.dark(),
-                    child: child,
-                  );
-                },
-              );
-              print(selectedDate);
-            },
-          ),
+            FlatButton(
+              color: Colors.red,
+              child: Text("Date picker"),
+              onPressed: () async {
+                selectedDate = await showDatePicker(
+                  context: context,
+                  initialDate: (selectedDate != null) ? selectedDate : DateTime.now(),
+                  firstDate: DateTime(2018),
+                  lastDate: DateTime(2030),
+                  builder: (BuildContext context, Widget child) {
+                    return Theme(
+                      data: ThemeData.dark(),
+                      child: child,
+                    );
+                  },
+                );
+                print(selectedDate);
+              },
+            ),
 
-          FlatButton(
-            color: Colors.red,
-            child: Text("TextTesting"),
-            onPressed: () async {
-              // Navigator.push(TextTest());
+            FlatButton(
+              color: Colors.red,
+              child: Text("TextTesting"),
+              onPressed: () async {
+                // Navigator.push(TextTest());
 
-              Navigator.push<dynamic>(
-                context,
-                MaterialPageRoute<dynamic>(builder: (context) => TextTest()),
-              );
-            },
-          ),
+                Navigator.push<dynamic>(
+                  context,
+                  MaterialPageRoute<dynamic>(builder: (context) => TextTest()),
+                );
+              },
+            ),
 
-          FlatButton(
-            color: Colors.red,
-            child: Text("Time picker"),
-            onPressed: () async {
-              selectedTime = await showTimePicker(
-                context: context,
-                initialTime: (selectedTime != null) ? selectedTime : TimeOfDay(hour: 10, minute: 0),
-                builder: (BuildContext context, Widget child) {
-                  return Directionality(
-                    textDirection: TextDirection.ltr,
-                    child: child,
-                  );
-                },
-              );
-              print(selectedTime);
-            },
-          ),
+            FlatButton(
+              color: Colors.red,
+              child: Text("Time picker"),
+              onPressed: () async {
+                selectedTime = await showTimePicker(
+                  context: context,
+                  initialTime: (selectedTime != null) ? selectedTime : TimeOfDay(hour: 10, minute: 0),
+                  builder: (BuildContext context, Widget child) {
+                    return Directionality(
+                      textDirection: TextDirection.ltr,
+                      child: child,
+                    );
+                  },
+                );
+                print(selectedTime);
+              },
+            ),
 
-          // FlatButton(
-          //   color: Colors.red,
-          //   child: Text("videogame"),
-          //   onPressed: () {
-          //     Navigator.push<dynamic>(
-          //       context,
-          //       MaterialPageRoute<dynamic>(builder: (context) => VideoGame()),
-          //     );
-          //   },
-          // ),
-          FlatButton(
-            color: Colors.red,
-            child: Text("hive test"),
-            onPressed: () {
-              Navigator.push<dynamic>(
-                context,
-                MaterialPageRoute<dynamic>(
-                  builder: (context) => FutureBuilder<dynamic>(
-                    future: Hive.openBox<Contact>('contacts'),
-                    builder: (BuildContext context, AsyncSnapshot snapshot) {
-                      if (snapshot.connectionState == ConnectionState.done) {
-                        if (snapshot.hasError) {
-                          return Text(snapshot.error.toString());
-                        }
-                        return HiveTest();
-                      } else
-                        return Scaffold();
-                    },
+            // FlatButton(
+            //   color: Colors.red,
+            //   child: Text("videogame"),
+            //   onPressed: () {
+            //     Navigator.push<dynamic>(
+            //       context,
+            //       MaterialPageRoute<dynamic>(builder: (context) => VideoGame()),
+            //     );
+            //   },
+            // ),
+            FlatButton(
+              color: Colors.red,
+              child: Text("hive test"),
+              onPressed: () {
+                Navigator.push<dynamic>(
+                  context,
+                  MaterialPageRoute<dynamic>(
+                    builder: (context) => FutureBuilder<dynamic>(
+                      future: Hive.openBox<Contact>('contacts'),
+                      builder: (BuildContext context, AsyncSnapshot snapshot) {
+                        if (snapshot.connectionState == ConnectionState.done) {
+                          if (snapshot.hasError) {
+                            return Text(snapshot.error.toString());
+                          }
+                          return HiveTest();
+                        } else
+                          return Scaffold();
+                      },
+                    ),
                   ),
-                ),
-              );
-            },
-          ),
-          FlatButton(
-            color: Colors.red,
-            child: Text("Network Information"),
-            onPressed: () {
-              Navigator.push<dynamic>(
-                context,
-                MaterialPageRoute<dynamic>(builder: (context) => TestAuthentication()),
-              );
-            },
-          ),
-          FlatButton(
-            color: Colors.red,
-            child: Text("show device ID"),
-            onPressed: () {
-              String deviceid = Provider.of<GeneralData>(context, listen: false).deviceid;
-              Dialogs.showid(context, deviceid);
-            },
-          ),
-          RaisedButton(
+                );
+              },
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            FlatButton(
+              color: Colors.red,
+              child: Text("Network Information"),
               onPressed: () {
                 Navigator.push<dynamic>(
                   context,
-                  MaterialPageRoute<dynamic>(builder: (context) => HiveTroubleShooting()),
+                  MaterialPageRoute<dynamic>(builder: (context) => TestAuthentication()),
                 );
               },
-              child: Text("Hive Troubleshooting")),
-          RaisedButton(
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            FlatButton(
+              color: Colors.red,
+              child: Text("show device ID"),
               onPressed: () {
-                Navigator.push<dynamic>(
-                  context,
-                  MaterialPageRoute<dynamic>(builder: (context) => DatabaseDetails()),
-                );
+                String deviceid = Provider.of<GeneralData>(context, listen: false).deviceid;
+                Dialogs.showid(context, deviceid);
               },
-              child: Text("Database Details")),
-          RaisedButton(
-              onPressed: () {
-                Navigator.push<dynamic>(
-                  context,
-                  MaterialPageRoute<dynamic>(builder: (context) => ProductDetails()),
-                );
-              },
-              child: Text("Scroll changes testing")),
-          RaisedButton(
-              onPressed: () {
-                Navigator.push<dynamic>(
-                  context,
-                  MaterialPageRoute<dynamic>(builder: (context) => ClayContainerEx()),
-                );
-              },
-              child: Text("Clay Container testing")),
-          RaisedButton(
-              onPressed: () {
-                Navigator.push<dynamic>(
-                  context,
-                  MaterialPageRoute<dynamic>(builder: (context) => BiggerOne()),
-                );
-              },
-              child: Text("Widget size and position")),
-          RaisedButton(
-              onPressed: () {
-                Navigator.push<dynamic>(
-                  context,
-                  MaterialPageRoute<dynamic>(builder: (context) => MyPainter()),
-                );
-              },
-              child: Text("Canvas")),
-        ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            RaisedButton(
+                onPressed: () {
+                  Navigator.push<dynamic>(
+                    context,
+                    MaterialPageRoute<dynamic>(builder: (context) => HiveTroubleShooting()),
+                  );
+                },
+                child: Text("Hive Troubleshooting")),
+            RaisedButton(
+                onPressed: () {
+                  Navigator.push<dynamic>(
+                    context,
+                    MaterialPageRoute<dynamic>(builder: (context) => DatabaseDetails()),
+                  );
+                },
+                child: Text("Database Details")),
+            RaisedButton(
+                onPressed: () {
+                  Navigator.push<dynamic>(
+                    context,
+                    MaterialPageRoute<dynamic>(builder: (context) => ProductDetails()),
+                  );
+                },
+                child: Text("Scroll changes testing")),
+            RaisedButton(
+                onPressed: () {
+                  Navigator.push<dynamic>(
+                    context,
+                    MaterialPageRoute<dynamic>(builder: (context) => ClayContainerEx()),
+                  );
+                },
+                child: Text("Clay Container testing")),
+            RaisedButton(
+                onPressed: () {
+                  Navigator.push<dynamic>(
+                    context,
+                    MaterialPageRoute<dynamic>(builder: (context) => BiggerOne()),
+                  );
+                },
+                child: Text("Widget size and position")),
+            RaisedButton(
+                onPressed: () {
+                  Navigator.push<dynamic>(
+                    context,
+                    MaterialPageRoute<dynamic>(builder: (context) => MyPainter()),
+                  );
+                },
+                child: Text("Canvas")),
+          ],
+        ),
       ),
     );
   }
