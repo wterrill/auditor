@@ -101,6 +101,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     Widget screen;
     if (Provider.of<GeneralData>(context).rememberMe == true) {
+      if (Provider.of<GeneralData>(context, listen: false).username.toLowerCase().contains("mxotestaud1") &&
+          !Provider.of<GeneralData>(context, listen: false).alreadyStarted) {
+        Provider.of<GeneralData>(context, listen: false).portNumber = "90";
+        Provider.of<GeneralData>(context, listen: false).alreadyStarted = true;
+      }
       screen = ListSchedulingPage();
     } else {
       screen = LoginScreen();

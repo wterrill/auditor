@@ -44,17 +44,22 @@ class _YesNoNaQuestionState extends State<YesNoNaQuestion> {
                     Dialogs.showMessage(
                         context: context,
                         message: "This audit has already been submitted, and cannot be edited",
-                        dismissable: true);
+                        dismissable: true,
+                        textStyle: ColorDefs.textWhiteTerminal,
+                        bckcolor: ColorDefs.colorDarkBackground);
                   } else {
                     String result =
                         setQuestionValue(widget.activeSection.questions[index].userResponse as String, "Yes");
                     widget.activeSection.questions[index].userResponse = result;
                     Provider.of<AuditData>(context, listen: false)
                         .updateSectionStatus(checkSectionDone(widget.activeSection));
-                    Provider.of<AuditData>(context, listen: false)
-                        .tallySingleQuestion(index: index, section: activeSection, audit: widget.activeAudit);
+                    if (widget.activeAudit.calendarResult.programType == "Pantry" ||
+                        widget.activeAudit.calendarResult.programType == "Congregate") {
+                      Provider.of<AuditData>(context, listen: false)
+                          .tallySingleQuestion(index: index, section: activeSection, audit: widget.activeAudit);
+                    }
                     Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
-                    Provider.of<AuditData>(context, listen: false).saveAuditLocally(thisAudit);
+                    Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
                     setState(() {});
                   }
                 },
@@ -74,17 +79,22 @@ class _YesNoNaQuestionState extends State<YesNoNaQuestion> {
                     Dialogs.showMessage(
                         context: context,
                         message: "This audit has already been submitted, and cannot be edited",
-                        dismissable: true);
+                        dismissable: true,
+                        textStyle: ColorDefs.textWhiteTerminal,
+                        bckcolor: ColorDefs.colorDarkBackground);
                   } else {
                     String result =
                         setQuestionValue(widget.activeSection.questions[index].userResponse as String, "No");
                     widget.activeSection.questions[index].userResponse = result;
                     Provider.of<AuditData>(context, listen: false)
                         .updateSectionStatus(checkSectionDone(widget.activeSection));
-                    Provider.of<AuditData>(context, listen: false)
-                        .tallySingleQuestion(index: index, section: activeSection, audit: widget.activeAudit);
+                    if (widget.activeAudit.calendarResult.programType == "Pantry" ||
+                        widget.activeAudit.calendarResult.programType == "Congregate") {
+                      Provider.of<AuditData>(context, listen: false)
+                          .tallySingleQuestion(index: index, section: activeSection, audit: widget.activeAudit);
+                    }
                     Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
-                    Provider.of<AuditData>(context, listen: false).saveAuditLocally(thisAudit);
+                    Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
                     setState(() {});
                   }
                 },
@@ -106,17 +116,22 @@ class _YesNoNaQuestionState extends State<YesNoNaQuestion> {
                     Dialogs.showMessage(
                         context: context,
                         message: "This audit has already been submitted, and cannot be edited",
-                        dismissable: true);
+                        dismissable: true,
+                        textStyle: ColorDefs.textWhiteTerminal,
+                        bckcolor: ColorDefs.colorDarkBackground);
                   } else {
                     String result =
                         setQuestionValue(widget.activeSection.questions[index].userResponse as String, 'N/A');
                     widget.activeSection.questions[index].userResponse = result;
                     Provider.of<AuditData>(context, listen: false)
                         .updateSectionStatus(checkSectionDone(widget.activeSection));
-                    Provider.of<AuditData>(context, listen: false)
-                        .tallySingleQuestion(index: index, section: activeSection, audit: widget.activeAudit);
+                    if (widget.activeAudit.calendarResult.programType == "Pantry" ||
+                        widget.activeAudit.calendarResult.programType == "Congregate") {
+                      Provider.of<AuditData>(context, listen: false)
+                          .tallySingleQuestion(index: index, section: activeSection, audit: widget.activeAudit);
+                    }
                     Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
-                    Provider.of<AuditData>(context, listen: false).saveAuditLocally(thisAudit);
+                    Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
                     setState(() {});
                   }
                 },

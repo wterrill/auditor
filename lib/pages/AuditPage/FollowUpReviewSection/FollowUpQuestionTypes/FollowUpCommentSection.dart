@@ -58,7 +58,9 @@ class _FollowUpCommentSectionState extends State<FollowUpCommentSection> {
             Dialogs.showMessage(
                 context: context,
                 message: "This audit has already been submitted, and cannot be edited",
-                dismissable: true);
+                dismissable: true,
+                textStyle: ColorDefs.textWhiteTerminal,
+                bckcolor: ColorDefs.colorDarkBackground);
           } else {
             if (widget.mandatory) {
               if (widget.numKeyboard) {
@@ -84,7 +86,7 @@ class _FollowUpCommentSectionState extends State<FollowUpCommentSection> {
             }
 
             Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
-            Provider.of<AuditData>(context, listen: false).saveAuditLocally(thisAudit);
+            Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
           }
         },
         maxLines: null,

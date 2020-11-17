@@ -173,8 +173,8 @@ class ListCalendarData with ChangeNotifier {
     CalendarResult result = calendarBox.get(truncated) as CalendarResult;
     result.idNum = idNum;
     result.uploaded = true;
+    calendarBox.put(truncated, result);
     print(calendarBox.keys.toList());
-    print("beer");
   }
 
   bool checkAllActiveSent() {
@@ -197,7 +197,7 @@ class ListCalendarData with ChangeNotifier {
     List<String> edited = [];
     List<String> deleted = [];
     for (var i = 0; i < toBeSentKeys.length; i++) {
-      Map<String, dynamic> packaged = calendarOrderedOutBox.get(toBeSentKeys[i]) as Map<String, dynamic>;
+      Map<dynamic, dynamic> packaged = calendarOrderedOutBox.get(toBeSentKeys[i]) as Map<dynamic, dynamic>;
       String type = packaged['type'] as String;
       switch (type) {
         case ("Add"):
@@ -261,7 +261,6 @@ class ListCalendarData with ChangeNotifier {
       // DateTime temp = DateTime.parse(anotherEvent.startTime);
       addCalendarOrderedItem(anotherEvent, "Add");
     }
-    // sendScheduledToCloud(deviceid); ///  / / / / / / / / / / / / / / / / / / / / / / /  <<<<<<<
     print("done");
   }
 
@@ -389,7 +388,7 @@ class ListCalendarData with ChangeNotifier {
     Future calEventToBeDeletedFuture = Hive.openBox<CalendarResult>('calToBeDeletedBox');
     Future auditorsListBoxFuture = Hive.openBox<AuditorList>('auditorsListBox');
     Future calendarEditOutBoxFuture = Hive.openBox<CalendarResult>('calendarEditOutBox');
-    Future calendarOrderedOutBoxFuture = Hive.openBox<Map<String, dynamic>>('calendarOrderedOutBox');
+    Future calendarOrderedOutBoxFuture = Hive.openBox<Map<dynamic, dynamic>>('calendarOrderedOutBox');
     Future.wait<dynamic>([
       calendarFuture,
       calToBeSentBoxFuture,
@@ -403,7 +402,7 @@ class ListCalendarData with ChangeNotifier {
       print(value.runtimeType);
       calendarBox = Hive.box<CalendarResult>('calendarBox');
       auditorsListBox = Hive.box<AuditorList>('auditorsListBox');
-      calendarOrderedOutBox = Hive.box<Map<String, dynamic>>('calendarOrderedOutBox');
+      calendarOrderedOutBox = Hive.box<Map<dynamic, dynamic>>('calendarOrderedOutBox');
       loadAuditorsFromBox();
       initializedx = true;
       notifyListeners();
@@ -452,9 +451,9 @@ class ListCalendarData with ChangeNotifier {
         '${temp.toString()}-${calendarResult.agencyNumber}-${calendarResult.programNum}-${calendarResult.auditor}-${calendarResult.auditType}:::$typeOfOperation',
         packaged);
     print(calendarOrderedOutBox.keys.toList());
-    Map<String, dynamic> test = calendarOrderedOutBox.get(
-            '${temp.toString()}-${calendarResult.agencyNumber}-${calendarResult.programNum}-${calendarResult.auditor}-${calendarResult.auditType}')
-        as Map<String, dynamic>;
+    Map<dynamic, dynamic> test = calendarOrderedOutBox.get(
+            '${temp.toString()}-${calendarResult.agencyNumber}-${calendarResult.programNum}-${calendarResult.auditor}-${calendarResult.auditType}:::$typeOfOperation')
+        as Map<dynamic, dynamic>;
     print(typeOfOperation);
     print(test);
   }

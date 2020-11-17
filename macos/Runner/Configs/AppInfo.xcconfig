@@ -8,7 +8,7 @@
 PRODUCT_NAME = auditor
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.auditor
+PRODUCT_BUNDLE_IDENTIFIER = com.terrilltech.auditor
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2020 com.example. All rights reserved.

@@ -88,105 +88,12 @@ class _FillInEmailState extends State<FillInEmail> {
                           ? "Enter Person Interviewed for this Audit "
                           : "Enter Site Contact Email(s) separated by ';'"),
                   controller: controller,
-                  onChanged: (value) {
-                    // widget.activeSection.questions[index].userResponse = value;
-
-                    // Provider.of<AuditData>(context, listen: false).contactEmail = value;
-
-                    // if (value.length > 0) {
-                    //   if (Provider.of<GeneralData>(context, listen: false).confirmButtonEnabled == false) {
-                    //     if (Provider.of<GeneralData>(context, listen: false).personInterviewed != null &&
-                    //         Provider.of<GeneralData>(context, listen: false).personInterviewed != "") {
-                    //       Provider.of<GeneralData>(context, listen: false).enableConfirmButton();
-                    //     }
-                    //   }
-                    // }
-                    // if ((!emailValidated(value) &&
-                    //         Provider.of<GeneralData>(context, listen: false).confirmButtonEnabled == true) ||
-                    //     Provider.of<AuditData>(context, listen: false).activeAudit.calendarResult.status !=
-                    //         "Scheduled") {
-                    //   Provider.of<GeneralData>(context, listen: false).disableConfirmButton();
-                    // }
-                  },
+                  onChanged: (value) {},
                 ),
               ),
             )
-            // GestureDetector(
-            //   onTap: () {
-            //     if (Provider.of<AuditData>(context, listen: false)
-            //             .activeAudit
-            //             .calendarResult
-            //             .status !=
-            //         "Scheduled") {
-            //       Dialogs.showMessage(
-            //           context: context,
-            //           message:
-            //               "This audit has already been submitted, and cannot be edited",
-            //           dismissable: true);
-            //     } else {
-            //       String result = setQuestionValue(
-            //           widget.activeSection.questions[index].userResponse
-            //               as String,
-            //           'N/A');
-            //       widget.activeSection.questions[index].userResponse = result;
-            //       Provider.of<AuditData>(context, listen: false)
-            //           .updateSectionStatus(
-            //               checkSectionDone(widget.activeSection));
-            //       Audit thisAudit =
-            //           Provider.of<AuditData>(context, listen: false)
-            //               .activeAudit;
-            //       Provider.of<AuditData>(context, listen: false)
-            //           .saveAuditLocally(thisAudit);
-            //       setState(() {});
-            //     }
-            //   },
-            //   child: Padding(
-            //     padding: EdgeInsets.fromLTRB(0, 0, 0, 8.0),
-            //     child: Container(
-            //       margin: EdgeInsets.symmetric(horizontal: 4.0),
-            //       decoration: BoxDecoration(
-            //         color: buttonColorPicker(
-            //             widget.activeSection.questions[index], 'N/A'),
-            //         borderRadius: BorderRadius.circular(20.0),
-            //         // border:
-            //         //     Border.all(width: 2.0, color: Colors.grey)
-            //       ),
-            //       width: 80,
-            //       child: Center(
-            //           child: Text("N/A", style: ColorDefs.textBodyBlack20)),
-            //     ),
-            //   ),
-            // ),
-            // GestureDetector(
-            //   onTap: () {
-            //     widget.activeSection.questions[index].textBoxRollOut =
-            //         !widget.activeSection.questions[index].textBoxRollOut;
-            //     Audit thisAudit =
-            //         Provider.of<AuditData>(context, listen: false).activeAudit;
-            //     Provider.of<AuditData>(context, listen: false)
-            //         .saveAuditLocally(thisAudit);
-            //     Provider.of<AuditData>(context, listen: false)
-            //         .updateSectionStatus(checkSectionDone(activeSection));
-            //     setState(() {});
-            //   },
-            //   child: Padding(
-            //     padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            //     child: Icon(Icons.chat_bubble,
-            //         color: widget.activeSection.questions[index].userResponse ==
-            //                 null
-            //             ? ColorDefs.colorChatRequired
-            //             // : ColorDefs.colorChatSelected),
-            //             : ColorDefs.colorButtonYes),
-            //   ),
-            // ),
           ],
         ),
-        // CommentSection(
-        //     index: index,
-        //     activeSection: activeSection,
-        //     mandatory: true,
-        //     numKeyboard: false,
-        //     key: UniqueKey())
       ],
     );
   }

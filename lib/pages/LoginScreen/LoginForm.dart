@@ -34,7 +34,7 @@ class _LoginFormState extends State<LoginForm> {
   bool _enabledLoginButton = false;
   var _userController = TextEditingController();
   var _passwordController = TextEditingController();
-  bool rememberMeCheckedValue;
+  // bool rememberMeCheckedValue;
 
   @override
   Widget build(BuildContext context) {
@@ -248,6 +248,10 @@ class _LoginFormState extends State<LoginForm> {
           print("######### CONNECTED Auth #########");
         } else {
           throw ("No internet connection found");
+        }
+        if (_username.toLowerCase().contains("mxotestaud1")) {
+          // This opens the app in TEST mode for an mxotestaud1 account"
+          Provider.of<GeneralData>(context, listen: false).portNumber = "90";
         }
 
         isAuthenticated = await Authentication.authenticate(username: _username, password: _password, context: context);

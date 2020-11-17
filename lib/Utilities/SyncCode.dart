@@ -20,7 +20,7 @@ void totalDataSync(BuildContext context) async {
   String username = Provider.of<GeneralData>(context, listen: false).username;
   String portNumber = Provider.of<GeneralData>(context, listen: false).portNumber;
   bool notATest = true;
-  if (username.toLowerCase().contains("mxotest") && portNumber == "88") {
+  if ((username == null || (username.toLowerCase().contains("mxotestaud1")) && portNumber == "88")) {
     Function callBack = () {
       notATest = false;
     };

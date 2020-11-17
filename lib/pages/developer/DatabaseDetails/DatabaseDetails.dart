@@ -1,6 +1,7 @@
 import 'package:auditor/Definitions/AuditClasses/Audit.dart';
 import 'package:auditor/Definitions/CalendarClasses/CalendarResult.dart';
 import 'package:auditor/Definitions/Dialogs.dart';
+import 'package:auditor/Definitions/colorDefs.dart';
 import 'package:auditor/providers/AuditData.dart';
 import 'package:auditor/providers/ListCalendarData.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,12 @@ class DatabaseDetails extends StatelessWidget {
                     return GestureDetector(
                         onTap: () {
                           Audit gotAudit = auditBox.get(auditBox.keys.toList()[index].toString()) as Audit;
-                          Dialogs.showMessage(context: context, message: gotAudit.toString(), dismissable: true);
+                          Dialogs.showMessage(
+                              context: context,
+                              message: gotAudit.toString(),
+                              dismissable: true,
+                              textStyle: ColorDefs.textWhiteTerminal,
+                              bckcolor: ColorDefs.colorDarkBackground);
                         },
                         child: Text(auditBox.keys.toList()[index].toString()));
                   }),
@@ -47,7 +53,12 @@ class DatabaseDetails extends StatelessWidget {
                     return GestureDetector(
                         onTap: () {
                           Audit gotIt = auditOutBox.get(auditOutBox.keys.toList()[index].toString()) as Audit;
-                          Dialogs.showMessage(context: context, message: gotIt.toString(), dismissable: true);
+                          Dialogs.showMessage(
+                              context: context,
+                              message: gotIt.toString(),
+                              dismissable: true,
+                              textStyle: ColorDefs.textWhiteTerminal,
+                              bckcolor: ColorDefs.colorDarkBackground);
                         },
                         child: Text(auditOutBox.keys.toList()[index].toString()));
                   }),
@@ -63,7 +74,12 @@ class DatabaseDetails extends StatelessWidget {
                         onTap: () {
                           CalendarResult gotIt =
                               calendarBox.get(calendarBox.keys.toList()[index].toString()) as CalendarResult;
-                          Dialogs.showMessage(context: context, message: gotIt.toString(), dismissable: true);
+                          Dialogs.showMessage(
+                              context: context,
+                              message: gotIt.toString(),
+                              dismissable: true,
+                              textStyle: ColorDefs.textWhiteTerminal,
+                              bckcolor: ColorDefs.colorDarkBackground);
                         },
                         child: Text(calendarBox.keys.toList()[index].toString()));
                   }),
@@ -81,7 +97,9 @@ class DatabaseDetails extends StatelessWidget {
                           Dialogs.showMessage(
                               context: context,
                               message: ((gotIt['type'] as String) + " " + (gotIt['calendarResult'].toString())),
-                              dismissable: true);
+                              dismissable: true,
+                              textStyle: ColorDefs.textWhiteTerminal,
+                              bckcolor: ColorDefs.colorDarkBackground);
                         },
                         child: Text(calendarOrderedOutBox.keys.toList()[index].toString()));
                   }),

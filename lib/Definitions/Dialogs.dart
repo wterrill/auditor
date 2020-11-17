@@ -63,7 +63,12 @@ class Dialogs {
     );
   }
 
-  static void showMessage({@required BuildContext context, @required String message, @required bool dismissable}) {
+  static void showMessage(
+      {@required BuildContext context,
+      @required String message,
+      @required TextStyle textStyle,
+      @required bool dismissable,
+      @required Color bckcolor}) {
     AlertDialog alert = AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50.0))),
       elevation: 6.0,
@@ -71,7 +76,7 @@ class Dialogs {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(message, style: ColorDefs.textWhiteTerminal),
+          Text(message, style: textStyle),
         ],
       ),
     );
@@ -79,7 +84,7 @@ class Dialogs {
       barrierDismissible: dismissable,
       context: context,
       builder: (BuildContext context) {
-        return alert;
+        return Theme(data: Theme.of(context).copyWith(dialogBackgroundColor: bckcolor), child: alert);
       },
     );
   }
@@ -186,6 +191,43 @@ class Dialogs {
         ),
         new FlatButton(
           child: Text("No"),
+          onPressed: () {
+            Navigator.of(context).pop(false);
+          },
+        ),
+      ],
+    );
+    await showDialog<void>(
+      barrierDismissible: true,
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  static void messageContinue(
+      {@required BuildContext context, @required Function continueCallBack, @required String message}) async {
+    AlertDialog alert = AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50.0))),
+      elevation: 6.0,
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(message),
+        ],
+      ),
+      actions: <Widget>[
+        new FlatButton(
+          child: new Text("Yes"),
+          onPressed: () {
+            Navigator.of(context).pop(true);
+            continueCallBack();
+          },
+        ),
+        new FlatButton(
+          child: Text("Cancel"),
           onPressed: () {
             Navigator.of(context).pop(false);
           },

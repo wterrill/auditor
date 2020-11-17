@@ -3,15 +3,13 @@ import 'package:auditor/Definitions/AuditClasses/Section.dart';
 import 'package:auditor/Definitions/Dialogs.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
 import 'package:auditor/Definitions/CalendarClasses/CalendarResult.dart';
-// import 'package:auditor/pages/AuditPage/DeveloperPage.dart';
+import 'package:auditor/pages/AuditPage/DeveloperPage.dart';
 import 'package:auditor/pages/AuditPage/PhotoPage.dart';
 import 'package:auditor/providers/AuditData.dart';
 import 'package:auditor/providers/GeneralData.dart';
 import 'package:auditor/providers/ListCalendarData.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-// import 'DeveloperPage.dart';
 import 'FollowUpReviewSection/FollowUpReview.dart';
 import 'ReviewSection/ReviewPage.dart';
 import 'SectionButtons.dart';
@@ -115,6 +113,7 @@ class _AuditPageState extends State<AuditPage> {
                         thickness: 1,
                       ),
                     ),
+
                     if (activeSection?.name == "Review")
                       ReviewPage(
                         activeAudit: activeAudit,
@@ -194,7 +193,8 @@ class _AuditPageState extends State<AuditPage> {
                               }
 
                               activeAudit.calendarResult.status = status;
-                              Provider.of<AuditData>(context, listen: false).saveAuditLocally(activeAudit);
+                              Provider.of<AuditData>(context, listen: false)
+                                  .saveAuditLocally(incomingAudit: activeAudit);
                               // the calendar item needs to be updated due to the status change.
                               Provider.of<ListCalendarData>(context, listen: false)
                                   .addCalendarItem(activeAudit.calendarResult);
@@ -241,7 +241,8 @@ class _AuditPageState extends State<AuditPage> {
                             ),
                             onPressed: () {
                               Provider.of<AuditData>(context, listen: false).toggleStartAudit();
-                              Provider.of<AuditData>(context, listen: false).saveAuditLocally(activeAudit);
+                              Provider.of<AuditData>(context, listen: false)
+                                  .saveAuditLocally(incomingAudit: activeAudit);
                               Provider.of<AuditData>(context, listen: false).resetAudit();
 
                               Navigator.of(context).pop();

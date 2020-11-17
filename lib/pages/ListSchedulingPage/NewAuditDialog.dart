@@ -130,14 +130,18 @@ class _NewAuditDialogState extends State<NewAuditDialog> {
 
     bool identicalEntry() {
       bool identical = false;
+
       if (alreadyExistedCalendarResult != null) {
+        DateTime time = alreadyExistedCalendarResult.startDateTime;
+        DateTime justMidnight = new DateTime(time.year, time.month, time.day, 0, 0, 0, 0, 0);
         if (selectedAuditType == alreadyExistedCalendarResult.auditType &&
             selectedAuditor == alreadyExistedCalendarResult.auditor &&
             selectedProgType == alreadyExistedCalendarResult.programType &&
             selectedProgramNumber == alreadyExistedCalendarResult.programNum &&
             selectedSiteName == alreadyExistedCalendarResult.agencyName &&
             selectedTime.hour == alreadyExistedCalendarResult.startDateTime.hour &&
-            selectedTime.minute == alreadyExistedCalendarResult.startDateTime.minute) {
+            selectedTime.minute == alreadyExistedCalendarResult.startDateTime.minute &&
+            selectedDate == justMidnight) {
           identical = true;
         }
       }
@@ -425,8 +429,10 @@ class _NewAuditDialogState extends State<NewAuditDialog> {
                             Map<String, dynamic> oldAuditCitationsObject;
                             String deviceid = Provider.of<GeneralData>(context, listen: false).deviceid;
                             if (widget.followup) {
+                              SiteList siteList = Provider.of<SiteData>(context, listen: false).siteList;
                               oldAuditCitationsObject = Provider.of<AuditData>(context, listen: false)
-                                  .getAuditCitationsObject(newCalendarResult: widget.calendarResult);
+                                  .getAuditCitationsObject(
+                                      newCalendarResult: widget.calendarResult, siteList: siteList);
 
                               Provider.of<ListCalendarData>(context, listen: false)
                                   .updateStatusOnScheduleToCompleted(alreadyExistedCalendarResult);
@@ -471,6 +477,8 @@ class _NewAuditDialogState extends State<NewAuditDialog> {
                               Dialogs.showMessage(
                                   context: context,
                                   dismissable: true,
+                                  textStyle: ColorDefs.textWhiteTerminal,
+                                  bckcolor: ColorDefs.colorDarkBackground,
                                   message:
                                       "An audit exists at this location for the same time and same auditor. \nPlease check your entry and try again.");
                             }

@@ -29,6 +29,15 @@ class SiteList extends HiveObject {
     return "SITE NOT FOUND agencyNameFromProgramNumber";
   }
 
+  String agencyNumberFromProgramNumber(String programNumber) {
+    for (Site site in siteList) {
+      if (site.programNumber == programNumber) {
+        return site.agencyNumber;
+      }
+    }
+    return "SITE NOT FOUND agencyNameFromProgramNumber";
+  }
+
   Site getSiteFromProgramNumber({String programNumber}) {
     Site site;
     for (Site site in siteList) {

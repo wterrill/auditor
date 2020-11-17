@@ -17,13 +17,15 @@ class CommentSection extends StatefulWidget {
   final bool mandatory;
   final bool numKeyboard;
   final Function bubbleCallback;
+  int characterLimit = -1;
   CommentSection(
       {Key key,
       @required this.index,
       @required this.activeSection,
       @required this.mandatory,
       @required this.numKeyboard,
-      @required this.bubbleCallback})
+      @required this.bubbleCallback,
+      this.characterLimit})
       : super(key: key);
 
   @override
@@ -73,8 +75,21 @@ class _CommentSectionState extends State<CommentSection> {
               Dialogs.showMessage(
                   context: context,
                   message: "This audit has already been submitted, and cannot be edited",
-                  dismissable: true);
+                  dismissable: true,
+                  textStyle: ColorDefs.textWhiteTerminal,
+                  bckcolor: ColorDefs.colorDarkBackground);
             } else {
+              if (widget.characterLimit != -1) {
+                if (value.length > widget.characterLimit - 2) {
+                  Dialogs.showMessage(
+                      context: context,
+                      message:
+                          "This comment field has an upper limit of ${widget.characterLimit} characters. Please edit.",
+                      dismissable: true,
+                      textStyle: ColorDefs.textWhiteTerminal,
+                      bckcolor: ColorDefs.colorDarkBackground);
+                }
+              }
               if (widget.mandatory) {
                 if (widget.numKeyboard) {
                   try {
@@ -87,22 +102,12 @@ class _CommentSectionState extends State<CommentSection> {
                 } else {
                   widget.activeSection.questions[index].userResponse = value;
                 }
-                // if (activeSection.name != "Confirm Details") {
-                //   Status sectionStatus = checkSectionDone(activeSection);
-                //   // Provider.of<AuditData>(context, listen: false)
-                //   //     .updateSectionStatus(sectionStatus);
-                // } else {
-                //   Provider.of<AuditData>(context, listen: false)
-                //       .activeAudit
-                //       .activateConfirmDetails = true;
-                // }
               } else {
                 widget.activeSection.questions[index].optionalComment = value;
               }
 
               Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
-              Provider.of<AuditData>(context, listen: false).saveAuditLocally(thisAudit);
-              // Provider.of<SiteData>(context, listen: false).notifyTheListeners();
+              Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
               widget.bubbleCallback(value);
             }
           },

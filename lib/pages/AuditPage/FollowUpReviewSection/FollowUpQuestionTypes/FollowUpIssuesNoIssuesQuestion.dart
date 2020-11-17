@@ -1,9 +1,11 @@
 // import 'package:auditor/Definitions/AuditClasses/Audit.dart';
 import 'package:auditor/Definitions/AuditClasses/Question.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
+import 'package:auditor/providers/AuditData.dart';
 // import 'package:auditor/providers/AuditData.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 // import 'package:provider/provider.dart';
 
 import 'FollowUpCommentSection.dart';
@@ -23,12 +25,10 @@ class FollowUpIssuesNoIssuesQuestion extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _FollowUpIssuesNoIssuesQuestionState createState() =>
-      _FollowUpIssuesNoIssuesQuestionState();
+  _FollowUpIssuesNoIssuesQuestionState createState() => _FollowUpIssuesNoIssuesQuestionState();
 }
 
-class _FollowUpIssuesNoIssuesQuestionState
-    extends State<FollowUpIssuesNoIssuesQuestion> {
+class _FollowUpIssuesNoIssuesQuestionState extends State<FollowUpIssuesNoIssuesQuestion> {
   @override
   Widget build(BuildContext context) {
     int index = widget.index;
@@ -39,38 +39,31 @@ class _FollowUpIssuesNoIssuesQuestionState
           children: [
             Expanded(
               child: AutoSizeText(widget.citations[index].text,
-                  maxLines: 3,
-                  group: widget.questionAutoGroup,
-                  style: ColorDefs.textBodyBlack20),
+                  maxLines: 3, group: widget.questionAutoGroup, style: ColorDefs.textBodyBlack20),
             ),
 
 ////////
 ////////
             GestureDetector(
               onTap: () {
-                String result = setQuestionValue(
-                    widget.citations[index].userResponse as String,
-                    "No Issues");
+                String result = setQuestionValue(widget.citations[index].userResponse as String, "No Issues");
                 widget.citations[index].userResponse = result;
                 // Provider.of<AuditData>(context, listen: false)
                 //     .updateSectionStatus(
                 //         checkSectionDone(widget.activeSection));
                 // Audit thisAudit =
                 //     Provider.of<AuditData>(context, listen: false).activeAudit;
-                // Provider.of<AuditData>(context, listen: false)
-                //     .saveAuditLocally(thisAudit);
+                Provider.of<AuditData>(context, listen: false).saveAuditLocally();
                 setState(() {});
               },
               child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 4.0),
                 decoration: BoxDecoration(
-                  color:
-                      buttonColorPicker(widget.citations[index], "No Issues"),
+                  color: buttonColorPicker(widget.citations[index], "No Issues"),
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 width: 100,
-                child: Center(
-                    child: Text("No Issues", style: ColorDefs.textBodyBlack20)),
+                child: Center(child: Text("No Issues", style: ColorDefs.textBodyBlack20)),
               ),
             ),
 
@@ -78,16 +71,14 @@ class _FollowUpIssuesNoIssuesQuestionState
 ////////
             GestureDetector(
               onTap: () {
-                String result = setQuestionValue(
-                    widget.citations[index].userResponse as String, "Issues");
+                String result = setQuestionValue(widget.citations[index].userResponse as String, "Issues");
                 widget.citations[index].userResponse = result;
                 // Provider.of<AuditData>(context, listen: false)
                 //     .updateSectionStatus(
                 //         checkSectionDone(widget.activeSection));
                 // Audit thisAudit =
                 //     Provider.of<AuditData>(context, listen: false).activeAudit;
-                // Provider.of<AuditData>(context, listen: false)
-                //     .saveAuditLocally(thisAudit);
+                Provider.of<AuditData>(context, listen: false).saveAuditLocally();
                 setState(() {});
               },
               child: Container(
@@ -99,16 +90,14 @@ class _FollowUpIssuesNoIssuesQuestionState
                   //     Border.all(width: 2.0, color: Colors.grey)
                 ),
                 width: 80,
-                child: Center(
-                    child: Text("Issues", style: ColorDefs.textBodyBlack20)),
+                child: Center(child: Text("Issues", style: ColorDefs.textBodyBlack20)),
               ),
             ),
 ////////
 ////////
             GestureDetector(
               onTap: () {
-                widget.citations[index].textBoxRollOut =
-                    !widget.citations[index].textBoxRollOut;
+                widget.citations[index].textBoxRollOut = !widget.citations[index].textBoxRollOut;
                 setState(() {});
               },
               child: Padding(
@@ -122,11 +111,7 @@ class _FollowUpIssuesNoIssuesQuestionState
           ],
         ),
         FollowUpCommentSection(
-            index: index,
-            citations: widget.citations,
-            key: UniqueKey(),
-            numKeyboard: false,
-            mandatory: false)
+            index: index, citations: widget.citations, key: UniqueKey(), numKeyboard: false, mandatory: false)
       ],
     );
   }

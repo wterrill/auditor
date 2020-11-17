@@ -461,7 +461,8 @@ class _RescheduleFollowUpAuditDialogState extends State<RescheduleFollowUpAuditD
                                 copy_retrieved.calendarResult.startDateTime =
                                     DateTime.parse(newEvent['startTime'] as String);
 
-                                Provider.of<AuditData>(context, listen: false).saveAuditLocally(copy_retrieved);
+                                Provider.of<AuditData>(context, listen: false)
+                                    .saveAuditLocally(incomingAudit: copy_retrieved);
                                 if (widget.calendarResult.auditType == "Follow Up")
                                   Provider.of<ListCalendarData>(context, listen: false)
                                       .deleteCalendarItem(alreadyExistedCalendarResult);
@@ -477,7 +478,9 @@ class _RescheduleFollowUpAuditDialogState extends State<RescheduleFollowUpAuditD
                                   context: context,
                                   dismissable: true,
                                   message:
-                                      "An audit exists at this location for the same time and same auditor. \nPlease check your entry and try again.");
+                                      "An audit exists at this location for the same time and same auditor. \nPlease check your entry and try again.",
+                                  textStyle: ColorDefs.textWhiteTerminal,
+                                  bckcolor: ColorDefs.colorDarkBackground);
                             }
 
                             if (!exists) {
