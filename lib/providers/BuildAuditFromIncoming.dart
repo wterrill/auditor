@@ -10,6 +10,7 @@ import 'package:auditor/Utilities/Conversion.dart';
 import 'package:auditor/main.dart';
 import 'dart:convert';
 import 'package:http/http.dart' show Response, get;
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'dart:typed_data';
 // import 'dart:io';
@@ -104,6 +105,7 @@ Future<dynamic> buildAuditFromIncoming(dynamic fromServer, SiteList siteList) as
           for (Question question in section.questions) {
             // get database variable
             String databaseVar = question.questionMap['databaseVar'] as String;
+            print(databaseVar);
             // see if we can snag the question into the citations
             if (citationDatabaseVarsList.contains(databaseVar)) {
               // found one
@@ -332,6 +334,14 @@ Future<dynamic> buildAuditFromIncoming(dynamic fromServer, SiteList siteList) as
       for (int i = 0; i < newAudit.sections.length; i++) {
         newAudit.sections[i].status = Status.completed;
       }
+      newAudit.completed = true;
+
+      newAudit.calendarResult.endDateTime = DateTime.parse(incomingAudit['EndOfAudit'] as String);
+      print(incomingAudit['EndOfAudit'] as String);
+      print(DateFormat("MM-dd-yyyy HH:mm:ss.000").format(newAudit.calendarResult.endDateTime));
+
+      //   String endOfAudit = DateFormat("HH:mm:ss.000").format(outgoingAudit.calendarResult.endDateTime);
+      // resultMap["EndOfAudit"] = endOfAudit;
 
       if (newAudit != null) {
         newAudits.add(newAudit);

@@ -93,6 +93,7 @@ Map<String, dynamic> buildAuditToSend(Audit outgoingAudit, String deviceidProvid
   String dateOfSiteVisit = outgoingAudit.calendarResult.startDateTime.toString();
 
   String startOfAudit = DateFormat("HH:mm:ss.000").format(outgoingAudit.calendarResult.startDateTime);
+
   try {
     String endOfAudit = DateFormat("HH:mm:ss.000").format(outgoingAudit.calendarResult.endDateTime);
     resultMap["EndOfAudit"] = endOfAudit;

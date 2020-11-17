@@ -252,8 +252,15 @@ class ListCalendarData with ChangeNotifier {
   }
 
   void forceScheduleDataUpload({String deviceid}) {
-    List<dynamic> dynKeys = calendarBox.keys.toList();
+    // delete everyting already in the outbox to prevent multiple sends
+    List<dynamic> dynKeys = calendarOrderedOutBox.keys.toList();
     List<String> toBeSentKeys = List<String>.from(dynKeys);
+    for (var i = 0; i < toBeSentKeys.length; i++) {
+      calendarOrderedOutBox.delete(toBeSentKeys[i]);
+    }
+
+    dynKeys = calendarBox.keys.toList();
+    toBeSentKeys = List<String>.from(dynKeys);
     for (var i = 0; i < toBeSentKeys.length; i++) {
       CalendarResult preResult = calendarBox.get(toBeSentKeys[i]) as CalendarResult;
       CalendarResult anotherEvent = preResult.clone();

@@ -707,8 +707,15 @@ class AuditData with ChangeNotifier {
   // // // // // // // // // // //
 
   void forceAuditDataUpload({String deviceid}) {
-    List<dynamic> dynKeys = auditBox.keys.toList();
+    // delete everyting already in the outbox to prevent multiple sends
+    List<dynamic> dynKeys = auditOutBox.keys.toList();
     List<String> toBeSentKeys = List<String>.from(dynKeys);
+    for (var i = 0; i < toBeSentKeys.length; i++) {
+      auditOutBox.delete(toBeSentKeys[i]);
+    }
+
+    dynKeys = auditBox.keys.toList();
+    toBeSentKeys = List<String>.from(dynKeys);
     for (var i = 0; i < toBeSentKeys.length; i++) {
       print(toBeSentKeys[i]);
       Audit preResult = auditBox.get(toBeSentKeys[i]) as Audit;
