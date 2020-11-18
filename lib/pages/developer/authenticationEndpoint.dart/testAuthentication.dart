@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:auditor/Definitions/Dialogs.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
 import 'package:auditor/pages/ListSchedulingPage/ListSchedulingPage.dart';
 import 'package:auditor/providers/GeneralData.dart';
@@ -390,39 +391,53 @@ class _TestAuthenticationState extends State<TestAuthentication> {
       });
     }
 
-    void deleteEverything() {
+    void deleteEverything() async {
       String portNumber = Provider.of<GeneralData>(context, listen: false).portNumber;
       result = "";
-
-      if (isNtlm) {
-        sender = client.get("http://12.216.81.220:$portNumber/api/Audit/DeleteAll");
-      } else {
-        sender = http.get("http://12.216.81.220:$portNumber/api/Audit/DeleteAlls");
+      bool doIt = false;
+      if (portNumber == "88") {
+        Function callBack = () {
+          doIt = true;
+        };
+        await Dialogs.messageContinue(
+            context: context,
+            continueCallBack: callBack,
+            message: "THIS WILL ERASE ALL THE DATA ON THE PRODUCTION SERVER. ARE YOU SURE YOU WANT TO DO THIS!");
+      } else if (portNumber == '90') {
+        doIt = true;
       }
-      sender.then(
-        (http.Response res) {
-          print(res.body);
+
+      if (doIt) {
+        if (isNtlm) {
+          sender = client.get("http://12.216.81.220:$portNumber/api/Audit/DeleteAll");
+        } else {
+          sender = http.get("http://12.216.81.220:$portNumber/api/Audit/DeleteAlls");
+        }
+        sender.then(
+          (http.Response res) {
+            print(res.body);
+            setState(
+              () {
+                result = res.body;
+              },
+            );
+          },
+        ).catchError((dynamic e) {
           setState(
             () {
-              result = res.body;
+              result = e.toString();
             },
           );
-        },
-      ).catchError((dynamic e) {
-        setState(
-          () {
-            result = e.toString();
-          },
-        );
-      });
+        });
 
-      JsonEncoder encoder = new JsonEncoder.withIndent('  ');
-      String prettyprint = encoder.convert(result);
-      print(prettyprint);
-      // print(respo,nse);
-      setState(() {
-        result = prettyprint;
-      });
+        JsonEncoder encoder = new JsonEncoder.withIndent('  ');
+        String prettyprint = encoder.convert(result);
+        print(prettyprint);
+        // print(respo,nse);
+        setState(() {
+          result = prettyprint;
+        });
+      }
     }
 
     String portNumber = Provider.of<GeneralData>(context, listen: false).portNumber;
