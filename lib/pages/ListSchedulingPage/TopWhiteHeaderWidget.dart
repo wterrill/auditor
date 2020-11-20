@@ -116,7 +116,17 @@ class _TopWhiteHeaderWidgetState extends State<TopWhiteHeaderWidget> {
                     hintText: 'Agency / Program Number Filter'),
               ),
             ),
-            if (portNumber == "90") Text("TEST TEST", style: ColorDefs.textRedTest),
+
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  if (portNumber == "90") Text("TEST TEST", style: ColorDefs.textRedTest),
+                  if (Provider.of<GeneralData>(context).individualAuditEdit)
+                    Text("AUDIT EDIT", style: ColorDefs.textRedTest)
+                ],
+              ),
+            ),
 
             // if (Provider.of<GeneralData>(context, listen: true).syncInProgress) CircularProgressIndicator(),
             // if (Provider.of<GeneralData>(context, listen: true).syncInProgress)

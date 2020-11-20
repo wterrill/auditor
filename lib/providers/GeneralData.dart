@@ -26,6 +26,7 @@ class GeneralData with ChangeNotifier {
   bool generalInitialized = false;
   bool alreadyStarted = false;
   bool prepFullDownload = false;
+  bool individualAuditEdit = false;
   ScrollController questionScrollController = ScrollController();
 
   //SchedulingPage
@@ -69,6 +70,11 @@ class GeneralData with ChangeNotifier {
 
   void updateDatabasePort(String newPortNumber) {
     portNumber = newPortNumber;
+    notifyListeners();
+  }
+
+  void toggleIndividualAuditEdit() {
+    individualAuditEdit = !individualAuditEdit;
     notifyListeners();
   }
 

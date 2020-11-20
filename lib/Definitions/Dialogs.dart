@@ -1,5 +1,6 @@
 import 'package:auditor/Definitions/SiteClasses/Site.dart';
 import 'package:auditor/pages/AuditPage/ScoringPopUp.dart';
+import 'package:auditor/pages/ListSchedulingPage/ApptDataTable/AuditEditMenu.dart';
 import 'package:auditor/pages/ListSchedulingPage/ApptDataTable/AuditInfoDialog.dart';
 import 'package:auditor/Definitions/CalendarClasses/CalendarResult.dart';
 import 'package:auditor/pages/ListSchedulingPage/NewAuditDialog.dart';
@@ -329,6 +330,22 @@ class Dialogs {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50.0))),
         elevation: 0.0,
         content: SitePopUp(programNumber: programNumber, singleSite: singleSite));
+    showDialog<void>(
+      barrierDismissible: true,
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  static void showEditMenu({BuildContext context, CalendarResult calendarResult}) {
+    AlertDialog alert = AlertDialog(
+        contentPadding: EdgeInsets.all(0.0),
+        backgroundColor: Colors.red,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50.0))),
+        elevation: 0.0,
+        content: AuditEditMenu(calendarResult: calendarResult));
     showDialog<void>(
       barrierDismissible: true,
       context: context,

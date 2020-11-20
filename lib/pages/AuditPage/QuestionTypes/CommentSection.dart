@@ -79,15 +79,17 @@ class _CommentSectionState extends State<CommentSection> {
                   textStyle: ColorDefs.textWhiteTerminal,
                   bckcolor: ColorDefs.colorDarkBackground);
             } else {
-              if (widget.characterLimit != -1) {
-                if (value.length > widget.characterLimit - 2) {
-                  Dialogs.showMessage(
-                      context: context,
-                      message:
-                          "This comment field has an upper limit of ${widget.characterLimit} characters. Please edit.",
-                      dismissable: true,
-                      textStyle: ColorDefs.textWhiteTerminal,
-                      bckcolor: ColorDefs.colorDarkBackground);
+              if (widget.characterLimit != null) {
+                if (widget.characterLimit != -1) {
+                  if (value.length > widget.characterLimit - 2) {
+                    Dialogs.showMessage(
+                        context: context,
+                        message:
+                            "This comment field has an upper limit of ${widget.characterLimit} characters. Please edit.",
+                        dismissable: true,
+                        textStyle: ColorDefs.textWhiteTerminal,
+                        bckcolor: ColorDefs.colorDarkBackground);
+                  }
                 }
               }
               if (widget.mandatory) {

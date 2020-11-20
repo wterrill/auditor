@@ -22,6 +22,7 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
   Animation<double> animation;
   bool _drawerState;
   bool startSync = false;
+  bool auditEdit = false;
 
   @override
   void initState() {
@@ -31,6 +32,7 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
 
     animation = Tween(begin: 0.0, end: 180.0).animate(curvedAnimation);
     _drawerState = false;
+    auditEdit = Provider.of<GeneralData>(context, listen: false).individualAuditEdit;
 
     super.initState();
   }
@@ -43,6 +45,7 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
 
   @override
   Widget build(BuildContext context) {
+    auditEdit = Provider.of<GeneralData>(context, listen: false).individualAuditEdit;
     void deleteListCalendarDB() {
       List<dynamic> result = Provider.of<ListCalendarData>(context, listen: false).calendarBox.keys.toList();
 
@@ -86,6 +89,7 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
     } else {
       newPortNumber = "88";
     }
+
     return Stack(
       children: [
         Positioned(
@@ -162,7 +166,7 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                   //     width: double.infinity,
                   //     color: ColorDefs.colorTopDrawerAlternating,
                   //     child: Row(
-                  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //       mainAxisAlignment: MainAxisAlignment.start,
                   //       children: <Widget>[
                   //         Icon(Icons.sync, color: ColorDefs.colorAudit2),
                   //         Center(child: Text("Sync", style: ColorDefs.textBodyBlue20)),
@@ -242,9 +246,10 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                       width: double.infinity,
                       color: ColorDefs.colorTopDrawerAlternating,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(Icons.sync, color: ColorDefs.colorAudit2),
+                          Spacer(),
                           Center(child: Text("Prep Full Download", style: ColorDefs.textBodyBlue20)),
                           Container(
                             height: 20,
@@ -310,9 +315,10 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                       width: double.infinity,
                       color: ColorDefs.colorTopDrawerAlternating,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(Icons.sync, color: ColorDefs.colorAudit2),
+                          Spacer(),
                           Center(child: Text("Prep Full Upload", style: ColorDefs.textBodyBlue20)),
                           Container(
                             height: 20,
@@ -349,9 +355,10 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                       width: double.infinity,
                       color: ColorDefs.colorTopDrawerAlternating,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(Icons.edit, color: ColorDefs.colorAudit2),
+                          Spacer(),
                           Center(child: Text("Developer Menu", style: ColorDefs.textBodyBlue20)),
                           Container(
                             height: 20,
@@ -432,9 +439,10 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                       width: double.infinity,
                       color: ColorDefs.colorTopDrawerAlternating,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(Icons.perm_data_setting, color: ColorDefs.colorAudit2),
+                          Spacer(),
                           Center(child: Text("DataBase Index", style: ColorDefs.textBodyBlue20)),
                           Container(
                             height: 20,
@@ -460,9 +468,10 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                       width: double.infinity,
                       color: ColorDefs.colorTopDrawerAlternating,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(Icons.perm_data_setting, color: ColorDefs.colorAudit2),
+                          Spacer(),
                           Center(child: Text("DataBase Details", style: ColorDefs.textBodyBlue20)),
                           Container(
                             height: 20,
@@ -495,9 +504,10 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                       width: double.infinity,
                       color: ColorDefs.colorTopDrawerAlternating,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(Icons.error, color: ColorDefs.colorAudit2),
+                          Spacer(),
                           Center(child: Text("Delete Audit DB", style: ColorDefs.textBodyBlue20)),
                           Container(
                             height: 20,
@@ -529,10 +539,11 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                       width: double.infinity,
                       color: ColorDefs.colorTopDrawerAlternating,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(Icons.error, color: ColorDefs.colorAudit2),
-                          Center(child: Text("Delete Calendar DB ", style: ColorDefs.textBodyBlue20)),
+                          Spacer(),
+                          Center(child: Text("Delete Calendar DB", style: ColorDefs.textBodyBlue20)),
                           Container(
                             height: 20,
                             width: 20,
@@ -573,19 +584,60 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                       width: double.infinity,
                       color: ColorDefs.colorTopDrawerAlternating,
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(Icons.error, color: ColorDefs.colorAudit2),
+                          Spacer(),
                           Center(
                               child: Text("Toggle DB from $portNumber to $newPortNumber",
                                   style: ColorDefs.textBodyBlue20)),
-                          // Container(
-                          //   height: 20,
-                          //   width: 20,
-                          //   child: startSync
-                          //       ? CircularProgressIndicator()
-                          //       : Icon(Icons.sync, color: ColorDefs.colorTopDrawerBackground),
-                          // ),
+                          Container(
+                            height: 20,
+                            width: 20,
+                            child: startSync
+                                ? CircularProgressIndicator()
+                                : Icon(Icons.sync, color: ColorDefs.colorTopDrawerBackground),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
+                      height: 35.4,
+                      width: double.infinity,
+                      child: Center(child: Text("", style: ColorDefs.textBodyBlue20))),
+                  GestureDetector(
+                    onTap: () async {
+                      Function callBack = () {
+                        Provider.of<GeneralData>(context, listen: false).toggleIndividualAuditEdit();
+                      };
+                      if (!auditEdit) {
+                        await Dialogs.messageContinue(
+                            context: context,
+                            continueCallBack: callBack,
+                            message:
+                                "This will toggle the individual audit editor and allow long presses to edit the audits directly. Would you like to continue?");
+                      } else {
+                        Provider.of<GeneralData>(context, listen: false).toggleIndividualAuditEdit();
+                      }
+                    },
+                    child: Container(
+                      height: 35.4,
+                      width: double.infinity,
+                      color: ColorDefs.colorTopDrawerAlternating,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Icon(Icons.error, color: ColorDefs.colorAudit2),
+                          Spacer(),
+                          Text("Toggle ${auditEdit ? "OFF" : "ON"} audit edit", style: ColorDefs.textBodyBlue20),
+                          Container(
+                            height: 20,
+                            width: 20,
+                            child: startSync
+                                ? CircularProgressIndicator()
+                                : Icon(Icons.sync, color: ColorDefs.colorTopDrawerBackground),
+                          ),
                         ],
                       ),
                     ),

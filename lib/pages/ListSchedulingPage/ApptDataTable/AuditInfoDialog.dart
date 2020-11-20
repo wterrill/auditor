@@ -2,6 +2,7 @@ import 'package:auditor/Definitions/Dialogs.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
 import 'package:auditor/pages/AuditPage/AuditPage.dart';
 import 'package:auditor/providers/AuditData.dart';
+import 'package:auditor/providers/GeneralData.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -89,6 +90,21 @@ class AuditInfoDialog extends StatelessWidget {
                               child: Text("Site Information", style: ColorDefs.textBodyBlack20),
                             ),
                           ),
+                          if (Provider.of<GeneralData>(context, listen: false).individualAuditEdit)
+                            FlatButton(
+                              color: ColorDefs.colorTopHeader,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25.0),
+                                side: BorderSide(color: ColorDefs.colorLogoLightGreen, width: 3.0),
+                              ),
+                              onPressed: () {
+                                Dialogs.showEditMenu(context: context, calendarResult: calendarResult);
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.fromLTRB(5.0, 12.0, 5.0, 12.0),
+                                child: Text("Edit Audit", style: ColorDefs.textBodyBlack20),
+                              ),
+                            ),
                         ],
                       ),
                     ))),
