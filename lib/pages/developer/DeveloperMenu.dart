@@ -2,7 +2,6 @@ import 'package:auditor/Definitions/Dialogs.dart';
 import 'package:auditor/pages/ListSchedulingPage/ListSchedulingPage.dart';
 import 'package:auditor/pages/developer/DatabaseDetails/DatabaseDetails.dart';
 import 'package:auditor/pages/developer/hiveTroubleshooting/hiveTroubleshooting.dart';
-import 'package:auditor/pages/developer/pdf/PdfDemo.dart';
 import 'package:auditor/pages/developer/scrollStuff/scrollStuff.dart';
 import 'package:auditor/pages/developer/textTesting/textTesting.dart';
 import 'package:auditor/providers/GeneralData.dart';
@@ -91,17 +90,6 @@ class DeveloperMenu extends StatelessWidget {
                 Navigator.push<dynamic>(
                   context,
                   MaterialPageRoute<dynamic>(builder: (context) => LookAhead()),
-                );
-              },
-            ),
-
-            FlatButton(
-              color: Colors.red,
-              child: Text("Pdf generation and display"),
-              onPressed: () {
-                Navigator.push<dynamic>(
-                  context,
-                  MaterialPageRoute<dynamic>(builder: (context) => PdfDemo()),
                 );
               },
             ),
