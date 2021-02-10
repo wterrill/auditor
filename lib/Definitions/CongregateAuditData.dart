@@ -1778,26 +1778,26 @@ List<Map<String, dynamic>> audit2Section8Questions = [
     'databaseOptCom': 'TaxExemptionVerifiedDateComments',
   },
 
-  <String, dynamic>{
-    'text': 'Re-verified by:',
-    'type': 'fillIn',
-    'databaseVarType': 'string',
-    'databaseVar': 'ReVerifiedBy',
-    'characterLimit': 255
-  },
+  // <String, dynamic>{
+  //   'text': 'Re-verified by:',
+  //   'type': 'fillIn',
+  //   'databaseVarType': 'string',
+  //   'databaseVar': 'ReVerifiedBy',
+  //   'characterLimit': 255
+  // },
   // <String, dynamic>{
   //   'text': 'GCFD Monitor:',
   //   'type': 'fillIn',
   //   'databaseVarType': 'string',
   //   'databaseVar': 'GCFDMonitor',
   // },
-  <String, dynamic>{
-    'text': 'Reviewed by:',
-    'type': 'fillIn',
-    'databaseVarType': 'string',
-    'databaseVar': 'ReviewedBy',
-    'characterLimit': 255
-  },
+  // <String, dynamic>{
+  //   'text': 'Reviewed by:',
+  //   'type': 'fillIn',
+  //   'databaseVarType': 'string',
+  //   'databaseVar': 'ReviewedBy',
+  //   'characterLimit': 255
+  // },
   // <String, dynamic>{
   //   'text': 'Findings Found:',
   //   'type': 'yesNo',
