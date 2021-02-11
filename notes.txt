@@ -1,0 +1,81 @@
+flutter clean
+flutter pub cache repair
+
+flutter run --release
+
+flutter packages pub run build_runner build    //<-- for hive stuff. (contact.g.dart in example)
+
+
+
+keyboard shortcuts, and cool stuff:
+https://medium.com/flutter-community/flutter-visual-studio-code-shortcuts-for-fast-and-efficient-development-7235bc6c3b7d
+full list of shortcuts: cmd + K + S
+
+code assist (USEFUL!)  ctrl + space
+quick fix -> lightbulb menu -> cmd + .
+stanim
+F4 -> widget heirarchy
+triple click
+ctrl+g -> line number
+alt + uparrow  or downarrow -> move line up or down  (add shift to copy)
+shift + ctrl + rightarrow or left arrow -> select between brackets/parenthesis
+shift + ctrl + /  -> jump to other bracket / parenthesis
+ctrl + tab -> switch tabs
+alt + shift + o -> get rid of unused imports
+
+
+Hive stuff:
+typeAdapters... used to connect classes with hive.  it needs to have build_runner, and hive_flutter.
+
+hive has to be initialized with 
+Hive.init(path as string)  (path different on ios and android... and doesn't exist for web)
+
+Hive uses boxes... they have to be opened first.  When opened, the box is put into memory.
+
+Hive.openBox('boxName');
+
+1. use hive generator package.
+2. import Hive.
+3. @HiveType()
+4. @HiveField(0)....1...2..3, etc. for each field.
+5. add     part 'Contact.g.dart';   to class and run =>  flutter packages pub run build_runner build --delete-conflicting-outputs
+6. register it: Hive.registerAdapter(CLASSAdapter(), TypeID)  (0, 1, 2....)
+
+it seems like, when things are weird, that running 'flutter clean' followed by flutter pub get and then the build_runner thing above works?
+
+
+
+ MXOTestAud1/ Password1 
+ MXOTestAud2/ Password1 
+ MXOTestAud3/ Password1 
+
+MXOTestMGR1/ Password1 
+MXOTestMGR2/ Password1 
+MXOTestMGR3/ Password1
+
+
+
+
+Post
+http://12.216.81.220:88/api/AuthenticateUser
+
+http://12.216.81.220:88/api/Audit/Schedule	
+http://10.99.1.107:88/api/AudSchedule	
+http://10.99.1.107:88/api/Audit/FileUpload
+
+
+Weekend tasks.
+keyboard covering tasks
+- flags
+- sumbitted versus scheduled versus completed.
+- action item re-write
+
+________-
+Logout button
+--Site Information -> hide search and schedule button
+--ordering on table view
+--visual contrast on parallel lines (audit)
+--clicking 'schedule' without choosing time
+--date picker should default to the selected date
+entering text as last fillIn doesn't trigger nav button change
+--colors

@@ -1,4 +1,4 @@
-
+set -e  # this exits on error
 rm lib/buildTime/flutterVersion.dart
 echo "Building flutterVersion.dart"
 echo "const Map<String,String> version = " >> lib/buildTime/flutterVersion.dart
