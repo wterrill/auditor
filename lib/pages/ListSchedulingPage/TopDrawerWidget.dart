@@ -1,11 +1,9 @@
 import 'package:auditor/Definitions/Dialogs.dart';
-import 'package:auditor/Definitions/SiteClasses/SiteList.dart';
 import 'package:auditor/pages/developer/DatabaseDetails/DatabaseDetails.dart';
 import 'package:auditor/pages/developer/DeveloperMenu.dart';
 import 'package:auditor/providers/AuditData.dart';
 import 'package:auditor/providers/GeneralData.dart';
 import 'package:auditor/providers/ListCalendarData.dart';
-import 'package:auditor/providers/SiteData.dart';
 import 'package:flutter/material.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
 import 'package:provider/provider.dart';

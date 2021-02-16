@@ -37,8 +37,7 @@ Widget _buildListView() {
                   IconButton(
                     icon: Icon(Icons.refresh),
                     onPressed: () {
-                      contactsBox.putAt(
-                          index, Contact('${contact.name}*', contact.age + 1));
+                      contactsBox.putAt(index, Contact('${contact.name}*', contact.age + 1));
                     },
                   ),
                   IconButton(
@@ -111,7 +110,7 @@ class _NewContactFormState extends State<NewContactForm> {
               ),
             ],
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Text("Add New Contact"),
             onPressed: () {
               _formKey.currentState.save();

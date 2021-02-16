@@ -20,7 +20,7 @@ class _HiveTroubleShootingState extends State<HiveTroubleShooting> {
     return Scaffold(
       body: Column(
         children: [
-          RaisedButton(
+          ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pop();
                 Navigator.push<dynamic>(
@@ -29,7 +29,7 @@ class _HiveTroubleShootingState extends State<HiveTroubleShooting> {
                 );
               },
               child: Text("Go to scheduling page")),
-          RaisedButton(
+          ElevatedButton(
             child: Text("calendarBoxKeys"),
             onPressed: () {
               Box calendarBox = Provider.of<ListCalendarData>(context, listen: false).calendarBox;
@@ -98,7 +98,7 @@ class _HiveTroubleShootingState extends State<HiveTroubleShooting> {
               setState(() {});
             },
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Text("Clear"),
             onPressed: () {
               result = <String>['Cleared'];

@@ -101,7 +101,7 @@ class _DateQuestionState extends State<DateQuestion> {
                             .toString(),
                       )
                     : Text(""),
-              FlatButton(
+              TextButton(
                   onPressed: () async {
                     if (Provider.of<AuditData>(context, listen: false).activeAudit.calendarResult.status !=
                         "Scheduled") {

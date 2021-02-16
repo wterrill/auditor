@@ -522,14 +522,14 @@ class _RescheduleFollowUpAuditDialogState extends State<RescheduleFollowUpAuditD
                               title: Text('Confirmation'),
                               content: Text('Do you want to delete this Audit in progress?'),
                               actions: <Widget>[
-                                new FlatButton(
+                                new TextButton(
                                   onPressed: () {
                                     Navigator.of(context, rootNavigator: true)
                                         .pop(false); // dismisses only the dialog and returns false
                                   },
                                   child: Text('Cancel'),
                                 ),
-                                FlatButton(
+                                TextButton(
                                   onPressed: () {
                                     Navigator.of(context, rootNavigator: true).pop(true);
                                     Provider.of<ListCalendarData>(context, listen: false)

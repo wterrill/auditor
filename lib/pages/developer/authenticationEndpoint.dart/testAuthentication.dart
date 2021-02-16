@@ -452,7 +452,7 @@ class _TestAuthenticationState extends State<TestAuthentication> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    RaisedButton(
+                    ElevatedButton(
                       onPressed: () async {
                         client
                             // http
@@ -474,43 +474,43 @@ class _TestAuthenticationState extends State<TestAuthentication> {
                       },
                       child: Text("Authenticate"),
                     ),
-                    RaisedButton(
+                    ElevatedButton(
                       onPressed: () {
                         // client
                         getSiteInfo();
                       },
                       child: Text("siteInfo"),
                     ),
-                    RaisedButton(
+                    ElevatedButton(
                       onPressed: () {
                         scheduleAudit();
                       },
                       child: Text("schedule audit"),
                     ),
-                    RaisedButton(
+                    ElevatedButton(
                       onPressed: () {
                         deleteScheduledAudit();
                       },
                       child: Text("delete same audit"),
                     ),
-                    RaisedButton(onPressed: () => pickImage(), child: Text("pick Image")),
-                    RaisedButton(onPressed: () => uploadPic(), child: Text("send Image upload2")),
-                    RaisedButton(
+                    ElevatedButton(onPressed: () => pickImage(), child: Text("pick Image")),
+                    ElevatedButton(onPressed: () => uploadPic(), child: Text("send Image upload2")),
+                    ElevatedButton(
                         onPressed: () {
                           downloadSched();
                         },
                         child: Text("get appointments")),
-                    RaisedButton(
+                    ElevatedButton(
                         onPressed: () {
                           sendFullAudit();
                         },
                         child: Text("send Full Audit")),
-                    RaisedButton(
+                    ElevatedButton(
                         onPressed: () {
                           getFullAudit();
                         },
                         child: Text("get Full Audit")),
-                    RaisedButton(
+                    ElevatedButton(
                         onPressed: () {
                           getAuditors();
                         },
@@ -518,7 +518,7 @@ class _TestAuthenticationState extends State<TestAuthentication> {
                   ],
                 ),
               ),
-              RaisedButton(
+              ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                     Navigator.push<dynamic>(
@@ -547,14 +547,14 @@ class _TestAuthenticationState extends State<TestAuthentication> {
                         ],
                       ),
                       actions: <Widget>[
-                        new FlatButton(
-                          child: new Text("YES"),
+                        TextButton(
+                          child: Text("YES"),
                           onPressed: () {
                             Navigator.of(context).pop();
                             deleteEverything();
                           },
                         ),
-                        new FlatButton(
+                        TextButton(
                           child: Text("NO"),
                           onPressed: () {
                             Navigator.of(context).pop();

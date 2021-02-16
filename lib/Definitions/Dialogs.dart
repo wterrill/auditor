@@ -108,7 +108,7 @@ class Dialogs {
     showDialog<void>(
       context: context,
       barrierDismissible: dismissable,
-      builder: (_) => new AlertDialog(
+      builder: (_) => AlertDialog(
         contentPadding: EdgeInsets.all(2.0),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(30.0))),
         content: Builder(
@@ -147,13 +147,19 @@ class Dialogs {
         ],
       ),
       actions: <Widget>[
-        new FlatButton(
-          child: new Text("Yes"),
+        TextButton(
+          child: Text("Yes"),
           onPressed: () {
             Navigator.of(context).pop(true);
           },
         ),
-        new FlatButton(
+        //  FlatButton(
+        //   child:  Text("Yes"),
+        //   onPressed: () {
+        //     Navigator.of(context).pop(true);
+        //   },
+        // ),
+        TextButton(
           child: Text("No"),
           onPressed: () {
             continueCallBack();
@@ -183,14 +189,14 @@ class Dialogs {
         ],
       ),
       actions: <Widget>[
-        new FlatButton(
+        TextButton(
           child: new Text("Yes"),
           onPressed: () {
             continueCallBack();
             Navigator.of(context).pop(true);
           },
         ),
-        new FlatButton(
+        TextButton(
           child: Text("No"),
           onPressed: () {
             Navigator.of(context).pop(false);
@@ -220,14 +226,14 @@ class Dialogs {
         ],
       ),
       actions: <Widget>[
-        new FlatButton(
-          child: new Text("Yes"),
+        TextButton(
+          child: Text("Yes"),
           onPressed: () {
             Navigator.of(context).pop(true);
             continueCallBack();
           },
         ),
-        new FlatButton(
+        TextButton(
           child: Text("Cancel"),
           onPressed: () {
             Navigator.of(context).pop(false);
@@ -256,14 +262,14 @@ class Dialogs {
         ],
       ),
       actions: <Widget>[
-        new FlatButton(
-          child: new Text("Yes"),
+        TextButton(
+          child: Text("Yes"),
           onPressed: () {
             continueCallBack();
             Navigator.of(context).pop(true);
           },
         ),
-        new FlatButton(
+        TextButton(
           child: Text("No"),
           onPressed: () {
             Navigator.of(context).pop(false);
@@ -562,13 +568,13 @@ class Dialogs {
       title: Text('Open developer Menu?'),
       content: const Text('Do you want to open the developer menu?'),
       actions: <Widget>[
-        FlatButton(
+        TextButton(
           child: const Text('CANCEL'),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
-        FlatButton(
+        TextButton(
           child: const Text('ACCEPT'),
           onPressed: () {
             Navigator.push<dynamic>(
@@ -594,13 +600,13 @@ class Dialogs {
       title: Text('Delete Pic?'),
       content: const Text('Would you like to delete this picture from the audit?'),
       actions: <Widget>[
-        FlatButton(
+        TextButton(
           child: const Text('CANCEL'),
           onPressed: () {
             Navigator.of(context, rootNavigator: true).pop();
           },
         ),
-        FlatButton(
+        TextButton(
           child: const Text('YES'),
           onPressed: () {
             Provider.of<AuditData>(context, listen: false).removePicAtIndex(index);

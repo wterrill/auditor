@@ -1,11 +1,10 @@
 import 'package:auditor/Definitions/CalendarClasses/CalendarResult.dart';
-import 'package:auditor/Definitions/colorDefs.dart';
 import 'package:flutter/material.dart';
 
 class AuditEditMenu extends StatelessWidget {
   AuditEditMenu({Key key, this.calendarResult}) : super(key: key);
   final CalendarResult calendarResult;
-  @override
+
   final List<String> statusDropDownMenu = [
     "Scheduled",
     "Site Visit Req.",
@@ -21,11 +20,11 @@ class AuditEditMenu extends StatelessWidget {
             Row(
               children: [
                 Text("Change status"),
-                new DropdownButton<String>(
+                DropdownButton<String>(
                   items: statusDropDownMenu.map((String value) {
-                    return new DropdownMenuItem<String>(
+                    return DropdownMenuItem<String>(
                       value: value,
-                      child: new Text(value),
+                      child: Text(value),
                     );
                   }).toList(),
                   onChanged: (value) {

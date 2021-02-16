@@ -71,7 +71,7 @@ class WidgetSizeAndPosition extends StatelessWidget {
         width: 200,
         child: Column(
           children: [
-            FlatButton(
+            TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },

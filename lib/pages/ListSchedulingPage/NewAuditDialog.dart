@@ -528,14 +528,14 @@ class _NewAuditDialogState extends State<NewAuditDialog> {
                                 title: Text('Confirmation'),
                                 content: Text('Do you want to delete this Scheduled Audit?'),
                                 actions: <Widget>[
-                                  new FlatButton(
+                                  TextButton(
                                     onPressed: () {
                                       Navigator.of(context, rootNavigator: true)
                                           .pop(false); // dismisses only the dialog and returns false
                                     },
                                     child: Text('No'),
                                   ),
-                                  FlatButton(
+                                  TextButton(
                                     onPressed: () {
                                       Navigator.of(context, rootNavigator: true).pop(true);
                                       Provider.of<ListCalendarData>(context, listen: false)

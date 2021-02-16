@@ -205,7 +205,7 @@ class DeveloperMenu extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            RaisedButton(
+            ElevatedButton(
                 onPressed: () {
                   Navigator.push<dynamic>(
                     context,
@@ -213,7 +213,7 @@ class DeveloperMenu extends StatelessWidget {
                   );
                 },
                 child: Text("Hive Troubleshooting")),
-            RaisedButton(
+            ElevatedButton(
                 onPressed: () {
                   Navigator.push<dynamic>(
                     context,
@@ -221,7 +221,7 @@ class DeveloperMenu extends StatelessWidget {
                   );
                 },
                 child: Text("Database Details")),
-            RaisedButton(
+            ElevatedButton(
                 onPressed: () {
                   Navigator.push<dynamic>(
                     context,
@@ -229,7 +229,7 @@ class DeveloperMenu extends StatelessWidget {
                   );
                 },
                 child: Text("Scroll changes testing")),
-            RaisedButton(
+            ElevatedButton(
                 onPressed: () {
                   Navigator.push<dynamic>(
                     context,
@@ -237,7 +237,7 @@ class DeveloperMenu extends StatelessWidget {
                   );
                 },
                 child: Text("Clay Container testing")),
-            RaisedButton(
+            ElevatedButton(
                 onPressed: () {
                   Navigator.push<dynamic>(
                     context,
@@ -245,7 +245,7 @@ class DeveloperMenu extends StatelessWidget {
                   );
                 },
                 child: Text("Widget size and position")),
-            RaisedButton(
+            ElevatedButton(
                 onPressed: () {
                   Navigator.push<dynamic>(
                     context,

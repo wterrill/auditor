@@ -40,7 +40,7 @@ class _ReviewDateQuestionState extends State<ReviewDateQuestion> {
                         .toString(),
                   )
                 : Text(""),
-            FlatButton(
+            TextButton(
                 onPressed: () async {
                   selectedDate = await showDatePicker(
                     context: context,
