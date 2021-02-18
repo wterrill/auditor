@@ -49,7 +49,12 @@ class Section extends HiveObject {
     }).toList();
     name = section.keys.toList()[0];
     if (name == "Confirm Details") {
+      status = Status.available;
+      lastStatus = Status.available;
+    }
+    if (name == "Pre-Fill") {
       status = Status.selected;
+      lastStatus = Status.available;
     }
   }
 }

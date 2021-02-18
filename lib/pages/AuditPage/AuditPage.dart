@@ -3,6 +3,7 @@ import 'package:auditor/Definitions/AuditClasses/Section.dart';
 import 'package:auditor/Definitions/Dialogs.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
 import 'package:auditor/Definitions/CalendarClasses/CalendarResult.dart';
+import 'package:auditor/pages/AuditPage/DeveloperPage.dart';
 import 'package:auditor/pages/AuditPage/PhotoPage.dart';
 import 'package:auditor/providers/AuditData.dart';
 import 'package:auditor/providers/GeneralData.dart';
@@ -137,7 +138,7 @@ class _AuditPageState extends State<AuditPage> {
                       VerificationBadPage(
                         activeAudit: activeAudit,
                       ),
-                    // if (activeSection?.name == "*Developer*") DeveloperPage(),
+                    if (activeSection?.name == "*Developer*") DeveloperPage(),
                     if (activeSection?.name != "Review" &&
                         activeSection?.name != "Verification" &&
                         activeSection?.name != "Follow Up Review")

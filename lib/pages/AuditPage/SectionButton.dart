@@ -129,16 +129,6 @@ class _SectionButtonState extends State<SectionButton> {
         ? built = Text("")
         : built = Column(
             children: [
-              //       child: Center(
-              //   child: ClayContainer(
-              //     color: baseColor,
-              //     height: 200,
-              //     width: 200,
-              //   ),
-              // ),
-
-              //Clay
-              //Clay
               if (widget.section.name != "Verification")
                 (widget.section.maxPoints != 0 &&
                         widget.activeAudit.calendarResult.programType != "Older Adults Program" &&
@@ -159,7 +149,6 @@ class _SectionButtonState extends State<SectionButton> {
                   color: buttonColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
-                    // side: BorderSide(color: ColorDefs.colorDarkBackground),
                   ),
                   // color: buttonColor,
                   onPressed: () {

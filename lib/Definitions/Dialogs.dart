@@ -483,6 +483,7 @@ class Dialogs {
         children: [
           Text('Built and uploaded on: $buildDate'),
           Text("Flutter framework: ${version['frameworkVersion']}"),
+          Text("Flutter channel: ${version['channel']}"),
           Text("Dart version: ${version['dartSdkVersion']}"),
           Text("App version: $appVersion"),
           Text("Device id: ${Provider.of<GeneralData>(context, listen: false).deviceid}")

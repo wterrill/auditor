@@ -142,8 +142,12 @@ class AuditData with ChangeNotifier {
     bool allQuestionsDone = true;
     for (Section section in activeAudit.sections) {
       if (section.name == "Confirm Details") {
+        Status temp = section.status;
         if (activeAudit.detailsConfirmed == true) {
           section.status = Status.completed;
+          if (temp == Status.selected) {
+            section.status = Status.selected;
+          }
         }
       } else {
         if (section.name == "Photos") {
@@ -646,17 +650,17 @@ class AuditData with ChangeNotifier {
     notifyListeners();
   }
 
-  void updateActiveSectionPrevios(Section newSection) {
-    if (['Photos', 'Review', 'Verification'].contains(activeSection.name)) {
-      activeSection.status = Status.completed;
-    } else {
-      activeSection.status = activeSection.lastStatus;
-    }
-    activeSection = newSection;
-    activeSection.lastStatus = activeSection.status;
-    activeSection.status = Status.selected;
-    notifyListeners();
-  }
+  // void updateActiveSectionPrevios(Section newSection) {
+  //   if (['Photos', 'Review', 'Verification'].contains(activeSection.name)) {
+  //     activeSection.status = Status.completed;
+  //   } else {
+  //     activeSection.status = activeSection.lastStatus;
+  //   }
+  //   activeSection = newSection;
+  //   activeSection.lastStatus = activeSection.status;
+  //   activeSection.status = Status.selected;
+  //   notifyListeners();
+  // }
 
   void saveActiveAudit() {
     saveAuditLocally(incomingAudit: activeAudit);

@@ -101,6 +101,7 @@ Future<dynamic> buildAuditFromIncoming(dynamic fromServer, SiteList siteList) as
       for (Section section in newAudit.sections) {
         print("-------------------" + section.name + "-------------------");
         if (section.name != "*Developer*") {
+          // leave when changing *Developer*
           //Questions
           for (Question question in section.questions) {
             // get database variable

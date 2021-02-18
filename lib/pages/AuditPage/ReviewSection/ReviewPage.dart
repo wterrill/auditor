@@ -20,7 +20,7 @@ class ReviewPage extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.65,
             child: ListView.builder(
               shrinkWrap: true,
-              itemCount: activeAudit.sections.length - 4, // this should be 4 after "*Developer*" is taken away (5 with)
+              itemCount: activeAudit.sections.length - 5, // this should be 4 after "*Developer*" is taken away (5 with)
               itemBuilder: (context, i) {
                 return Container(
                   decoration: BoxDecoration(

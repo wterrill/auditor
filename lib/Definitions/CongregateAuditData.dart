@@ -1,5 +1,6 @@
 // List<String> audit1Sections = [
 //   'Confirm Details',
+//   'Pre-Fill'
 //   'Intro',
 //   'Signage',
 //   'Distribution & Intake',
@@ -10,6 +11,86 @@
 //   'Review',
 //   'Verification'
 // ];
+
+List<Map<String, dynamic>> prefill = [
+  <String, dynamic>{
+    'text': 'Is Program on Food Rescue/Agency Enabled?',
+    'type': 'yesNo',
+    'databaseVar': 'OnFoodRescueAgencyEnabled',
+    'databaseVarType': 'bool',
+    'databaseOptCom': 'OnFoodRescueAgencyEnabledComments',
+  },
+  <String, dynamic>{
+    'text': 'Does site have Food Service Sanitation Managers?',
+    'type': 'yesNoNa',
+    'happyPathResponse': ['Yes', 'N/A'],
+    'scoring': 1,
+    'databaseVar': 'SiteHaveManager',
+    'databaseVarType': 'bool',
+    'databaseOptCom': 'SiteHaveManagerComments',
+    'actionItem':
+        'Submit copy of Food Service Sanitation Manager Certificates (City of Chicago)/ServSafe Certificates (State of Illinois)'
+  },
+  <String, dynamic>{
+    'text': 'Names and expiration dates of Food Service Sanitation Manager certificates  (at least two are required)',
+    'type': 'fillIn',
+    'databaseVar': 'FoodServiceSanitationManagerCertificate',
+    'databaseVarType': 'string',
+  },
+  <String, dynamic>{
+    'text': 'Last Order Date:',
+    'type': 'date',
+    'hideNa': 'true',
+    'databaseVar': 'LastOrderDate',
+    'databaseVarType': 'date',
+    'databaseOptCom': 'LastOrderDateComments'
+  },
+  <String, dynamic>{
+    'text': 'Has an order been placed from the menu in the past month?',
+    'type': 'yesNo',
+    'happyPathResponse': ['Yes'],
+    'scoring': 5,
+    'databaseVar': 'OrderHasBeenPlacedInLastMonth',
+    'databaseVarType': 'bool',
+    'databaseOptCom':
+        'OrderHasBeenPlacedInLastMonthComments', //not finding a comment field on the Congregate Audit data def but format is same as Pantry which does have this on the configuration file
+    'actionItem':
+        'Ensure an order is placed at least once a month. Please provide an explanation why an order has not been placed within the past month'
+  },
+  <String, dynamic>{
+    'text': 'Is information on our Agency Locator accurate?',
+    'type': 'dropDown',
+    'hideNa': 'true',
+    'menuItems': ['Select', 'Yes', 'No', 'Closed Program'],
+    // 'happyPathResponse': ['Yes', 'No', 'Closed Program'],
+    'databaseVar': 'AgencyLocatorAccurate',
+    'databaseVarType': 'string',
+    'databaseOptCom': 'AgencyLocatorAccurateComments',
+  },
+  <String, dynamic>{
+    'text': 'Issues from last site visit?',
+    'type': 'fillIn',
+    'databaseVar': 'IssuesFromLastSiteVisit',
+    'databaseVarType': 'string'
+  },
+  <String, dynamic>{
+    'text': 'Tax Exemption Verified:',
+    'type': 'yesNo',
+    'happyPathResponse': ['Yes'],
+    'scoring': 5,
+    'databaseVar': 'TaxExemptionVerified',
+    'databaseVarType': 'bool',
+    'databaseOptCom': 'TaxExemptionVerifiedComments',
+    'actionItem': 'Provide documentation showing good standing with IRS or provide an updated active 501c3'
+  },
+  <String, dynamic>{
+    'text': 'Tax Exemption Verified Date:',
+    'type': 'date',
+    'databaseVar': 'TaxExemptionVerifiedDate',
+    'databaseVarType': 'date',
+    'databaseOptCom': 'TaxExemptionVerifiedDateComments',
+  },
+];
 
 List<Map<String, dynamic>> confirmDetails = [
   <String, dynamic>{'text': 'Date of Visit:', 'type': 'display'},
@@ -104,44 +185,48 @@ List<Map<String, dynamic>> audit2Section1Questions = [
     'databaseVar': 'ShelterReceivesDHSFunding',
     'databaseVarType': 'bool',
   },
-  <String, dynamic>{
-    'text': 'Is Program on Food Rescue/Agency Enabled?',
-    'type': 'yesNo',
-    'databaseVar': 'OnFoodRescueAgencyEnabled',
-    'databaseVarType': 'bool',
-    'databaseOptCom': 'ProgramOnFoodRescue',
-  },
-  <String, dynamic>{
-    'text': 'Does site have Food Service Sanitation Managers?',
-    'type': 'yesNoNa',
-    'happyPathResponse': ['Yes', 'N/A'],
-    'scoring': 1,
-    'databaseVar': 'SiteHaveManager',
-    'databaseVarType': 'bool',
-    'databaseOptCom': 'SiteHaveManagerComments',
-    'actionItem':
-        'Submit copy of Food Service Sanitation Manager Certificates (City of Chicago)/ServSafe Certificates (State of Illinois)'
-  },
-  <String, dynamic>{
-    'text': 'Names and expiration dates of Food Service Sanitation Manager certificates  (at least two are required)',
-    'type': 'fillIn',
-    'databaseVar': 'FoodServiceSanitationManagerCertificate',
-    'databaseVarType': 'string',
-  },
+  // Removed for addition of Pre-Fill Page
+  // <String, dynamic>{
+  //   'text': 'Is Program on Food Rescue/Agency Enabled?',
+  //   'type': 'yesNo',
+  //   'databaseVar': 'OnFoodRescueAgencyEnabled',
+  //   'databaseVarType': 'bool',
+  //   'databaseOptCom': 'ProgramOnFoodRescue',
+  // },
+  // Removed for addition of Pre-Fill Page
+  // <String, dynamic>{
+  //   'text': 'Does site have Food Service Sanitation Managers?',
+  //   'type': 'yesNoNa',
+  //   'happyPathResponse': ['Yes', 'N/A'],
+  //   'scoring': 1,
+  //   'databaseVar': 'SiteHaveManager',
+  //   'databaseVarType': 'bool',
+  //   'databaseOptCom': 'SiteHaveManagerComments',
+  //   'actionItem':
+  //       'Submit copy of Food Service Sanitation Manager Certificates (City of Chicago)/ServSafe Certificates (State of Illinois)'
+  // },
+  // Removed for addition of Pre-Fill Page
+  // <String, dynamic>{
+  //   'text': 'Names and expiration dates of Food Service Sanitation Manager certificates  (at least two are required)',
+  //   'type': 'fillIn',
+  //   'databaseVar': 'FoodServiceSanitationManagerCertificate',
+  //   'databaseVarType': 'string',
+  // },
   <String, dynamic>{
     'text': 'FSSM certificates to be removed:',
     'type': 'fillIn',
     'databaseVar': 'RemoveField',
     'databaseVarType': 'string',
   },
-  <String, dynamic>{
-    'text': 'Last Order Date:',
-    'type': 'date',
-    'hideNa': 'true',
-    'databaseVar': 'LastOrderDate',
-    'databaseVarType': 'date',
-    'databaseOptCom': 'LastOrderDateComments'
-  },
+  // Removed for addition of Pre-Fill Page
+  // <String, dynamic>{
+  //   'text': 'Last Order Date:',
+  //   'type': 'date',
+  //   'hideNa': 'true',
+  //   'databaseVar': 'LastOrderDate',
+  //   'databaseVarType': 'date',
+  //   'databaseOptCom': 'LastOrderDateComments'
+  // },
   <String, dynamic>{
     'text': 'What is the number of deliveries per month?',
     'type': 'dropDown',
@@ -152,28 +237,30 @@ List<Map<String, dynamic>> audit2Section1Questions = [
         'NumberOfDeliveriesPerMonthComments', //not finding a comment field on the Congregate Audit data def but format is same as Pantry which does have this on the configuration file
     'databaseVarType': 'string',
   },
-  <String, dynamic>{
-    'text': 'Has an order been placed from the menu in the past month?',
-    'type': 'yesNo',
-    'happyPathResponse': ['Yes'],
-    'scoring': 5,
-    'databaseVar': 'OrderHasBeenPlacedInLastMonth',
-    'databaseVarType': 'bool',
-    'databaseOptCom':
-        'OrderHasBeenPlacedInLastMonthComments', //not finding a comment field on the Congregate Audit data def but format is same as Pantry which does have this on the configuration file
-    'actionItem':
-        'Ensure an order is placed at least once a month. Please provide an explanation why an order has not been placed within the past month'
-  },
-  <String, dynamic>{
-    'text': 'Is information on our Agency Locator accurate?',
-    'type': 'dropDown',
-    'hideNa': 'true',
-    'menuItems': ['Select', 'Yes', 'No', 'Closed Program'],
-    // 'happyPathResponse': ['Yes', 'No', 'Closed Program'],
-    'databaseVar': 'AgencyLocatorAccurate',
-    'databaseVarType': 'string',
-    'databaseOptCom': 'AgencyLocatorAccurateComments',
-  },
+  // Removed for addition of Pre-Fill Page
+  // <String, dynamic>{
+  //   'text': 'Has an order been placed from the menu in the past month?',
+  //   'type': 'yesNo',
+  //   'happyPathResponse': ['Yes'],
+  //   'scoring': 5,
+  //   'databaseVar': 'OrderHasBeenPlacedInLastMonth',
+  //   'databaseVarType': 'bool',
+  //   'databaseOptCom':
+  //       'OrderHasBeenPlacedInLastMonthComments', //not finding a comment field on the Congregate Audit data def but format is same as Pantry which does have this on the configuration file
+  //   'actionItem':
+  //       'Ensure an order is placed at least once a month. Please provide an explanation why an order has not been placed within the past month'
+  // },
+  // Removed for addition of Pre-Fill Page
+  // <String, dynamic>{
+  //   'text': 'Is information on our Agency Locator accurate?',
+  //   'type': 'dropDown',
+  //   'hideNa': 'true',
+  //   'menuItems': ['Select', 'Yes', 'No', 'Closed Program'],
+  //   // 'happyPathResponse': ['Yes', 'No', 'Closed Program'],
+  //   'databaseVar': 'AgencyLocatorAccurate',
+  //   'databaseVarType': 'string',
+  //   'databaseOptCom': 'AgencyLocatorAccurateComments',
+  // },
 ];
 
 List<Map<String, dynamic>> audit2Section2Questions = [
@@ -1728,12 +1815,13 @@ List<Map<String, dynamic>> audit2Section8Questions = [
     'databaseVar': 'PantryHasFoodDepositoryContactInfoComments',
     'databaseVarType': 'string',
   },
-  <String, dynamic>{
-    'text': 'Issues from last site visit?',
-    'type': 'fillIn',
-    'databaseVar': 'IssuesFromLastSiteVisit',
-    'databaseVarType': 'string'
-  },
+  // Removed for addition of Pre-Fill Page
+  // <String, dynamic>{
+  //   'text': 'Issues from last site visit?',
+  //   'type': 'fillIn',
+  //   'databaseVar': 'IssuesFromLastSiteVisit',
+  //   'databaseVarType': 'string'
+  // },
   <String, dynamic>{
     'text': 'Distribution Site Staff Comments: ',
     'type': 'fillIn',
@@ -1759,24 +1847,26 @@ List<Map<String, dynamic>> audit2Section8Questions = [
   //   'databaseVar': 'DateTaxExemptionVerified',
   // },
 
-  <String, dynamic>{
-    'text': 'Tax Exemption Verified:',
-    'type': 'yesNo',
-    'happyPathResponse': ['Yes'],
-    'scoring': 5,
-    'databaseVar': 'TaxExemptionVerified',
-    'databaseVarType': 'bool',
-    'databaseOptCom': 'TaxExemptionVerifiedComments',
-    'actionItem': 'Provide documentation showing good standing with IRS or provide an updated active 501c3'
-  },
+// Removed for addition of Pre-Fill Page
+  // <String, dynamic>{
+  //   'text': 'Tax Exemption Verified:',
+  //   'type': 'yesNo',
+  //   'happyPathResponse': ['Yes'],
+  //   'scoring': 5,
+  //   'databaseVar': 'TaxExemptionVerified',
+  //   'databaseVarType': 'bool',
+  //   'databaseOptCom': 'TaxExemptionVerifiedComments',
+  //   'actionItem': 'Provide documentation showing good standing with IRS or provide an updated active 501c3'
+  // },
 
-  <String, dynamic>{
-    'text': 'Tax Exemption Verified Date:',
-    'type': 'date',
-    'databaseVar': 'TaxExemptionVerifiedDate',
-    'databaseVarType': 'date',
-    'databaseOptCom': 'TaxExemptionVerifiedDateComments',
-  },
+// Removed for addition of Pre-Fill Page
+  // <String, dynamic>{
+  //   'text': 'Tax Exemption Verified Date:',
+  //   'type': 'date',
+  //   'databaseVar': 'TaxExemptionVerifiedDate',
+  //   'databaseVarType': 'date',
+  //   'databaseOptCom': 'TaxExemptionVerifiedDateComments',
+  // },
 
   // <String, dynamic>{
   //   'text': 'Re-verified by:',
@@ -1824,6 +1914,7 @@ List<Map<String, dynamic>> developerData = [
 ];
 
 List<Map<String, List<Map<String, dynamic>>>> congregateAuditSectionsQuestions = [
+  <String, List<Map<String, dynamic>>>{"Pre-Fill": prefill},
   <String, List<Map<String, dynamic>>>{"Confirm Details": confirmDetails},
   <String, List<Map<String, dynamic>>>{"Intro": audit2Section1Questions},
   <String, List<Map<String, dynamic>>>{"Signage": audit2Section2Questions},
@@ -1836,5 +1927,5 @@ List<Map<String, List<Map<String, dynamic>>>> congregateAuditSectionsQuestions =
   <String, List<Map<String, dynamic>>>{"Photos": photoData},
   <String, List<Map<String, dynamic>>>{"Review": reviewData},
   <String, List<Map<String, dynamic>>>{"Verification": verificationData},
-  // <String, List<Map<String, dynamic>>>{"*Developer*": developerData},
+  <String, List<Map<String, dynamic>>>{"*Developer*": developerData},
 ];
