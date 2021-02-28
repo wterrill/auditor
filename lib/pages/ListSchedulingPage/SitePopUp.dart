@@ -127,23 +127,49 @@ class _SitePopUpState extends State<SitePopUp> {
                               ),
                             Text(""),
                             if (!widget.singleSite)
-                              FlatButton(
-                                color: ColorDefs.colorTopHeader,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(25.0),
-                                  side: BorderSide(color: ColorDefs.colorLogoLightGreen, width: 3.0),
+                              TextButton(
+                                style: ButtonStyle(
+                                  // foregroundColor: MaterialStateProperty.resolveWith<Color>(
+                                  //   // text color
+                                  //   (Set<MaterialState> states) =>
+                                  //       states.contains(MaterialState.disabled) ? Colors.white : Colors.white,
+                                  // ),
+                                  backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                                    // background color    this is color:
+                                    (Set<MaterialState> states) => states.contains(MaterialState.disabled)
+                                        ? ColorDefs.colorTopHeader
+                                        : ColorDefs.colorTopHeader,
+                                  ),
+                                  shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(25.0),
+                                      side: BorderSide(color: ColorDefs.colorLogoLightGreen, width: 3.0),
+                                    ),
+                                  ),
                                 ),
                                 onPressed: () {
-                                  // selectedSite = null;
                                   Navigator.of(context).pop();
                                   Dialogs.showScheduledAudit(context: context, siteFromLookupScreen: selectedSite);
                                   selectedSite = null;
                                 },
-                                child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(5.0, 12.0, 5.0, 12.0),
-                                  child: Text("Schedule Audit", style: ColorDefs.textBodyBlack20),
-                                ),
+                                child: Text("Schedule Audit", style: ColorDefs.textBodyBlack20),
                               ),
+                            // FlatButton(
+                            //   color: ColorDefs.colorTopHeader,
+                            //   shape: RoundedRectangleBorder(
+                            //     borderRadius: BorderRadius.circular(25.0),
+                            //     side: BorderSide(color: ColorDefs.colorLogoLightGreen, width: 3.0),
+                            //   ),
+                            //   onPressed: () {
+                            //     Navigator.of(context).pop();
+                            //     Dialogs.showScheduledAudit(context: context, siteFromLookupScreen: selectedSite);
+                            //     selectedSite = null;
+                            //   },
+                            //   child: Padding(
+                            //     padding: const EdgeInsets.fromLTRB(5.0, 12.0, 5.0, 12.0),
+                            //     child: Text("Schedule Audit", style: ColorDefs.textBodyBlack20),
+                            //   ),
+                            // ),
                             Container(height: 10),
                             if (selectedSite.operateHours != null)
                               Text("Hours of Operation:", style: ColorDefs.textBodyBlack30),

@@ -1,6 +1,7 @@
 import 'package:auditor/Definitions/AuditClasses/Audit.dart';
 import 'package:auditor/Definitions/Dialogs.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
+import 'package:auditor/Utilities/FlatButtonToTextButton.dart';
 import 'package:auditor/providers/AuditData.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -30,9 +31,9 @@ class _PhotoPageState extends State<PhotoPage> {
           shrinkWrap: true,
           children: [
             Container(
-              child: RaisedButton(
-                color: ColorDefs.colorAudit1,
-                onPressed: () async {
+              child: RaisedButtonX(
+                colorx: ColorDefs.colorAudit1,
+                onPressedx: () async {
                   final picker = ImagePicker();
                   try {
                     PickedFile fromPicker = await picker.getImage(source: ImageSource.gallery);
@@ -43,7 +44,7 @@ class _PhotoPageState extends State<PhotoPage> {
                     Provider.of<AuditData>(context, listen: false).saveActiveAudit();
                   } catch (err) {}
                 },
-                child: Text("Add picture", style: ColorDefs.textBodyWhite20),
+                childx: Text("Add picture", style: ColorDefs.textBodyWhite20),
               ),
             ),
             // Container(

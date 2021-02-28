@@ -1,5 +1,6 @@
 import 'package:auditor/Definitions/Dialogs.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
+import 'package:auditor/Utilities/FlatButtonToTextButton.dart';
 import 'package:auditor/pages/AuditPage/AuditPage.dart';
 import 'package:auditor/providers/AuditData.dart';
 import 'package:auditor/providers/GeneralData.dart';
@@ -75,32 +76,34 @@ class AuditInfoDialog extends StatelessWidget {
                             ),
                           Spacer(),
 
-                          FlatButton(
-                            color: ColorDefs.colorTopHeader,
-                            shape: RoundedRectangleBorder(
+                          FlatButtonX(
+                            colorx: ColorDefs.colorTopHeader,
+                            textColorx: Colors.black,
+                            shapex: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(25.0),
                               side: BorderSide(color: ColorDefs.colorLogoLightGreen, width: 3.0),
                             ),
-                            onPressed: () {
+                            onPressedx: () {
                               Dialogs.showSites(
                                   context: context, programNumber: calendarResult.programNum, singleSite: true);
                             },
-                            child: Padding(
+                            childx: Padding(
                               padding: const EdgeInsets.fromLTRB(5.0, 12.0, 5.0, 12.0),
                               child: Text("Site Information", style: ColorDefs.textBodyBlack20),
                             ),
                           ),
                           if (Provider.of<GeneralData>(context, listen: false).individualAuditEdit)
-                            FlatButton(
-                              color: ColorDefs.colorTopHeader,
-                              shape: RoundedRectangleBorder(
+                            FlatButtonX(
+                              colorx: ColorDefs.colorTopHeader,
+                              textColorx: Colors.black,
+                              shapex: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(25.0),
                                 side: BorderSide(color: ColorDefs.colorLogoLightGreen, width: 3.0),
                               ),
-                              onPressed: () {
+                              onPressedx: () {
                                 Dialogs.showEditMenu(context: context, calendarResult: calendarResult);
                               },
-                              child: Padding(
+                              childx: Padding(
                                 padding: const EdgeInsets.fromLTRB(5.0, 12.0, 5.0, 12.0),
                                 child: Text("Edit Audit", style: ColorDefs.textBodyBlack20),
                               ),
@@ -160,14 +163,15 @@ class AuditInfoDialog extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          FlatButton(
-                            color: ColorDefs.colorTopHeader,
-                            shape: RoundedRectangleBorder(
+                          FlatButtonX(
+                            colorx: ColorDefs.colorTopHeader,
+                            textColorx: Colors.black,
+                            shapex: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(25.0),
                                 side: BorderSide(color: calendarResult.programTypeColor, width: 3.0)),
 
                             // disabledTextColor: Colors.blue,
-                            onPressed: () {
+                            onPressedx: () {
                               Provider.of<AuditData>(context, listen: false).toggleStartAudit();
                               Navigator.of(context).pop();
                               Navigator.push<dynamic>(
@@ -178,7 +182,7 @@ class AuditInfoDialog extends StatelessWidget {
                                 ),
                               );
                             },
-                            child: Padding(
+                            childx: Padding(
                               padding: const EdgeInsets.fromLTRB(5.0, 12.0, 5.0, 12.0),
                               child: AutoSizeText(auditAlreadyStarted ? 'View Audit' : 'Begin Audit',
                                   style: ColorDefs.textBodyBlack20),
@@ -196,12 +200,13 @@ class AuditInfoDialog extends StatelessWidget {
                           //   ),
                           // ),
                           if (!(calendarResult.status == "Completed" || calendarResult.status == "Site Visit Req."))
-                            FlatButton(
-                              color: ColorDefs.colorTopHeader,
-                              shape: RoundedRectangleBorder(
+                            FlatButtonX(
+                              colorx: ColorDefs.colorTopHeader,
+                              textColorx: Colors.black,
+                              shapex: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(25.0),
                                   side: BorderSide(color: calendarResult.programTypeColor, width: 3.0)),
-                              onPressed: () {
+                              onPressedx: () {
                                 bool followup = false;
                                 if (calendarResult.auditType == "Follow Up") {
                                   followup = true;
@@ -211,22 +216,23 @@ class AuditInfoDialog extends StatelessWidget {
                                     followup: followup,
                                     auditAlreadyStarted: auditAlreadyStarted);
                               },
-                              child: Padding(
+                              childx: Padding(
                                 padding: const EdgeInsets.fromLTRB(5.0, 12.0, 5.0, 12.0),
                                 child: AutoSizeText('Revise Audit', style: ColorDefs.textBodyBlack20),
                               ),
                             ),
                           if (calendarResult.status == "Site Visit Req.")
-                            FlatButton(
-                              color: ColorDefs.colorTopHeader,
-                              shape: RoundedRectangleBorder(
+                            FlatButtonX(
+                              colorx: ColorDefs.colorTopHeader,
+                              textColorx: Colors.black,
+                              shapex: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(25.0),
                                   side: BorderSide(color: calendarResult.programTypeColor, width: 3.0)),
-                              onPressed: () {
+                              onPressedx: () {
                                 Dialogs.showRescheduleAudit(context,
                                     calendarResult: calendarResult, followup: true, auditAlreadyStarted: false);
                               },
-                              child: Padding(
+                              childx: Padding(
                                 padding: const EdgeInsets.fromLTRB(5.0, 12.0, 5.0, 12.0),
                                 child: AutoSizeText('Schedule Followup', style: ColorDefs.textBodyBlack20),
                               ),

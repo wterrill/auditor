@@ -1,5 +1,6 @@
 import 'package:auditor/Definitions/AuditClasses/Audit.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
+import 'package:auditor/Utilities/FlatButtonToTextButton.dart';
 import 'package:auditor/providers/AuditData.dart';
 // import 'package:auditor/providers/GeneralData.dart';
 import 'package:flutter/material.dart';
@@ -113,13 +114,14 @@ If violations of the agreement above occur or non-compliance of Membership Eligi
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    FlatButton(
-                      color: Colors.green,
-                      child: Padding(
+                    FlatButtonX(
+                      colorx: Colors.green,
+                      childx: Padding(
                         padding: const EdgeInsets.fromLTRB(20.0, 12.0, 20.0, 12.0),
                         child: Text("Save"),
                       ),
-                      shape: RoundedRectangleBorder(
+                      textColorx: Colors.black,
+                      shapex: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(25),
                             topLeft: Radius.circular(25),
@@ -127,7 +129,7 @@ If violations of the agreement above occur or non-compliance of Membership Eligi
                           side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
 
                       // color: Colors.green,
-                      onPressed: () async {
+                      onPressedx: () async {
                         SignatureState sign = _sign.currentState;
                         int lineColor = img.getColor(color.red, color.green, color.blue);
                         int backColor = img.getColor(255, 255, 255);
@@ -169,20 +171,20 @@ If violations of the agreement above occur or non-compliance of Membership Eligi
                         Provider.of<AuditData>(context, listen: false).notifyTheListeners();
                         debugPrint("onPressed ");
                       },
-                      // child: Text("Save")
                     ),
-                    FlatButton(
-                      child: Padding(
+                    FlatButtonX(
+                      childx: Padding(
                         padding: const EdgeInsets.fromLTRB(20.0, 12.0, 20.0, 12.0),
                         child: Text("Clear"),
                       ),
-                      shape: RoundedRectangleBorder(
+                      textColorx: Colors.black,
+                      shapex: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(25),
                             topRight: Radius.circular(25),
                           ),
                           side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
-                      onPressed: () {
+                      onPressedx: () {
                         final sign = _sign.currentState;
                         sign.clear();
                         setState(() {

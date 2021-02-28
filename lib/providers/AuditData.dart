@@ -552,7 +552,7 @@ class AuditData with ChangeNotifier {
         }
         section.questions[index].scoreAdded = false;
       }
-    } // TODO 6307899103
+    }
 
     if (audit.maxPoints != 0) audit.auditScore = 100 * audit.currentPoints / audit.maxPoints;
     print('currentPoints: ${audit.currentPoints}');

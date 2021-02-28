@@ -109,7 +109,7 @@ class CustomPaginatedDataTable extends StatefulWidget {
   /// The table card's header.
   ///
   /// This is typically a [Text] widget, but can also be a [ButtonBar] with
-  /// [FlatButton]s. Suitable defaults are automatically provided for the font,
+  /// [FlatButtonX]s. Suitable defaults are automatically provided for the font,
   /// button color, button padding, and so forth.
   ///
   /// If items in the table are selectable, then, when the selection is not

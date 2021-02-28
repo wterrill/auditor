@@ -211,11 +211,26 @@ class _ListSchedulingPageState extends State<ListSchedulingPage> with WidgetsBin
                                             Container(
                                               width: 20,
                                             ),
-                                            FlatButton(
-                                              color: ColorDefs.colorTopHeader,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.circular(25.0),
-                                                side: BorderSide(color: ColorDefs.colorLogoLightGreen, width: 3.0),
+                                            /////
+                                            TextButton(
+                                              style: ButtonStyle(
+                                                // foregroundColor: MaterialStateProperty.resolveWith<Color>(
+                                                //   // text color
+                                                //   (Set<MaterialState> states) =>
+                                                //       states.contains(MaterialState.disabled) ? Colors.white : Colors.white,
+                                                // ),
+                                                backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                                                  // background color    this is color:
+                                                  (Set<MaterialState> states) => states.contains(MaterialState.disabled)
+                                                      ? ColorDefs.colorTopHeader
+                                                      : ColorDefs.colorTopHeader,
+                                                ),
+                                                shape: MaterialStateProperty.all(
+                                                  RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius.circular(25.0),
+                                                    side: BorderSide(color: ColorDefs.colorLogoLightGreen, width: 3.0),
+                                                  ),
+                                                ),
                                               ),
                                               onPressed: () {
                                                 if (auditorList != null) {
@@ -225,10 +240,31 @@ class _ListSchedulingPageState extends State<ListSchedulingPage> with WidgetsBin
                                                 }
                                               },
                                               child: Padding(
-                                                padding: const EdgeInsets.fromLTRB(5.0, 12.0, 5.0, 12.0),
+                                                padding: const EdgeInsets.fromLTRB(5.0, 6.0, 5.0, 6.0),
                                                 child: Text("Schedule Audit", style: ColorDefs.textBodyBlack20),
                                               ),
                                             ),
+
+                                            ///
+                                            ///
+                                            // FlatButton(
+                                            // color: ColorDefs.colorTopHeader,
+                                            // shape: RoundedRectangleBorder(
+                                            //   borderRadius: BorderRadius.circular(25.0),
+                                            //   side: BorderSide(color: ColorDefs.colorLogoLightGreen, width: 3.0),
+                                            // ),
+                                            // onPressed: () {
+                                            //   if (auditorList != null) {
+                                            //     Dialogs.showScheduledAudit(context: context);
+                                            //   } else {
+                                            //     Dialogs.showNotSynced(context);
+                                            //   }
+                                            // },
+                                            // child: Padding(
+                                            //   padding: const EdgeInsets.fromLTRB(5.0, 12.0, 5.0, 12.0),
+                                            //   child: Text("Schedule Audit", style: ColorDefs.textBodyBlack20),
+                                            // ),
+                                            // ),
                                             Container(width: 20)
                                           ],
                                         ),

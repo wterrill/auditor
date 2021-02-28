@@ -1,3 +1,4 @@
+import 'package:auditor/Utilities/FlatButtonToTextButton.dart';
 import 'package:auditor/pages/ListSchedulingPage/ListSchedulingPage.dart';
 import 'package:auditor/providers/AuditData.dart';
 import 'package:auditor/providers/ListCalendarData.dart';
@@ -40,26 +41,26 @@ class _HiveTroubleShootingState extends State<HiveTroubleShooting> {
               setState(() {});
             },
           ),
-          RaisedButton(
-            color: Colors.red,
-            child: Text("auditData keys"),
-            onPressed: () {
+          RaisedButtonX(
+            colorx: Colors.red,
+            childx: Text("auditData keys"),
+            onPressedx: () {
               result = Provider.of<AuditData>(context, listen: false).auditBox.keys.toList();
               setState(() {});
             },
           ),
-          RaisedButton(
-            color: Colors.red,
-            child: Text("auditData to send keys"),
-            onPressed: () {
+          RaisedButtonX(
+            colorx: Colors.red,
+            childx: Text("auditData to send keys"),
+            onPressedx: () {
               result = Provider.of<AuditData>(context, listen: false).auditOutBox.keys.toList();
               setState(() {});
             },
           ),
-          RaisedButton(
-            color: Colors.red,
-            child: Text("delete Audit Data and Audit 'to send' data"),
-            onPressed: () {
+          RaisedButtonX(
+            colorx: Colors.red,
+            childx: Text("delete Audit Data and Audit 'to send' data"),
+            onPressedx: () {
               result = Provider.of<AuditData>(context, listen: false).auditBox.keys.toList();
 
               for (dynamic key in result) {
@@ -76,10 +77,10 @@ class _HiveTroubleShootingState extends State<HiveTroubleShooting> {
               setState(() {});
             },
           ),
-          RaisedButton(
-            color: Colors.red,
-            child: Text("delete calendar Data and calendar 'to send' data"),
-            onPressed: () {
+          RaisedButtonX(
+            colorx: Colors.red,
+            childx: Text("delete calendar Data and calendar 'to send' data"),
+            onPressedx: () {
               result = Provider.of<ListCalendarData>(context, listen: false).calendarBox.keys.toList();
 
               for (dynamic key in result) {

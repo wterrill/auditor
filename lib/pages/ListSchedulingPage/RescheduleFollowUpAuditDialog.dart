@@ -347,11 +347,22 @@ class _RescheduleFollowUpAuditDialogState extends State<RescheduleFollowUpAuditD
 
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 0),
-                  child: FlatButton(
-                      color: Colors.transparent,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                          side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
+                  child: TextButton(
+                      style: ButtonStyle(
+                        // foregroundColor: MaterialStateProperty.resolveWith<Color>(
+                        //   // text color
+                        //   (Set<MaterialState> states) =>
+                        //       states.contains(MaterialState.disabled) ? Colors.white : Colors.white,
+                        // ),
+                        backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                          // background color    this is color:
+                          (Set<MaterialState> states) =>
+                              states.contains(MaterialState.disabled) ? Colors.transparent : Colors.transparent,
+                        ),
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25.0),
+                            side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0))),
+                      ),
                       onPressed: () async {
                         if (_formKey.currentState.validate()) {
                           _formKey.currentState.save();
@@ -500,20 +511,185 @@ class _RescheduleFollowUpAuditDialogState extends State<RescheduleFollowUpAuditD
                             ? Text("Reschedule Audit in Progress", style: ColorDefs.textGreen25)
                             : Text("Reschedule Follow-Up Audit", style: ColorDefs.textGreen25),
                       )),
+
+                  // FlatButton(
+                  // color: Colors.transparent,
+                  // shape: RoundedRectangleBorder(
+                  //     borderRadius: BorderRadius.circular(25.0),
+                  //     side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
+                  // onPressed: () async {
+                  //   if (_formKey.currentState.validate()) {
+                  //     _formKey.currentState.save();
+                  //     print(selectedDate);
+                  //     print(selectedTime.format(context).toString());
+                  //     bool validateDateTime = pastTimeWarning();
+                  //     if (validateDateTime) {
+                  //       Function callBack = () {
+                  //         timeInPastOK = true;
+                  //       };
+                  //       await Dialogs.timeInPast(context, callBack);
+                  //     } else {
+                  //       timeInPastOK = true;
+                  //     }
+
+                  //     bool validated = validateEntry();
+
+                  //     Map<String, dynamic> oldAuditCitationsObject = widget.calendarResult.citationsToFollowUp;
+
+                  //     if (validated && timeInPastOK) {
+                  //       if (widget.calendarResult.auditType != "Follow Up")
+                  //         Provider.of<ListCalendarData>(context, listen: false)
+                  //             .deleteCalendarItem(widget.calendarResult);
+
+                  //       DateTime selectedDateTime = DateTime(selectedDate.year, selectedDate.month,
+                  //           selectedDate.day, selectedTime.hour, selectedTime.minute);
+                  //       print(selectedDateTime.toString());
+                  //       print(selectedSiteName);
+                  //       print(selectedProgramNumber);
+
+                  //       // Map<String, dynamic> oldAuditCitationsObject;
+                  //       String deviceid = Provider.of<GeneralData>(context, listen: false).deviceid;
+                  //       // if (widget.followup) {
+                  //       //   // oldAuditCitationsObject =
+                  //       //   //     Provider.of<AuditData>(context, listen: false)
+                  //       //   //         .getAuditCitationsObject(
+                  //       //   //             newCalendarResult: widget.calendarResult);
+
+                  //       if (alreadyExistedCalendarResult.status == "Site Visit Req.")
+                  //         Provider.of<ListCalendarData>(context, listen: false)
+                  //             .updateStatusOnScheduleToCompleted(alreadyExistedCalendarResult);
+                  //       // }
+
+                  //       if (oldAuditCitationsObject != null) {
+                  //         oldAuditCitationsObject['PreviousEvent'] = {
+                  //           'StartTime': alreadyExistedCalendarResult.startTime,
+                  //           'AgencyName': alreadyExistedCalendarResult.agencyName,
+                  //           'AgencyNumber': alreadyExistedCalendarResult.agencyNumber,
+                  //           'ProgramNumber': alreadyExistedCalendarResult.programNum,
+                  //           'AuditType': alreadyExistedCalendarResult.auditType,
+                  //           'ProgramType': alreadyExistedCalendarResult.programType.toString(),
+                  //           'Auditor': alreadyExistedCalendarResult.auditor
+                  //         };
+                  //       }
+
+                  //       if (oldAuditCitationsObject != null &&
+                  //           oldAuditCitationsObject['PreviousEvent']['AuditType'] == "Follow Up") {
+                  //         oldAuditCitationsObject['PreviousEvent'] = {
+                  //           'StartTime': selectedDateTime.toString(),
+                  //           'AgencyName': alreadyExistedCalendarResult.agencyName,
+                  //           'AgencyNumber': alreadyExistedCalendarResult.agencyNumber,
+                  //           'ProgramNumber': alreadyExistedCalendarResult.programNum,
+                  //           'AuditType': alreadyExistedCalendarResult.auditType,
+                  //           'ProgramType': alreadyExistedCalendarResult.programType.toString(),
+                  //           'Auditor': selectedAuditor,
+                  //         };
+                  //       }
+
+                  //       Map<String, dynamic> newEvent = <String, dynamic>{
+                  //         'startTime': selectedDateTime.toString(),
+                  //         'message': '',
+                  //         'agencyName': selectedSiteName,
+                  //         'agencyNumber': selectedAgencyNumber,
+                  //         'auditType': selectedAuditType,
+                  //         'programNum': selectedProgramNumber,
+                  //         'programType': selectedProgType,
+                  //         'auditor': selectedAuditor,
+                  //         'status': "Scheduled",
+                  //         'deviceid': deviceid,
+                  //         'citationsToFollowUp': oldAuditCitationsObject
+                  //       };
+
+                  //       if (widget.auditAlreadyStarted) {
+                  //         oldAuditCitationsObject = newEvent;
+                  //       }
+
+                  //       bool exists = Provider.of<ListCalendarData>(context, listen: false).checkBoxEvent(
+                  //         event: newEvent,
+                  //       );
+
+                  //       if (!exists) {
+                  //         Provider.of<ListCalendarData>(context, listen: false).addBoxEvent(
+                  //           event: newEvent,
+                  //           notify: true,
+                  //         );
+                  //         if (widget.auditAlreadyStarted) {
+                  //           // the audit needs to be retrieved, then it needs to be stored under a different name
+                  //           Audit retrievedAudit = Provider.of<AuditData>(context, listen: false)
+                  //               .getAuditFromBox(alreadyExistedCalendarResult);
+                  //           Audit copy_retrieved = retrievedAudit.clone();
+                  //           Provider.of<AuditData>(context, listen: false)
+                  //               .deleteAudit(retrievedAudit.calendarResult);
+
+                  //           // Update retrieved audit:
+                  //           copy_retrieved.calendarResult.startTime = newEvent['startTime'] as String;
+                  //           copy_retrieved.calendarResult.auditor = newEvent['auditor'] as String;
+                  //           copy_retrieved.calendarResult.startDateTime =
+                  //               DateTime.parse(newEvent['startTime'] as String);
+
+                  //           Provider.of<AuditData>(context, listen: false)
+                  //               .saveAuditLocally(incomingAudit: copy_retrieved);
+                  //           if (widget.calendarResult.auditType == "Follow Up")
+                  //             Provider.of<ListCalendarData>(context, listen: false)
+                  //                 .deleteCalendarItem(alreadyExistedCalendarResult);
+
+                  //           print("#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#");
+                  //         } else {
+                  //           if (widget.calendarResult.auditType == "Follow Up")
+                  //             Provider.of<ListCalendarData>(context, listen: false)
+                  //                 .deleteCalendarItem(alreadyExistedCalendarResult);
+                  //         }
+                  //       } else {
+                  //         Dialogs.showMessage(
+                  //             context: context,
+                  //             dismissable: true,
+                  //             message:
+                  //                 "An audit exists at this location for the same time and same auditor. \nPlease check your entry and try again.",
+                  //             textStyle: ColorDefs.textWhiteTerminal,
+                  //             bckcolor: ColorDefs.colorDarkBackground);
+                  //       }
+
+                  //       if (!exists) {
+                  //         Navigator.of(context).pop();
+                  //       }
+                  //       if (alreadyExisted) {
+                  //         Navigator.of(context).pop();
+                  //       }
+                  //     } else {
+                  //       Dialogs.showBadSchedule(context);
+                  //     }
+                  //   }
+                  // },
+                  // child: Padding(
+                  //   padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                  //   child: widget.auditAlreadyStarted
+                  //       ? Text("Reschedule Audit in Progress", style: ColorDefs.textGreen25)
+                  //       : Text("Reschedule Follow-Up Audit", style: ColorDefs.textGreen25),
+                  // )),
                 ),
 
                 if (widget.auditAlreadyStarted)
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 0),
-                    child: FlatButton(
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 10.0),
-                        child: Text("Delete Audit in Progress", style: ColorDefs.textGreen25),
+                    child:
+                        /////
+                        ///
+                        TextButton(
+                      style: ButtonStyle(
+                        // foregroundColor: MaterialStateProperty.resolveWith<Color>(
+                        //   // text color
+                        //   (Set<MaterialState> states) =>
+                        //       states.contains(MaterialState.disabled) ? Colors.white : Colors.white,
+                        // ),
+                        backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                          // background color    this is color:
+                          (Set<MaterialState> states) => states.contains(MaterialState.disabled)
+                              ? ColorDefs.colorTopHeader
+                              : ColorDefs.colorTopHeader,
+                        ),
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25.0),
+                            side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0))),
                       ),
-                      color: ColorDefs.colorTopHeader,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                          side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
                       onPressed: () async {
                         bool result = await showDialog(
                           context: context,
@@ -562,7 +738,71 @@ class _RescheduleFollowUpAuditDialogState extends State<RescheduleFollowUpAuditD
                           Navigator.of(context).pop(); // dismisses the entire widget
                         }
                       },
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 10.0),
+                        child: Text("Delete Audit in Progress", style: ColorDefs.textGreen25),
+                      ),
                     ),
+
+                    ///
+                    // FlatButton(
+                    // child: Padding(
+                    //   padding: const EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 10.0),
+                    //   child: Text("Delete Audit in Progress", style: ColorDefs.textGreen25),
+                    // ),
+                    // color: ColorDefs.colorTopHeader,
+                    // shape: RoundedRectangleBorder(
+                    //     borderRadius: BorderRadius.circular(25.0),
+                    //     side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
+                    // onPressed: () async {
+                    //   bool result = await showDialog(
+                    //     context: context,
+                    //     builder: (context) {
+                    //       return AlertDialog(
+                    //         title: Text('Confirmation'),
+                    //         content: Text('Do you want to delete this Audit in progress?'),
+                    //         actions: <Widget>[
+                    //           new TextButton(
+                    //             onPressed: () {
+                    //               Navigator.of(context, rootNavigator: true)
+                    //                   .pop(false); // dismisses only the dialog and returns false
+                    //             },
+                    //             child: Text('Cancel'),
+                    //           ),
+                    //           TextButton(
+                    //             onPressed: () {
+                    //               Navigator.of(context, rootNavigator: true).pop(true);
+                    //               Provider.of<ListCalendarData>(context, listen: false)
+                    //                   .deleteCalendarItem(widget.calendarResult);
+                    //               Provider.of<AuditData>(context, listen: false).deleteAudit(widget.calendarResult);
+                    //               setState(() {}); // dismisses only the dialog and returns true
+                    //             },
+                    //             child: Text('Yes'),
+                    //           ),
+                    //         ],
+                    //       );
+                    //     },
+                    //   );
+
+                    //   if (result) {
+                    //     if (_formKey.currentState.validate()) {
+                    //       _formKey.currentState.save();
+                    //       print(selectedDate);
+                    //       print(selectedTime.format(context).toString());
+
+                    //       Provider.of<ListCalendarData>(context, listen: false)
+                    //           .deleteCalendarItem(widget.calendarResult);
+
+                    //       Navigator.of(context).pop();
+                    //       if (alreadyExisted) {
+                    //         Navigator.of(context).pop();
+                    //       }
+                    //     }
+                    //   } else {
+                    //     Navigator.of(context).pop(); // dismisses the entire widget
+                    //   }
+                    // },
+                    // ),
                   ),
               ],
             ),

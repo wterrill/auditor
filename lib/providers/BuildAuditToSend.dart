@@ -92,7 +92,8 @@ Map<String, dynamic> buildAuditToSend(Audit outgoingAudit, String deviceidProvid
 
   String dateOfSiteVisit = outgoingAudit.calendarResult.startDateTime.toString();
 
-  String startOfAudit = DateFormat("HH:mm:ss.000").format(outgoingAudit.calendarResult.startDateTime);
+  // String startOfAudit = DateFormat("HH:mm:ss.000").format(outgoingAudit.calendarResult.startDateTime);
+  String startOfAudit = DateFormat("HH:mm:ss.000").format(outgoingAudit.calendarResult.actualStartDateTime);
 
   try {
     // String endOfAudit = DateFormat("HH:mm:ss.000").format(outgoingAudit.calendarResult.endDateTime);
@@ -107,13 +108,17 @@ Map<String, dynamic> buildAuditToSend(Audit outgoingAudit, String deviceidProvid
   resultMap["StartOfAudit"] = startOfAudit;
 
   resultMap["GCFDAuditorID"] = outgoingAudit.calendarResult.auditor;
-  resultMap['ProgramContact'] = outgoingAudit.sections[0].questions[7].userResponse;
+  int detailsSection = 0;
+  if (outgoingAudit.sections[0].name == "Pre-Fill") {
+    detailsSection = 1;
+  }
+  resultMap['ProgramContact'] = outgoingAudit.sections[detailsSection].questions[7].userResponse;
   // resultMap['PersonInterviewed'] = outgoingAudit.sections[0].questions[8].userResponse;
 
-  resultMap['ContactEmail'] = outgoingAudit.sections[0].questions[9].userResponse;
-  resultMap['PersonInterviewed'] = outgoingAudit.sections[0].questions[10].userResponse;
+  resultMap['ContactEmail'] = outgoingAudit.sections[detailsSection].questions[9].userResponse;
+  resultMap['PersonInterviewed'] = outgoingAudit.sections[detailsSection].questions[10].userResponse;
   try {
-    resultMap['ServiceArea'] = outgoingAudit.sections[0].questions[11].userResponse;
+    resultMap['ServiceArea'] = outgoingAudit.sections[detailsSection].questions[11].userResponse;
   } catch (err) {
     print(err);
   }

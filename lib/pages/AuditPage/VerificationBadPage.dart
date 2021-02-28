@@ -2,6 +2,7 @@ import 'package:auditor/Definitions/AuditClasses/Audit.dart';
 import 'package:auditor/Definitions/AuditClasses/Question.dart';
 import 'package:auditor/Definitions/Dialogs.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
+import 'package:auditor/Utilities/FlatButtonToTextButton.dart';
 import 'package:auditor/providers/AuditData.dart';
 // import 'package:auditor/providers/GeneralData.dart';
 import 'package:auditor/providers/ListCalendarData.dart';
@@ -180,18 +181,19 @@ class _VerificationBadPageState extends State<VerificationBadPage> {
                     child: Text("These Compliance Requirements must be completed by: "),
                   ),
                   if (selectedDate != null)
-                    FlatButton(
-                      disabledColor: ColorDefs.colorButtonNeutral,
-                      color: ColorDefs.colorTopHeader,
-                      shape: RoundedRectangleBorder(
+                    FlatButtonX(
+                      disabledColorx: ColorDefs.colorButtonNeutral,
+                      textColorx: Colors.black,
+                      colorx: ColorDefs.colorTopHeader,
+                      shapex: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50.0),
                           side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
-                      child: Padding(
+                      childx: Padding(
                         padding: const EdgeInsets.fromLTRB(20.0, 12.0, 20.0, 12.0),
                         child: Text(
                             (selectedDate != null) ? DateFormat('MM-dd-yyyy').format(selectedDate) : "Select Date"),
                       ),
-                      onPressed: () async {
+                      onPressedx: () async {
                         selectedDate = await showDatePicker(
                           context: context,
                           initialDate: DateTime.now(),
@@ -451,19 +453,20 @@ In order to be fully certified and in good standing with the Greater Chicago Foo
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    FlatButton(
-                      child: Padding(
+                    FlatButtonX(
+                      childx: Padding(
                         padding: const EdgeInsets.fromLTRB(20.0, 12.0, 20.0, 12.0),
                         child: Text("Save"),
                       ),
-                      color: Colors.green,
-                      shape: RoundedRectangleBorder(
+                      colorx: Colors.green,
+                      textColorx: Colors.black,
+                      shapex: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(25),
                             topLeft: Radius.circular(25),
                           ),
                           side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
-                      onPressed: () async {
+                      onPressedx: () async {
                         if (checkActionItems()) {
                           SignatureState sign = _sign.currentState;
                           int lineColor = img.getColor(color.red, color.green, color.blue);
@@ -525,18 +528,19 @@ In order to be fully certified and in good standing with the Greater Chicago Foo
                         }
                       },
                     ),
-                    FlatButton(
-                      child: Padding(
+                    FlatButtonX(
+                      childx: Padding(
                         padding: const EdgeInsets.fromLTRB(20.0, 12.0, 20.0, 12.0),
                         child: Text("Clear"),
                       ),
-                      shape: RoundedRectangleBorder(
+                      textColorx: Colors.black,
+                      shapex: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(25),
                             topRight: Radius.circular(25),
                           ),
                           side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
-                      onPressed: () {
+                      onPressedx: () {
                         final sign = _sign.currentState;
                         sign.clear();
                         setState(() {
@@ -620,22 +624,23 @@ In order to be fully certified and in good standing with the Greater Chicago Foo
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    FlatButton(
+                    FlatButtonX(
                       // color: Colors.green,
 
-                      child: Padding(
+                      childx: Padding(
                         padding: const EdgeInsets.fromLTRB(20.0, 12.0, 20.0, 12.0),
                         child: Text("Save"),
                       ),
-                      color: Colors.green,
-                      shape: RoundedRectangleBorder(
+                      colorx: Colors.green,
+                      textColorx: Colors.black,
+                      shapex: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(25),
                             topLeft: Radius.circular(25),
                           ),
                           side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
 
-                      onPressed: () async {
+                      onPressedx: () async {
                         if (checkActionItems()) {
                           SignatureState sign = _sign2.currentState;
                           int lineColor = img.getColor(color.red, color.green, color.blue);
@@ -695,18 +700,19 @@ In order to be fully certified and in good standing with the Greater Chicago Foo
                         }
                       },
                     ),
-                    FlatButton(
-                      child: Padding(
+                    FlatButtonX(
+                      childx: Padding(
                         padding: const EdgeInsets.fromLTRB(20.0, 12.0, 20.0, 12.0),
                         child: Text("Clear"),
                       ),
-                      shape: RoundedRectangleBorder(
+                      textColorx: Colors.black,
+                      shapex: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(25),
                             topRight: Radius.circular(25),
                           ),
                           side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
-                      onPressed: () {
+                      onPressedx: () {
                         final sign = _sign2.currentState;
                         sign.clear();
                         setState(() {
@@ -744,23 +750,24 @@ In order to be fully certified and in good standing with the Greater Chicago Foo
                 ),
               Container(height: 30),
               if (foodDepositoryMonitorSignature != null && siteRepresentativeSignature != null)
-                FlatButton(
-                  child: Padding(
+                FlatButtonX(
+                  childx: Padding(
                     padding: const EdgeInsets.fromLTRB(20.0, 12.0, 20.0, 12.0),
                     child: Text(
                       "Success! Go to the Inspection Certificate",
                       style: ColorDefs.textBodyWhite30,
                     ),
                   ),
-                  color: Colors.green,
-                  shape: RoundedRectangleBorder(
+                  colorx: Colors.green,
+                  textColorx: Colors.black,
+                  shapex: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(
                         Radius.circular(25),
                       ),
                       side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
 
                   // color: Colors.green,
-                  onPressed: () {
+                  onPressedx: () {
                     Provider.of<AuditData>(context, listen: false).updateGoToVerificationGoodPage(true);
                   },
                   // child: Text(

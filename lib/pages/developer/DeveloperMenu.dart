@@ -1,4 +1,5 @@
 import 'package:auditor/Definitions/Dialogs.dart';
+import 'package:auditor/Utilities/FlatButtonToTextButton.dart';
 import 'package:auditor/pages/ListSchedulingPage/ListSchedulingPage.dart';
 import 'package:auditor/pages/developer/DatabaseDetails/DatabaseDetails.dart';
 import 'package:auditor/pages/developer/hiveTroubleshooting/hiveTroubleshooting.dart';
@@ -34,10 +35,11 @@ class DeveloperMenu extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              child: FlatButton(
-                  color: Colors.green,
-                  child: Text("Navigate back"),
-                  onPressed: () {
+              child: FlatButtonX(
+                  colorx: Colors.green,
+                  textColorx: Colors.black,
+                  childx: Text("Navigate back"),
+                  onPressedx: () {
                     Navigator.of(context).pop();
                     Navigator.push<dynamic>(
                       context,
@@ -72,10 +74,11 @@ class DeveloperMenu extends StatelessWidget {
 //              },
 //            ),
 //          ),
-            FlatButton(
-              color: Colors.red,
-              child: Text("finger signing"),
-              onPressed: () {
+            FlatButtonX(
+              colorx: Colors.red,
+              textColorx: Colors.black,
+              childx: Text("finger signing"),
+              onPressedx: () {
                 Navigator.push<dynamic>(
                   context,
                   MaterialPageRoute<dynamic>(builder: (context) => FingerSign()),
@@ -83,10 +86,11 @@ class DeveloperMenu extends StatelessWidget {
               },
             ),
 
-            FlatButton(
-              color: Colors.red,
-              child: Text("Look Ahead"),
-              onPressed: () {
+            FlatButtonX(
+              colorx: Colors.red,
+              textColorx: Colors.black,
+              childx: Text("Look Ahead"),
+              onPressedx: () {
                 Navigator.push<dynamic>(
                   context,
                   MaterialPageRoute<dynamic>(builder: (context) => LookAhead()),
@@ -94,10 +98,11 @@ class DeveloperMenu extends StatelessWidget {
               },
             ),
 
-            FlatButton(
-              color: Colors.red,
-              child: Text("Date picker"),
-              onPressed: () async {
+            FlatButtonX(
+              colorx: Colors.red,
+              textColorx: Colors.black,
+              childx: Text("Date picker"),
+              onPressedx: () async {
                 selectedDate = await showDatePicker(
                   context: context,
                   initialDate: (selectedDate != null) ? selectedDate : DateTime.now(),
@@ -114,10 +119,11 @@ class DeveloperMenu extends StatelessWidget {
               },
             ),
 
-            FlatButton(
-              color: Colors.red,
-              child: Text("TextTesting"),
-              onPressed: () async {
+            FlatButtonX(
+              colorx: Colors.red,
+              textColorx: Colors.black,
+              childx: Text("TextTesting"),
+              onPressedx: () async {
                 // Navigator.push(TextTest());
 
                 Navigator.push<dynamic>(
@@ -127,10 +133,11 @@ class DeveloperMenu extends StatelessWidget {
               },
             ),
 
-            FlatButton(
-              color: Colors.red,
-              child: Text("Time picker"),
-              onPressed: () async {
+            FlatButtonX(
+              colorx: Colors.red,
+              textColorx: Colors.black,
+              childx: Text("Time picker"),
+              onPressedx: () async {
                 selectedTime = await showTimePicker(
                   context: context,
                   initialTime: (selectedTime != null) ? selectedTime : TimeOfDay(hour: 10, minute: 0),
@@ -155,10 +162,11 @@ class DeveloperMenu extends StatelessWidget {
             //     );
             //   },
             // ),
-            FlatButton(
-              color: Colors.red,
-              child: Text("hive test"),
-              onPressed: () {
+            FlatButtonX(
+              colorx: Colors.red,
+              textColorx: Colors.black,
+              childx: Text("hive test"),
+              onPressedx: () {
                 Navigator.push<dynamic>(
                   context,
                   MaterialPageRoute<dynamic>(
@@ -181,10 +189,11 @@ class DeveloperMenu extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            FlatButton(
-              color: Colors.red,
-              child: Text("Network Information"),
-              onPressed: () {
+            FlatButtonX(
+              colorx: Colors.red,
+              textColorx: Colors.black,
+              childx: Text("Network Information"),
+              onPressedx: () {
                 Navigator.push<dynamic>(
                   context,
                   MaterialPageRoute<dynamic>(builder: (context) => TestAuthentication()),
@@ -194,10 +203,11 @@ class DeveloperMenu extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            FlatButton(
-              color: Colors.red,
-              child: Text("show device ID"),
-              onPressed: () {
+            FlatButtonX(
+              colorx: Colors.red,
+              textColorx: Colors.black,
+              childx: Text("show device ID"),
+              onPressedx: () {
                 String deviceid = Provider.of<GeneralData>(context, listen: false).deviceid;
                 Dialogs.showid(context, deviceid);
               },

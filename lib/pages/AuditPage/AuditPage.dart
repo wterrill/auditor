@@ -3,6 +3,7 @@ import 'package:auditor/Definitions/AuditClasses/Section.dart';
 import 'package:auditor/Definitions/Dialogs.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
 import 'package:auditor/Definitions/CalendarClasses/CalendarResult.dart';
+import 'package:auditor/Utilities/FlatButtonToTextButton.dart';
 import 'package:auditor/pages/AuditPage/DeveloperPage.dart';
 import 'package:auditor/pages/AuditPage/PhotoPage.dart';
 import 'package:auditor/providers/AuditData.dart';
@@ -155,22 +156,23 @@ class _AuditPageState extends State<AuditPage> {
 
                     if (activeSection?.name == "Verification")
                       if (showSubmitButton)
-                        FlatButton(
-                            child: Padding(
+                        FlatButtonX(
+                            childx: Padding(
                               padding: const EdgeInsets.fromLTRB(20.0, 12.0, 20.0, 12.0),
                               child: Text("Submit Audit", style: ColorDefs.textBodyBlack30),
                             ),
-                            color: Colors.green,
-                            shape: RoundedRectangleBorder(
+                            colorx: Colors.green,
+                            textColorx: Colors.black,
+                            shapex: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(50),
                                 ),
                                 side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
-                            disabledColor: ColorDefs.colorButtonNeutral,
+                            disabledColorx: ColorDefs.colorButtonNeutral,
                             // color: Colors.blue,
                             // textColor: Colors.black,
                             // child: Text("Submit Audit", style: ColorDefs.textBodyBlack20),
-                            onPressed: (() async {
+                            onPressedx: (() async {
                               // Save Date time
                               activeAudit.calendarResult.endDateTime = DateTime.now();
                               // this is done to prevent "Verification" from showing as selected when opening again.
@@ -208,11 +210,11 @@ class _AuditPageState extends State<AuditPage> {
                             })),
                     Container(height: 10),
                     if (activeAudit?.calendarResult?.status == 0)
-                      FlatButton(
-                        color: Colors.blue,
-                        textColor: Colors.black,
-                        child: Text("Cancel Audit", style: ColorDefs.textBodyBlack20),
-                        onPressed: () {
+                      FlatButtonX(
+                        colorx: Colors.blue,
+                        textColorx: Colors.black,
+                        childx: Text("Cancel Audit", style: ColorDefs.textBodyBlack20),
+                        onPressedx: () {
                           Provider.of<AuditData>(context, listen: false).toggleStartAudit();
                           Provider.of<AuditData>(context, listen: false).resetAudit();
                           Navigator.of(context).pop();
@@ -229,17 +231,18 @@ class _AuditPageState extends State<AuditPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          FlatButton(
-                            disabledColor: ColorDefs.colorButtonNeutral,
-                            color: ColorDefs.colorAnotherDarkGreen,
-                            shape: RoundedRectangleBorder(
+                          FlatButtonX(
+                            disabledColorx: ColorDefs.colorButtonNeutral,
+                            textColorx: Colors.black,
+                            colorx: ColorDefs.colorAnotherDarkGreen,
+                            shapex: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(50.0),
                                 side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
-                            child: Padding(
+                            childx: Padding(
                               padding: const EdgeInsets.fromLTRB(20.0, 12.0, 20.0, 12.0),
                               child: Text("Save and Close", style: ColorDefs.textBodyWhite20),
                             ),
-                            onPressed: () {
+                            onPressedx: () {
                               Provider.of<AuditData>(context, listen: false).toggleStartAudit();
                               Provider.of<AuditData>(context, listen: false)
                                   .saveAuditLocally(incomingAudit: activeAudit);
@@ -305,20 +308,21 @@ class _AuditPageState extends State<AuditPage> {
                               children: [
                                 Container(
                                   width: 180,
-                                  child: FlatButton(
-                                    disabledColor: ColorDefs.colorButtonNeutral,
-                                    color: ColorDefs.colorTopHeader,
-                                    shape: RoundedRectangleBorder(
+                                  child: FlatButtonX(
+                                    disabledColorx: ColorDefs.colorButtonNeutral,
+                                    colorx: ColorDefs.colorTopHeader,
+                                    textColorx: Colors.black,
+                                    shapex: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(50.0),
                                         side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
 
                                     // color: Colors.blue,
                                     // textColor: Colors.black,
-                                    child: Padding(
+                                    childx: Padding(
                                       padding: const EdgeInsets.fromLTRB(20.0, 12.0, 20.0, 12.0),
                                       child: Text("Previous", style: ColorDefs.textBodyBlack20),
                                     ),
-                                    onPressed: () {
+                                    onPressedx: () {
                                       try {
                                         _scrollController.jumpTo(-10);
                                       } catch (err) {
@@ -340,17 +344,18 @@ class _AuditPageState extends State<AuditPage> {
                                 ),
                                 Container(
                                   width: 180,
-                                  child: FlatButton(
-                                    disabledColor: ColorDefs.colorButtonNeutral,
-                                    color: ColorDefs.colorTopHeader,
-                                    shape: RoundedRectangleBorder(
+                                  child: FlatButtonX(
+                                    disabledColorx: ColorDefs.colorButtonNeutral,
+                                    textColorx: Colors.black,
+                                    colorx: ColorDefs.colorTopHeader,
+                                    shapex: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(50.0),
                                         side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
-                                    child: Padding(
+                                    childx: Padding(
                                       padding: const EdgeInsets.fromLTRB(20.0, 12.0, 20.0, 12.0),
                                       child: Text("Next", style: ColorDefs.textBodyBlack20),
                                     ),
-                                    onPressed: () {
+                                    onPressedx: () {
                                       try {
                                         _scrollController.jumpTo(-10);
                                       } catch (err) {

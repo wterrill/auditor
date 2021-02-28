@@ -42,6 +42,8 @@ class CalendarResult extends HiveObject {
   String idNum = "";
   @HiveField(16)
   bool uploaded = false;
+  @HiveField(17)
+  DateTime actualStartDateTime;
 
   // String date;
 
@@ -62,7 +64,9 @@ class CalendarResult extends HiveObject {
       this.endDateTime,
       this.idNum,
       this.uploaded}) {
-    startDateTime = DateTime.parse(startTime);
+    if (startDateTime == null) {
+      startDateTime = DateTime.parse(startTime);
+    }
     var lookup = programTypeTextAndColorLookup(programType);
     programTypeColor = lookup["color"] as Color;
     print(programTypeColor);

@@ -1,3 +1,4 @@
+import 'package:auditor/Utilities/FlatButtonToTextButton.dart';
 import 'package:clay_containers/clay_containers.dart';
 import 'package:flutter/material.dart';
 // import 'package:universal_html/html.dart';
@@ -7,8 +8,7 @@ class ClayContainerEx extends StatefulWidget {
   _ClayContainerExState createState() => _ClayContainerExState();
 }
 
-class _ClayContainerExState extends State<ClayContainerEx>
-    with SingleTickerProviderStateMixin {
+class _ClayContainerExState extends State<ClayContainerEx> with SingleTickerProviderStateMixin {
   Color baseColor = Color(0xFFf2f2f2);
   double firstDepth = 50;
   double secondDepth = 50;
@@ -52,25 +52,22 @@ class _ClayContainerExState extends State<ClayContainerEx>
       return value * (progress / delay);
     }
 
-    double calculatedFirstDepth =
-        stagger(firstDepth, _animationController.value, 0.25);
-    double calculatedSecondDepth =
-        stagger(secondDepth, _animationController.value, 0.5);
-    double calculatedThirdDepth =
-        stagger(thirdDepth, _animationController.value, 0.75);
-    double calculatedFourthDepth =
-        stagger(fourthDepth, _animationController.value, 1);
+    double calculatedFirstDepth = stagger(firstDepth, _animationController.value, 0.25);
+    double calculatedSecondDepth = stagger(secondDepth, _animationController.value, 0.5);
+    double calculatedThirdDepth = stagger(thirdDepth, _animationController.value, 0.75);
+    double calculatedFourthDepth = stagger(fourthDepth, _animationController.value, 1);
 
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        FlatButton(
-          color: Colors.blue,
-          child: Text(
+        FlatButtonX(
+          colorx: Colors.blue,
+          textColorx: Colors.black,
+          childx: Text(
             "Back",
             style: TextStyle(color: Colors.black),
           ),
-          onPressed: () {
+          onPressedx: () {
             Navigator.of(context).pop();
           },
         ),

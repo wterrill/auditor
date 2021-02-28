@@ -33,13 +33,14 @@ class CalendarResultAdapter extends TypeAdapter<CalendarResult> {
       ..startDateTime = fields[10] as DateTime
       ..endDateTime = fields[14] as DateTime
       ..idNum = fields[15] as String
-      ..uploaded = fields[16] as bool;
+      ..uploaded = fields[16] as bool
+      ..actualStartDateTime = fields[17] as DateTime;
   }
 
   @override
   void write(BinaryWriter writer, CalendarResult obj) {
     writer
-      ..writeByte(17)
+      ..writeByte(18)
       ..writeByte(0)
       ..write(obj.startTime)
       ..writeByte(1)
@@ -73,6 +74,8 @@ class CalendarResultAdapter extends TypeAdapter<CalendarResult> {
       ..writeByte(15)
       ..write(obj.idNum)
       ..writeByte(16)
-      ..write(obj.uploaded);
+      ..write(obj.uploaded)
+      ..writeByte(17)
+      ..write(obj.actualStartDateTime);
   }
 }

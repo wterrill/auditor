@@ -1,4 +1,5 @@
 // import 'package:auto_size_text/auto_size_text.dart';
+import 'package:auditor/Utilities/FlatButtonToTextButton.dart';
 import 'package:flutter/material.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
 import 'package:auditor/communications/Comms.dart';
@@ -188,20 +189,41 @@ class _LoginFormState extends State<LoginForm> {
               child: Container(
                 width: double.infinity,
                 height: 50,
-                child: FlatButton(
-                  key: Key('login'),
-                  color: Colors.green,
-                  disabledColor: Colors.grey,
-                  disabledTextColor: Colors.white,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
-                  onPressed: _enabledLoginButton ? _submit : null,
-                  child: Text(
+                child:
+                    // TextButton(
+                    //   style: ButtonStyle(
+                    //       foregroundColor: MaterialStateProperty.resolveWith<Color>(
+                    //         // text color
+                    //         (Set<MaterialState> states) =>
+                    //             states.contains(MaterialState.disabled) ? Colors.white : Colors.white,
+                    //       ),
+                    //       backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                    //         // background color
+                    //         (Set<MaterialState> states) =>
+                    //             states.contains(MaterialState.disabled) ? Colors.grey : Colors.green,
+                    //       ),
+                    //       shape:
+                    //           MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)))),
+                    //   key: Key('login'),
+                    //   onPressed: _enabledLoginButton ? _submit : null,
+                    //   child: Text(
+                    //     'Log In',
+                    //     style: TextStyle(fontSize: 20),
+                    //   ),
+                    // ),
+                    //
+                    FlatButtonX(
+                  keyx: Key('login'),
+                  colorx: Colors.green,
+                  textColorx: Colors.black,
+                  disabledColorx: Colors.grey,
+                  disabledTextColorx: Colors.white,
+                  shapex: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
+                  onPressedx: _enabledLoginButton ? _submit : null,
+                  childx: Text(
                     'Log In',
                     style: TextStyle(fontSize: 20),
                   ),
-                  // style: _enabledLoginButton
-                  //     ? ColorDefs.textBodyWhite30
-                  //     : ColorDefs.textBodyGrey20),
                 ),
               ),
             ),

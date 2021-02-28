@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:auditor/Definitions/Dialogs.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
+import 'package:auditor/Utilities/FlatButtonToTextButton.dart';
 import 'package:auditor/pages/ListSchedulingPage/ListSchedulingPage.dart';
 import 'package:auditor/providers/GeneralData.dart';
 import 'package:http/http.dart' as http;
@@ -534,16 +535,18 @@ class _TestAuthenticationState extends State<TestAuthentication> {
                     scrollDirection: Axis.vertical,
                     children: [Container(child: Text(result, style: ColorDefs.textBodyWhite20))]),
               ),
-              RaisedButton(
-                  color: Colors.red,
-                  onPressed: () async {
+              RaisedButtonX(
+                  colorx: Colors.red,
+                  onPressedx: () async {
                     AlertDialog alert = AlertDialog(
                       elevation: 6.0,
                       content: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text('This will delete all data in the remote database.  Are you sure you want to do this?'),
+                          Text(
+                            'This will delete all data in the remote database.  Are you sure you want to do this?',
+                          ),
                         ],
                       ),
                       actions: <Widget>[
@@ -570,7 +573,7 @@ class _TestAuthenticationState extends State<TestAuthentication> {
                       },
                     );
                   },
-                  child: Text("CAREFUL - DELETE REMOTE DATABASE - CAREFUL"))
+                  childx: Text("CAREFUL - DELETE REMOTE DATABASE - CAREFUL", style: TextStyle(color: Colors.white)))
             ],
           ),
         ),

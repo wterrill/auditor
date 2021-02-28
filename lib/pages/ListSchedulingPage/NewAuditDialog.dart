@@ -392,11 +392,28 @@ class _NewAuditDialogState extends State<NewAuditDialog> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 0),
-                    child: FlatButton(
-                      color: Colors.transparent,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                          side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
+                    child:
+
+                        /////
+                        ///
+                        TextButton(
+                      style: ButtonStyle(
+                        // foregroundColor: MaterialStateProperty.resolveWith<Color>(
+                        //   // text color
+                        //   (Set<MaterialState> states) =>
+                        //       states.contains(MaterialState.disabled) ? Colors.white : Colors.white,
+                        // ),
+                        backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                          // background color    this is color:
+                          (Set<MaterialState> states) =>
+                              states.contains(MaterialState.disabled) ? Colors.transparent : Colors.transparent,
+                        ),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25.0),
+                              side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
+                        ),
+                      ),
                       onPressed: () async {
                         if (_formKey.currentState.validate()) {
                           _formKey.currentState.save();
@@ -506,19 +523,149 @@ class _NewAuditDialogState extends State<NewAuditDialog> {
                         child: Text(selectButtonText(), style: ColorDefs.textGreen25),
                       ),
                     ),
+
+                    ////
+                    // FlatButton(
+                    // color: Colors.transparent,
+                    // shape: RoundedRectangleBorder(
+                    //     borderRadius: BorderRadius.circular(25.0),
+                    //     side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
+                    // onPressed: () async {
+                    //   if (_formKey.currentState.validate()) {
+                    //     _formKey.currentState.save();
+                    //     print(selectedDate);
+                    //     // print(selectedTime.format(context).toString());
+                    //     bool validateDateTime = pastTimeWarning();
+                    //     if (validateDateTime) {
+                    //       Function callBack = () {
+                    //         timeInPastOK = true;
+                    //       };
+                    //       await Dialogs.timeInPast(context, callBack);
+                    //     } else {
+                    //       timeInPastOK = true;
+                    //     }
+
+                    //     bool validated = validateEntry();
+
+                    //     if (validated && timeInPastOK) {
+                    //       if (alreadyExisted && !widget.followup) {
+                    //         Provider.of<ListCalendarData>(context, listen: false)
+                    //             .deleteCalendarItem(widget.calendarResult);
+                    //       }
+
+                    //       DateTime selectedDateTime = DateTime(selectedDate.year, selectedDate.month,
+                    //           selectedDate.day, selectedTime.hour, selectedTime.minute);
+                    //       print(selectedDateTime.toString());
+                    //       print(selectedSiteName);
+                    //       print(selectedProgramNumber);
+
+                    //       Map<String, dynamic> oldAuditCitationsObject;
+                    //       String deviceid = Provider.of<GeneralData>(context, listen: false).deviceid;
+                    //       if (widget.followup) {
+                    //         SiteList siteList = Provider.of<SiteData>(context, listen: false).siteList;
+                    //         oldAuditCitationsObject = Provider.of<AuditData>(context, listen: false)
+                    //             .getAuditCitationsObject(
+                    //                 newCalendarResult: widget.calendarResult, siteList: siteList);
+
+                    //         Provider.of<ListCalendarData>(context, listen: false)
+                    //             .updateStatusOnScheduleToCompleted(alreadyExistedCalendarResult);
+                    //       }
+
+                    //       if (oldAuditCitationsObject != null) {
+                    //         oldAuditCitationsObject['PreviousEvent'] = {
+                    //           'StartTime': alreadyExistedCalendarResult.startTime,
+                    //           'AgencyName': alreadyExistedCalendarResult.agencyName,
+                    //           'AgencyNumber': alreadyExistedCalendarResult.agencyNumber,
+                    //           'ProgramNumber': alreadyExistedCalendarResult.programNum,
+                    //           'AuditType': alreadyExistedCalendarResult.auditType,
+                    //           'ProgramType': alreadyExistedCalendarResult.programType.toString(),
+                    //           'Auditor': alreadyExistedCalendarResult.auditor
+                    //         };
+                    //       }
+
+                    //       Map<String, dynamic> newEvent = <String, dynamic>{
+                    //         'startTime': selectedDateTime.toString(),
+                    //         'message': '',
+                    //         'agencyName': selectedSiteName,
+                    //         'agencyNumber': selectedAgencyNumber,
+                    //         'auditType': selectedAuditType,
+                    //         'programNum': selectedProgramNumber,
+                    //         'programType': selectedProgType,
+                    //         'auditor': selectedAuditor,
+                    //         'status': "Scheduled",
+                    //         'deviceid': deviceid,
+                    //         'citationsToFollowUp': oldAuditCitationsObject
+                    //       };
+
+                    //       bool exists = Provider.of<ListCalendarData>(context, listen: false).checkBoxEvent(
+                    //         event: newEvent,
+                    //       );
+
+                    //       if (!exists) {
+                    //         Provider.of<ListCalendarData>(context, listen: false).addBoxEvent(
+                    //           event: newEvent,
+                    //           notify: true,
+                    //         );
+                    //       } else {
+                    //         Dialogs.showMessage(
+                    //             context: context,
+                    //             dismissable: true,
+                    //             textStyle: ColorDefs.textWhiteTerminal,
+                    //             bckcolor: ColorDefs.colorDarkBackground,
+                    //             message:
+                    //                 "An audit exists at this location for the same time and same auditor. \nPlease check your entry and try again.");
+                    //       }
+
+                    //       if (!exists) {
+                    //         Navigator.of(context).pop();
+                    //         if (newEvent['auditType'] == "Follow Up") {
+                    //           Navigator.of(context).pop();
+                    //         }
+                    //       }
+                    //       if (alreadyExisted) {
+                    //         Navigator.of(context).pop();
+                    //       }
+                    //     } else {
+                    //       if (!identicalEntry()) {
+                    //         Dialogs.showBadSchedule(context);
+                    //       } else {
+                    //         Navigator.of(context).pop();
+                    //       }
+                    //     }
+                    //   }
+                    // },
+                    // child: Padding(
+                    //   padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                    //   child: Text(selectButtonText(), style: ColorDefs.textGreen25),
+                    // ),
+                    // ),
+                    /////////////////
                   ),
                   if (alreadyExisted && !widget.followup)
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 0),
-                      child: FlatButton(
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 10.0),
-                          child: Text("Delete Audit", style: ColorDefs.textGreen25),
+                      child:
+                          //////
+                          ///
+                          TextButton(
+                        style: ButtonStyle(
+                          // foregroundColor: MaterialStateProperty.resolveWith<Color>(
+                          //   // text color
+                          //   (Set<MaterialState> states) =>
+                          //       states.contains(MaterialState.disabled) ? Colors.white : Colors.white,
+                          // ),
+                          backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                            // background color    this is color:
+                            (Set<MaterialState> states) => states.contains(MaterialState.disabled)
+                                ? ColorDefs.colorTopHeader
+                                : ColorDefs.colorTopHeader,
+                          ),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25.0),
+                                side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
+                          ),
                         ),
-                        color: ColorDefs.colorTopHeader,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25.0),
-                            side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
                         onPressed: () async {
                           bool result = await showDialog(
                             context: context,
@@ -567,7 +714,69 @@ class _NewAuditDialogState extends State<NewAuditDialog> {
                             Navigator.of(context).pop(); // dismisses the entire widget
                           }
                         },
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 10.0),
+                          child: Text("Delete Audit", style: ColorDefs.textGreen25),
+                        ),
                       ),
+                      // FlatButton(
+                      // child: Padding(
+                      //   padding: const EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 10.0),
+                      //   child: Text("Delete Audit", style: ColorDefs.textGreen25),
+                      // ),
+                      // color: ColorDefs.colorTopHeader,
+                      // shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(25.0),
+                      //     side: BorderSide(color: ColorDefs.colorAnotherDarkGreen, width: 3.0)),
+                      // onPressed: () async {
+                      //   bool result = await showDialog(
+                      //     context: context,
+                      //     builder: (context) {
+                      //       return AlertDialog(
+                      //         shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50.0))),
+                      //         title: Text('Confirmation'),
+                      //         content: Text('Do you want to delete this Scheduled Audit?'),
+                      //         actions: <Widget>[
+                      //           TextButton(
+                      //             onPressed: () {
+                      //               Navigator.of(context, rootNavigator: true)
+                      //                   .pop(false); // dismisses only the dialog and returns false
+                      //             },
+                      //             child: Text('No'),
+                      //           ),
+                      //           TextButton(
+                      //             onPressed: () {
+                      //               Navigator.of(context, rootNavigator: true).pop(true);
+                      //               Provider.of<ListCalendarData>(context, listen: false)
+                      //                   .deleteCalendarItem(widget.calendarResult);
+                      //               setState(() {}); // dismisses only the dialog and returns true
+                      //             },
+                      //             child: Text('Yes'),
+                      //           ),
+                      //         ],
+                      //       );
+                      //     },
+                      //   );
+
+                      //   if (result) {
+                      //     if (_formKey.currentState.validate()) {
+                      //       _formKey.currentState.save();
+                      //       print(selectedDate);
+                      //       // print(selectedTime.format(context).toString());
+
+                      //       Provider.of<ListCalendarData>(context, listen: false)
+                      //           .deleteCalendarItem(widget.calendarResult);
+
+                      //       Navigator.of(context).pop();
+                      //       if (alreadyExisted) {
+                      //         Navigator.of(context).pop();
+                      //       }
+                      //     }
+                      //   } else {
+                      //     Navigator.of(context).pop(); // dismisses the entire widget
+                      //   }
+                      // },
+                      // ),
                     ),
                 ],
               ),

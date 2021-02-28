@@ -1,6 +1,7 @@
 import 'package:auditor/Definitions/AuditClasses/Audit.dart';
 import 'package:auditor/Definitions/AuditClasses/Section.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
+import 'package:auditor/Utilities/FlatButtonToTextButton.dart';
 import 'package:auditor/providers/AuditData.dart';
 // import 'package:auditor/providers/GeneralData.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -180,28 +181,30 @@ class _FillInEmailInterviewState extends State<FillInEmailInterview> {
         ),
         Container(height: 5),
         if (!activeAudit.detailsConfirmed)
-          FlatButton(
+          FlatButtonX(
             // padding: EdgeInsets.fromLTRB(5.0, 12.0, 5.0, 12.0),
-            child: Padding(
+            childx: Padding(
                 padding: const EdgeInsets.fromLTRB(20.0, 12.0, 20.0, 12.0),
                 child: Text(
                   "Confirm",
                   style: TextStyle(fontSize: 20),
                 )),
-            disabledColor: ColorDefs.colorTopHeader,
-            disabledTextColor: ColorDefs.colorChatNeutral,
-            color: ColorDefs.colorTopHeader,
-            shape: RoundedRectangleBorder(
+            textColorx: Colors.black,
+            disabledColorx: ColorDefs.colorTopHeader,
+            disabledTextColorx: ColorDefs.colorChatNeutral,
+            colorx: ColorDefs.colorTopHeader,
+            shapex: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(50.0),
                 side: BorderSide(
                     color: confirmButtonEnabled //Provider.of<GeneralData>(context).confirmButtonEnabled
                         ? ColorDefs.colorAnotherDarkGreen
                         : ColorDefs.colorButtonNeutral,
                     width: 3.0)),
-            onPressed: !confirmButtonEnabled
+            onPressedx: !confirmButtonEnabled
                 ? null
                 : () {
                     activeAudit.detailsConfirmed = true;
+                    activeAudit.calendarResult.actualStartDateTime = DateTime.now();
                     for (Section section in activeAudit.sections) {
                       if (section.name != "Pre-Fill") {
                         section.status = Status.available;

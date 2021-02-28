@@ -1,6 +1,7 @@
 import 'package:auditor/Definitions/AuditClasses/Audit.dart';
 import 'package:auditor/Definitions/AuditClasses/Section.dart';
 import 'package:auditor/Definitions/colorDefs.dart';
+import 'package:auditor/Utilities/FlatButtonToTextButton.dart';
 import 'package:auditor/providers/AuditData.dart';
 import 'package:auditor/providers/GeneralData.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -145,13 +146,14 @@ class _SectionButtonState extends State<SectionButton> {
               Container(
                 width: 122,
                 height: 60,
-                child: FlatButton(
-                  color: buttonColor,
-                  shape: RoundedRectangleBorder(
+                child: FlatButtonX(
+                  colorx: buttonColor,
+                  textColorx: Colors.black,
+                  shapex: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   // color: buttonColor,
-                  onPressed: () {
+                  onPressedx: () {
                     try {
                       _scrollController.jumpTo(-20);
                     } catch (err) {
@@ -165,7 +167,7 @@ class _SectionButtonState extends State<SectionButton> {
                             Provider.of<AuditData>(context, listen: false).makeCitations(),
                           };
                   },
-                  child: AutoSizeText(
+                  childx: AutoSizeText(
                     widget.section.name,
                     group: widget.buttonAutoGroup,
                     maxLines: 2,

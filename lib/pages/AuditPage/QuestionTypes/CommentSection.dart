@@ -17,7 +17,7 @@ class CommentSection extends StatefulWidget {
   final bool mandatory;
   final bool numKeyboard;
   final Function bubbleCallback;
-  int characterLimit = -1;
+  final int characterLimit;
   CommentSection(
       {Key key,
       @required this.index,
@@ -53,6 +53,10 @@ class _CommentSectionState extends State<CommentSection> {
   TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    int characterLimit = widget.characterLimit;
+    if (characterLimit == null) {
+      characterLimit = -1;
+    }
     int index = widget.index;
     // Section activeSection = widget.activeSection;
     return AnimatedContainer(
