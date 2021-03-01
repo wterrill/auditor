@@ -35,8 +35,8 @@ git commit -m "AutoCommit webTesting $now"
 git push
 cd ..
 echo "new version pushed to github."
-flutter analyze
-flutter test  # <-- unit test
+# flutter analyze
+# flutter test  # <-- unit test
 # flutter drive --target=test_driver/app.dart  # <-- U/I test
 flutter build ios --release #-t lib/main.dart --release --analyze-size  # <-- build 
 
