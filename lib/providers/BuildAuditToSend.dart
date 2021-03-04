@@ -164,6 +164,9 @@ Map<String, dynamic> buildAuditToSend(Audit outgoingAudit, String deviceidProvid
   resultMap['SiteVisitRequired'] = outgoingAudit.siteVisitRequired;
 
   resultMap['ImmediateHold'] = outgoingAudit.putProgramOnImmediateHold;
+  if (deviceid == null) {
+    deviceid = "website - was null";
+  }
 
   Map<String, dynamic> mainBody = <String, dynamic>{
     "AgencyNumber": outgoingAudit.calendarResult.agencyNumber,
