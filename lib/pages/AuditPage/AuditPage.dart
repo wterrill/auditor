@@ -139,7 +139,7 @@ class _AuditPageState extends State<AuditPage> {
                       VerificationBadPage(
                         activeAudit: activeAudit,
                       ),
-                    if (activeSection?.name == "*Developer*") DeveloperPage(),
+                    // if (activeSection?.name == "*Developer*") DeveloperPage(),
                     if (activeSection?.name != "Review" &&
                         activeSection?.name != "Verification" &&
                         activeSection?.name != "Follow Up Review")

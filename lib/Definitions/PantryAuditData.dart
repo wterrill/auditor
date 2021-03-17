@@ -68,13 +68,6 @@ List<Map<String, dynamic>> prefill = [
     'databaseOptCom': 'AgencyLocatorAccurateComments',
   },
   <String, dynamic>{
-    'text': "Are TANF commodities being distributed?",
-    'type': 'yesNo',
-    'databaseVar': 'TANFCommoditiesDistributed',
-    'databaseVarType': 'bool',
-    'databaseOptCom': 'TANFCommoditiesDistributedComments'
-  },
-  <String, dynamic>{
     'text': 'Issues from last site visit?',
     'type': 'fillIn',
     'databaseVar': 'IssuesFromLastSiteVisit',
@@ -518,14 +511,14 @@ List<Map<String, dynamic>> audit1Section3Questions = [
     'databaseOptCom': 'ProxyFormSignedAtTimeOfDistributionComments',
     'actionItem': 'Proxy forms must have Pantry Personnel’s signature'
   },
-  // Removed for addition of Pre-Fill Page
-  // <String, dynamic>{
-  //   'text': "Are TANF commodities being distributed?",
-  //   'type': 'yesNo',
-  //   'databaseVar': 'TANFCommoditiesDistributed',
-  //   'databaseVarType': 'bool',
-  //   'databaseOptCom': 'TANFCommoditiesDistributedComments'
-  // },
+
+  <String, dynamic>{
+    'text': "Are TANF commodities being distributed?",
+    'type': 'yesNo',
+    'databaseVar': 'TANFCommoditiesDistributed',
+    'databaseVarType': 'bool',
+    'databaseOptCom': 'TANFCommoditiesDistributedComments'
+  },
 
   <String, dynamic>{
     'text': "If yes, do guests complete the required TANF information?",
@@ -1829,5 +1822,5 @@ List<Map<String, List<Map<String, dynamic>>>> pantryAuditSectionsQuestions = [
   <String, List<Map<String, dynamic>>>{"Photos": photoData},
   <String, List<Map<String, dynamic>>>{"Review": reviewData},
   <String, List<Map<String, dynamic>>>{"Verification": verificationData},
-  <String, List<Map<String, dynamic>>>{"*Developer*": developerData},
+  // <String, List<Map<String, dynamic>>>{"*Developer*": developerData},
 ];

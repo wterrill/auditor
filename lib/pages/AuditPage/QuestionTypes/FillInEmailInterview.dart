@@ -219,14 +219,14 @@ class _FillInEmailInterviewState extends State<FillInEmailInterview> {
                         }
                       }
                     }
-                    for (Section section in activeAudit.sections) {
-                      if (section.name == "*Developer*") {
-                        section.status = Status.available;
-                        section.lastStatus = Status.available;
-                        widget.activeSection.status = Status.completed;
-                        widget.activeSection.lastStatus = Status.completed;
-                      }
-                    }
+                    // for (Section section in activeAudit.sections) {
+                    //   if (section.name == "*Developer*") {
+                    //     section.status = Status.available;
+                    //     section.lastStatus = Status.available;
+                    //     widget.activeSection.status = Status.completed;
+                    //     widget.activeSection.lastStatus = Status.completed;
+                    //   }
+                    // }
                     setState(() {});
                     if (activeAudit.calendarResult.auditType == "Follow Up") {
                       Provider.of<AuditData>(context, listen: false).makeCitations();

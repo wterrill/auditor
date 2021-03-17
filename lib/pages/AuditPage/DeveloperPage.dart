@@ -27,7 +27,7 @@ class DeveloperPage extends StatelessWidget {
         if (!(section.name == "Photos" ||
             section.name == "Review" ||
             section.name == "Verification" ||
-            section.name == "*Developer*" ||
+            // section.name == "*Developer*" ||
             section.name == "Confirm Details")) {
           for (Question question in section.questions) {
             question.scoreAdded = false;
@@ -135,7 +135,7 @@ class DeveloperPage extends StatelessWidget {
         if (almost) {
           if (section.name == "Photos" ||
               section.name == "Review" ||
-              section.name == "*Developer*" ||
+              // section.name == "*Developer*" ||
               section.name == "Confirm Details") {
             section.status = Status.completed;
             section.lastStatus = Status.completed;
@@ -150,7 +150,7 @@ class DeveloperPage extends StatelessWidget {
         if (!(section.name == "Photos" ||
             section.name == "Review" ||
             section.name == "Verification" ||
-            section.name == "*Developer*" ||
+            // section.name == "*Developer*" ||
             section.name == "Confirm Details")) {
           for (int i = 0; i < section.questions.length; i++) {
             if (almost) {
