@@ -34,8 +34,8 @@ class _DropDownQuestionState extends State<DropDownQuestion> {
           Row(
             children: [
               Expanded(
-                child: AutoSizeText(widget.activeSection.questions[index].text,
-                    maxLines: 3, group: widget.questionAutoGroup, style: ColorDefs.textBodyBlack20),
+                child: Text(widget.activeSection.questions[index].text,
+                    maxLines: 3, style: ColorDefs.textBodyBlack20), //group: widget.questionAutoGroup, ),
               ),
               if (!widget.activeSection.questions[index].hideNa)
                 GestureDetector(

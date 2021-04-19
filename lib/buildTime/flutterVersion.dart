@@ -1,13 +1,13 @@
 const Map<String,String> version = 
 {
-  "frameworkVersion": "2.0.2",
+  "frameworkVersion": "2.0.4",
   "channel": "stable",
   "repositoryUrl": "https://github.com/flutter/flutter.git",
-  "frameworkRevision": "8962f6dc68ec8e2206ac2fa874da4a453856c7d3",
-  "frameworkCommitDate": "2021-03-11 13:22:20 -0800",
-  "engineRevision": "5d8bf811b3072390933d69f3e289a4bb673636c4",
-  "dartSdkVersion": "2.12.1",
+  "frameworkRevision": "b1395592de68cc8ac4522094ae59956dd21a91db",
+  "frameworkCommitDate": "2021-04-01 14:25:01 -0700",
+  "engineRevision": "2dce47073a378673f6ca095e91b8065544c3a881",
+  "dartSdkVersion": "2.12.2",
   "flutterRoot": "/Users/williamterrill/git/flutter/flutter"
 }
 ;
-const String appVersion = "version: 1.1.2+19";
+const String appVersion = "version: 1.1.2+20";
