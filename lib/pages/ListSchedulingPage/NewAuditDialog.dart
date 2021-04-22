@@ -404,7 +404,8 @@ class _NewAuditDialogState extends State<NewAuditDialog> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  if (selectButtonText() == 'Save Changes' && auditHasChanged())
+                  if ((selectButtonText() == 'Save Changes' && auditHasChanged()) ||
+                      selectButtonText() == "Schedule Audit")
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 8.0, 0, 0),
                       child:
