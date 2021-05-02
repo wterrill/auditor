@@ -9,13 +9,11 @@ import 'ReviewCommentSection.dart';
 // import 'ReviewQuestionTypes/ReviewCommentSection.dart';
 
 class FollowupCitationsSections extends StatefulWidget {
-  FollowupCitationsSections({Key key, @required this.followup})
-      : super(key: key);
+  FollowupCitationsSections({Key key, @required this.followup}) : super(key: key);
   // final Audit activeAudit;
 
   @override
-  _FollowupCitationsSectionsState createState() =>
-      _FollowupCitationsSectionsState();
+  _FollowupCitationsSectionsState createState() => _FollowupCitationsSectionsState();
   final bool followup;
 }
 
@@ -34,9 +32,7 @@ class _FollowupCitationsSectionsState extends State<FollowupCitationsSections> {
       itemCount: citations.length,
       itemBuilder: (context, index) {
         return Container(
-          color: index.isEven
-              ? ColorDefs.colorAlternateDark
-              : ColorDefs.colorAlternateLight,
+          color: index.isEven ? ColorDefs.colorAlternateDark : ColorDefs.colorAlternateLight,
           child: Column(
             children: [
               Row(
@@ -81,30 +77,23 @@ class _FollowupCitationsSectionsState extends State<FollowupCitationsSections> {
                           child: GestureDetector(
                               onTap: () {
                                 setState(() {
-                                  Provider.of<AuditData>(context, listen: false)
-                                      .toggleFlag(index);
+                                  Provider.of<AuditData>(context, listen: false).toggleFlag(index);
                                 });
                               },
                               child: Icon(Icons.flag,
-                                  color: citations[index].unflagged
-                                      ? ColorDefs.colorChatNeutral
-                                      : Colors.red)),
+                                  color: citations[index].unflagged ? ColorDefs.colorChatNeutral : Colors.red)),
                         )),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 4.0),
                           child: GestureDetector(
                             onTap: () {
-                              Provider.of<AuditData>(context, listen: false)
-                                  .citations[index]
-                                  .textBoxRollOut = !Provider.of<AuditData>(
-                                      context,
-                                      listen: false)
-                                  .citations[index]
-                                  .textBoxRollOut;
+                              Provider.of<AuditData>(context, listen: false).citations[index].textBoxRollOut =
+                                  !Provider.of<AuditData>(context, listen: false).citations[index].textBoxRollOut;
                               print(citations[index].textBoxRollOut);
                               setState(() {});
                             },
                             child: Icon(Icons.chat_bubble,
+                                size: ColorDefs.chatBubbleSize,
                                 color: citations[index].optionalComment == null
                                     ? ColorDefs.colorChatNeutral
                                     : ColorDefs.colorChatSelected),
@@ -122,9 +111,7 @@ class _FollowupCitationsSectionsState extends State<FollowupCitationsSections> {
                     //         .textBoxRollOut)
                     ? EdgeInsets.all(8.0)
                     : null,
-                color: index.isEven
-                    ? ColorDefs.colorAlternateDark
-                    : ColorDefs.colorAlternateLight,
+                color: index.isEven ? ColorDefs.colorAlternateDark : ColorDefs.colorAlternateLight,
                 child: ReviewCommentSection(
                     index: index,
                     questions: citations,

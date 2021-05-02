@@ -75,7 +75,8 @@ class _YesNoQuestionState extends State<YesNoQuestion> {
                     color: buttonColorPicker(widget.activeSection.questions[index], "Yes"),
                     borderRadius: BorderRadius.circular(20.0),
                   ),
-                  width: 80,
+                  width: ColorDefs.buttonwidth,
+                  height: ColorDefs.buttonheight,
                   child: Center(child: Text("Yes", style: ColorDefs.textBodyBlack20)),
                 ),
               ),
@@ -112,7 +113,8 @@ class _YesNoQuestionState extends State<YesNoQuestion> {
                     // border:
                     //     Border.all(width: 2.0, color: Colors.grey)
                   ),
-                  width: 80,
+                  width: ColorDefs.buttonwidth,
+                  height: ColorDefs.buttonheight,
                   child: Center(child: Text("No", style: ColorDefs.textBodyBlack20)),
                 ),
               ),
@@ -125,11 +127,8 @@ class _YesNoQuestionState extends State<YesNoQuestion> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Icon(Icons.chat_bubble,
+                      size: ColorDefs.chatBubbleSize,
                       color: myBubbleOn ? ColorDefs.colorChatSelected : ColorDefs.colorChatNeutral),
-                  // Icon(Icons.chat_bubble,
-                  //     color: widget.activeSection.questions[index].optionalComment == null
-                  //         ? ColorDefs.colorChatNeutral
-                  //         : ColorDefs.colorChatSelected),
                 ),
               ),
             ],

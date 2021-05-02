@@ -43,7 +43,7 @@ class _LoginFormState extends State<LoginForm> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
       ),
-      margin: EdgeInsets.symmetric(horizontal: .2 * Provider.of<GeneralData>(context).mediaArea.width),
+      margin: EdgeInsets.symmetric(horizontal: .15 * Provider.of<GeneralData>(context).mediaArea.width),
       color: ColorDefs.colorTopHeader,
       child: SingleChildScrollView(
         child: Form(
@@ -54,9 +54,13 @@ class _LoginFormState extends State<LoginForm> {
               height: 150,
               child: Hero(
                 tag: "GCFD_Logo",
-                child: Image(
-                  fit: BoxFit.fitHeight,
-                  image: AssetImage('assets/images/GCFD_Logo.png'),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image(
+                    fit: BoxFit.fitWidth,
+                    // fit: BoxFit.cover,
+                    image: AssetImage('assets/images/GCFD_Logo.png'),
+                  ),
                 ),
               ),
             ),

@@ -90,7 +90,8 @@ class _FillInNumQuestionState extends State<FillInNumQuestion> {
                         // border:
                         //     Border.all(width: 2.0, color: Colors.grey)
                       ),
-                      width: 80,
+                      width: ColorDefs.buttonwidth,
+                      height: ColorDefs.buttonheight,
                       child: Center(child: Text("N/A", style: ColorDefs.textBodyBlack20)),
                     ),
                   ),
@@ -107,11 +108,6 @@ class _FillInNumQuestionState extends State<FillInNumQuestion> {
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: FaIcon(FontAwesomeIcons.solidCommentDots,
                       color: myBubbleOn ? ColorDefs.colorButtonYes : ColorDefs.colorChatRequired),
-                  // Icon(Icons.chat_bubble,
-                  //     color: widget.activeSection.questions[index].userResponse == null
-                  //         ? ColorDefs.colorChatRequired
-                  //         // : ColorDefs.colorChatSelected),
-                  //         : ColorDefs.colorButtonYes),
                 ),
               ),
             ],

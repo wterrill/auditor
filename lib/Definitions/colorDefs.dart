@@ -2,6 +2,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class ColorDefs {
+  static double chatBubbleSize = 32.0;
+  static double buttonwidth = 80.0;
+  static double buttonheight = 50.0;
   static Color colorTopHeader = Color(0xFFFEFEFE); // off white for main header and text and borders
   static Color colorDarkBackground = Color(0xFF343434); // grey for big background and row
   static Color colorAlternatingDark = Color(0xFF393939); // grey for alternating lines

@@ -74,7 +74,8 @@ class _DropDownQuestionState extends State<DropDownQuestion> {
                         // border:
                         //     Border.all(width: 2.0, color: Colors.grey)
                       ),
-                      width: 80,
+                      width: ColorDefs.buttonwidth,
+                      height: ColorDefs.buttonheight,
                       child: Center(child: Text("N/A", style: ColorDefs.textBodyBlack20)),
                     ),
                   ),
@@ -131,11 +132,8 @@ class _DropDownQuestionState extends State<DropDownQuestion> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Icon(Icons.chat_bubble,
+                      size: ColorDefs.chatBubbleSize,
                       color: myBubbleOn ? ColorDefs.colorChatSelected : ColorDefs.colorChatNeutral),
-                  // Icon(Icons.chat_bubble,
-                  //     color: widget.activeSection.questions[index].optionalComment == null
-                  //         ? ColorDefs.colorChatNeutral
-                  //         : ColorDefs.colorChatSelected),
                 ),
               ),
             ],

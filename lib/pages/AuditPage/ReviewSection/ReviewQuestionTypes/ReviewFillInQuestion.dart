@@ -12,9 +12,7 @@ class ReviewFillInQuestion extends StatefulWidget {
   final int index;
   final List<Question> questions;
   final AutoSizeGroup questionAutoGroup;
-  ReviewFillInQuestion(
-      {Key key, this.index, this.questions, this.questionAutoGroup})
-      : super(key: key);
+  ReviewFillInQuestion({Key key, this.index, this.questions, this.questionAutoGroup}) : super(key: key);
 
   @override
   _ReviewFillInQuestionState createState() => _ReviewFillInQuestionState();
@@ -34,8 +32,7 @@ class _ReviewFillInQuestionState extends State<ReviewFillInQuestion> {
     String response = widget.questions[widget.index].userResponse.toString();
     if (widget.questions[widget.index].typeOfQuestion.toLowerCase() == "date" &&
         widget.questions[widget.index].userResponse != null) {
-      DateTime dateTime =
-          DateTime.parse(widget.questions[widget.index].userResponse as String);
+      DateTime dateTime = DateTime.parse(widget.questions[widget.index].userResponse as String);
       if (dateTime == null) {
         response = "";
       } else {
@@ -51,9 +48,7 @@ class _ReviewFillInQuestionState extends State<ReviewFillInQuestion> {
     int index = widget.index;
 
     return Container(
-      color: index.isEven
-          ? ColorDefs.colorAlternateDark
-          : ColorDefs.colorAlternateLight,
+      color: index.isEven ? ColorDefs.colorAlternateDark : ColorDefs.colorAlternateLight,
       child: Container(
         child: Column(
           children: [
@@ -72,8 +67,7 @@ class _ReviewFillInQuestionState extends State<ReviewFillInQuestion> {
                 GestureDetector(
                   onTap: () {
                     if (questions[index].userResponse != null) {
-                      questions[index].textBoxRollOut =
-                          !questions[index].textBoxRollOut;
+                      questions[index].textBoxRollOut = !questions[index].textBoxRollOut;
                       print(questions[index].textBoxRollOut);
                       setState(() {});
                     }
@@ -81,14 +75,14 @@ class _ReviewFillInQuestionState extends State<ReviewFillInQuestion> {
                   child: Container(
                     width: 120,
                     child: Row(
-                      mainAxisAlignment: (response.length > 20)
-                          ? MainAxisAlignment.spaceBetween
-                          : MainAxisAlignment.center,
+                      mainAxisAlignment:
+                          (response.length > 20) ? MainAxisAlignment.spaceBetween : MainAxisAlignment.center,
                       children: [
                         if (response.length <= 20) Text(getResponse()),
                         if (response.length > 20) Text(" "),
                         if (response.length > 20)
                           Icon(Icons.chat_bubble,
+                              size: ColorDefs.chatBubbleSize,
                               color: questions[index].userResponse == null
                                   ? ColorDefs.colorChatNeutral
                                   : ColorDefs.colorChatSelected),

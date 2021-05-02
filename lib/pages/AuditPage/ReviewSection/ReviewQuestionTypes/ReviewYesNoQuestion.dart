@@ -36,9 +36,7 @@ class _ReviewYesNoQuestionState extends State<ReviewYesNoQuestion> {
     int index = widget.index;
     List<Question> questions = widget.questions;
     return Container(
-      color: index.isEven
-          ? ColorDefs.colorAlternateDark
-          : ColorDefs.colorAlternateLight,
+      color: index.isEven ? ColorDefs.colorAlternateDark : ColorDefs.colorAlternateLight,
       child: Container(
         child: Column(
           children: [
@@ -69,12 +67,8 @@ class _ReviewYesNoQuestionState extends State<ReviewYesNoQuestion> {
                                 : Icon(Icons.close, color: Colors.red),
                           )),
                       if (questions[index].userResponse != null &&
-                          questions[index].typeOfQuestion.toLowerCase() !=
-                              "date")
-                        Expanded(
-                            child: Center(
-                                child: Text(
-                                    questions[index].userResponse.toString()))),
+                          questions[index].typeOfQuestion.toLowerCase() != "date")
+                        Expanded(child: Center(child: Text(questions[index].userResponse.toString()))),
 
                       // if (questions[index].typeOfQuestion.toLowerCase() == "date" &&
                       //     questions[index].userResponse != null) {
@@ -94,13 +88,13 @@ class _ReviewYesNoQuestionState extends State<ReviewYesNoQuestion> {
                       GestureDetector(
                         onTap: () {
                           if (questions[index].optionalComment != null) {
-                            questions[index].textBoxRollOut =
-                                !questions[index].textBoxRollOut;
+                            questions[index].textBoxRollOut = !questions[index].textBoxRollOut;
                             print(questions[index].textBoxRollOut);
                             setState(() {});
                           }
                         },
                         child: Icon(Icons.chat_bubble,
+                            size: ColorDefs.chatBubbleSize,
                             color: questions[index].optionalComment == null
                                 ? ColorDefs.colorChatNeutral
                                 : ColorDefs.colorChatSelected),

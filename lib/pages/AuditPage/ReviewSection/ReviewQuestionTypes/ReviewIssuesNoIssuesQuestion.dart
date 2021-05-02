@@ -18,12 +18,10 @@ class ReviewIssuesNoIssuesQuestion extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _ReviewIssuesNoIssuesQuestionState createState() =>
-      _ReviewIssuesNoIssuesQuestionState();
+  _ReviewIssuesNoIssuesQuestionState createState() => _ReviewIssuesNoIssuesQuestionState();
 }
 
-class _ReviewIssuesNoIssuesQuestionState
-    extends State<ReviewIssuesNoIssuesQuestion> {
+class _ReviewIssuesNoIssuesQuestionState extends State<ReviewIssuesNoIssuesQuestion> {
   @override
   Widget build(BuildContext context) {
     bool happyPath(Question question) {
@@ -39,9 +37,7 @@ class _ReviewIssuesNoIssuesQuestionState
     int index = widget.index;
     List<Question> questions = widget.questions;
     return Container(
-      color: index.isEven
-          ? ColorDefs.colorAlternateDark
-          : ColorDefs.colorAlternateLight,
+      color: index.isEven ? ColorDefs.colorAlternateDark : ColorDefs.colorAlternateLight,
       child: Container(
         child: Column(
           children: [
@@ -72,13 +68,10 @@ class _ReviewIssuesNoIssuesQuestionState
                                 : Icon(Icons.close, color: Colors.red),
                           )),
                       if (questions[index].userResponse != null &&
-                          questions[index].typeOfQuestion.toLowerCase() !=
-                              "date")
+                          questions[index].typeOfQuestion.toLowerCase() != "date")
                         Expanded(
                             child: Center(
-                                child: Text(
-                                    questions[index].userResponse.toString(),
-                                    textAlign: TextAlign.center))),
+                                child: Text(questions[index].userResponse.toString(), textAlign: TextAlign.center))),
 
                       // if (questions[index].typeOfQuestion.toLowerCase() == "date" &&
                       //     questions[index].userResponse != null) {
@@ -98,13 +91,13 @@ class _ReviewIssuesNoIssuesQuestionState
                       GestureDetector(
                         onTap: () {
                           if (questions[index].optionalComment != null) {
-                            questions[index].textBoxRollOut =
-                                !questions[index].textBoxRollOut;
+                            questions[index].textBoxRollOut = !questions[index].textBoxRollOut;
                             print(questions[index].textBoxRollOut);
                             setState(() {});
                           }
                         },
                         child: Icon(Icons.chat_bubble,
+                            size: ColorDefs.chatBubbleSize,
                             color: questions[index].optionalComment == null
                                 ? ColorDefs.colorChatNeutral
                                 : ColorDefs.colorChatSelected),

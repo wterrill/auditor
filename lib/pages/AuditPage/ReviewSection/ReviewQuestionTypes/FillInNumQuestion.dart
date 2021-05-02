@@ -47,6 +47,7 @@ class _ReviewFillInNumQuestionState extends State<ReviewFillInNumQuestion> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Icon(Icons.chat_bubble,
+                    size: ColorDefs.chatBubbleSize,
                     color: widget.activeSection.questions[index].userResponse == null
                         ? ColorDefs.colorChatRequired
                         // : ColorDefs.colorChatSelected),
