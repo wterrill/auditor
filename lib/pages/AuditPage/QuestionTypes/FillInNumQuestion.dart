@@ -75,8 +75,8 @@ class _FillInNumQuestionState extends State<FillInNumQuestion> {
                         Provider.of<AuditData>(context, listen: false)
                             .tallySingleQuestion(index: index, section: activeSection, audit: widget.activeAudit);
                       }
-                      Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
-                      Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
+                      // Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
+                      // Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
                       setState(() {});
                     }
                   },
@@ -100,8 +100,8 @@ class _FillInNumQuestionState extends State<FillInNumQuestion> {
                 onTap: () {
                   widget.activeSection.questions[index].textBoxRollOut =
                       !widget.activeSection.questions[index].textBoxRollOut;
-                  Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
-                  Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
+                  // Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
+                  // Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
                   setState(() {});
                 },
                 child: Padding(

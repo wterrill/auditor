@@ -8,25 +8,25 @@
       "name": "Flutter",
       "request": "launch",
       "type": "dart",
-      "args": [
-        "--web-port",
-        "8686",
-        "--web-enable-expression-evaluation"
-      ],
-      "flutterMode": "debug"
+      // "args": [
+      //   "--web-port",
+      //   "8686",
+      //   "--web-enable-expression-evaluation"
+      // ],
+      "flutterMode": "profile", // debug"
     },
-    {
-      "name": "Integration Tests: Launch App",
-      "request": "launch",
-      "type": "dart",
-      "program": "test_driver/app.dart",
-    },
-    {
-      "name": "Integration Tests: Launch Driver",
-      "request": "launch",
-      "type": "dart",
-      "program": "test_driver/app_test.dart",
-    },
+    // {
+    //   "name": "Integration Tests: Launch App",
+    //   "request": "launch",
+    //   "type": "dart",
+    //   "program": "test_driver/app.dart",
+    // },
+    // {
+    //   "name": "Integration Tests: Launch Driver",
+    //   "request": "launch",
+    //   "type": "dart",
+    //   "program": "test_driver/app_test.dart",
+    // },
   ]
   // flutter Mode can be debug, profile, release
 }

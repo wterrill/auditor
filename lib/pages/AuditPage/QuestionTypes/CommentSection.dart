@@ -112,8 +112,8 @@ class _CommentSectionState extends State<CommentSection> {
                 widget.activeSection.questions[index].optionalComment = value;
               }
 
-              Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
-              Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
+              // Audit thisAudit = Provider.of<AuditData>(context, listen: false).activeAudit;
+              // Provider.of<AuditData>(context, listen: false).saveAuditLocally(incomingAudit: thisAudit);
               widget.bubbleCallback(value);
             }
           },
