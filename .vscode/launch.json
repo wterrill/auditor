@@ -13,7 +13,7 @@
       //   "8686",
       //   "--web-enable-expression-evaluation"
       // ],
-      "flutterMode": "profile", // debug"
+      "flutterMode": "debug", // profile"
     },
     // {
     //   "name": "Integration Tests: Launch App",
