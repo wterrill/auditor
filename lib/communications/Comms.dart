@@ -43,7 +43,7 @@ class Authentication {
     try {
       return client
           .get(
-        "http://12.216.81.220:$portNumber/api/AuthenticateUser",
+        "http://audit.gcfd.org:$portNumber/api/AuthenticateUser",
       )
           .then((result) {
         bool isAuthenticated = false;
@@ -74,14 +74,14 @@ class FullAuditComms {
     print('sendFullAudit send ${DateTime.now()}');
 
     if (isNtlm) {
-      sender = client.post('http://12.216.81.220:$portNumber/api/Audit/',
+      sender = client.post('http://audit.gcfd.org:$portNumber/api/Audit/',
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
             'X-Requested-With': 'XMLHttpRequest',
           },
           body: body);
     } else {
-      sender = http.post('http://12.216.81.220:$portNumber/api/Audit/',
+      sender = http.post('http://audit.gcfd.org:$portNumber/api/Audit/',
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
             'X-Requested-With': 'XMLHttpRequest',
@@ -126,10 +126,10 @@ class FullAuditComms {
 
     if (isNtlm) {
       sender = client.get(
-          "http://12.216.81.220:$portNumber/api/Audit/Query?MyDeviceId=${queryParameters['MyDeviceId']}&QueryType=${queryParameters['QueryType']}");
+          "http://audit.gcfd.org:$portNumber/api/Audit/Query?MyDeviceId=${queryParameters['MyDeviceId']}&QueryType=${queryParameters['QueryType']}");
     } else {
       sender = http.get(
-          "http://12.216.81.220:$portNumber/api/Audit/Query?MyDeviceId=${queryParameters['MyDeviceId']}&QueryType=${queryParameters['QueryType']}");
+          "http://audit.gcfd.org:$portNumber/api/Audit/Query?MyDeviceId=${queryParameters['MyDeviceId']}&QueryType=${queryParameters['QueryType']}");
     }
 
     return sender.then(
@@ -155,10 +155,10 @@ class FullAuditComms {
     String portNumber = Provider.of<GeneralData>(context, listen: false).portNumber;
     print(json);
     if (isNtlm) {
-      sender = client.post('http://12.216.81.220:$portNumber/api/Audit/FileUpload',
+      sender = client.post('http://audit.gcfd.org:$portNumber/api/Audit/FileUpload',
           body: json, headers: {'Content-type': 'application/json', 'Accept': 'application/json'});
     } else {
-      sender = http.post('http://12.216.81.220:$portNumber/api/Audit/FileUpload',
+      sender = http.post('http://audit.gcfd.org:$portNumber/api/Audit/FileUpload',
           body: json, headers: {'Content-type': 'application/json', 'Accept': 'application/json'});
     }
     return sender.then((http.Response res) {
@@ -178,14 +178,14 @@ class ScheduleAuditComms {
     print(body);
     print('scheduleAudit send ${DateTime.now()}');
     if (isNtlm) {
-      sender = client.post('http://12.216.81.220:$portNumber/api/Audit/Schedule',
+      sender = client.post('http://audit.gcfd.org:$portNumber/api/Audit/Schedule',
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
             'X-Requested-With': 'XMLHttpRequest',
           },
           body: body);
     } else {
-      sender = http.post('http://12.216.81.220:$portNumber/api/Audit/Schedule',
+      sender = http.post('http://audit.gcfd.org:$portNumber/api/Audit/Schedule',
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
             'X-Requested-With': 'XMLHttpRequest',
@@ -228,10 +228,10 @@ class ScheduleAuditComms {
 
     if (isNtlm) {
       sender = client.get(
-          "http://12.216.81.220:$portNumber/api/Schedule/Query?MyDeviceId=${queryParameters['MyDeviceId']}&QueryType=${queryParameters['QueryType']}");
+          "http://audit.gcfd.org:$portNumber/api/Schedule/Query?MyDeviceId=${queryParameters['MyDeviceId']}&QueryType=${queryParameters['QueryType']}");
     } else {
       sender = http.get(
-          "http://12.216.81.220:$portNumber/api/Schedule/Query?MyDeviceId=${queryParameters['MyDeviceId']}&QueryType=${queryParameters['QueryType']}");
+          "http://audit.gcfd.org:$portNumber/api/Schedule/Query?MyDeviceId=${queryParameters['MyDeviceId']}&QueryType=${queryParameters['QueryType']}");
     }
 
     return sender.then(
@@ -256,9 +256,9 @@ class ScheduleAuditComms {
   static Future<dynamic> getAuditors({@required BuildContext context}) async {
     String portNumber = Provider.of<GeneralData>(context, listen: false).portNumber;
     if (isNtlm) {
-      sender = client.get("http://12.216.81.220:$portNumber/api/GetAuditors");
+      sender = client.get("http://audit.gcfd.org:$portNumber/api/GetAuditors");
     } else {
-      sender = http.get("http://12.216.81.220:$portNumber/api/GetAuditors");
+      sender = http.get("http://audit.gcfd.org:$portNumber/api/GetAuditors");
     }
     print('getAuditors send ${DateTime.now()}');
 
@@ -292,9 +292,9 @@ class SiteComms {
     String portNumber = Provider.of<GeneralData>(context, listen: false).portNumber;
     dynamic sender;
     if (isNtlm) {
-      sender = client.get("http://12.216.81.220:$portNumber/api/SiteInfo");
+      sender = client.get("http://audit.gcfd.org:$portNumber/api/SiteInfo");
     } else {
-      sender = http.get("http://12.216.81.220:$portNumber/api/SiteInfo");
+      sender = http.get("http://audit.gcfd.org:$portNumber/api/SiteInfo");
     }
     print('getSites send ${DateTime.now()}');
     return sender.then(
