@@ -82,10 +82,10 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
 
     String portNumber = Provider.of<GeneralData>(context).portNumber;
     String newPortNumber = "";
-    if (portNumber == "88") {
-      newPortNumber = "90";
+    if (portNumber == "https://audit.gcfd.org") {
+      newPortNumber = "https://audittest.gcfd.org:1443";
     } else {
-      newPortNumber = "88";
+      newPortNumber = "https://audit.gcfd.org";
     }
 
     return Stack(
@@ -568,10 +568,10 @@ class _TopDrawerWidgetState extends State<TopDrawerWidget> with SingleTickerProv
                       await Dialogs.toggleDeleteDB(context, callBack);
 
                       String newPortNumber = "";
-                      if (portNumber == "88") {
-                        newPortNumber = "90";
+                      if (portNumber == "https://audit.gcfd.org") {
+                        newPortNumber = "https://audittest.gcfd.org:1443";
                       } else {
-                        newPortNumber = "88";
+                        newPortNumber = "https://audit.gcfd.org";
                       }
                       Provider.of<GeneralData>(context, listen: false).updateDatabasePort(newPortNumber);
                       Provider.of<ListCalendarData>(context, listen: false).newEventAdded = true;

@@ -63,6 +63,9 @@ http://audit.gcfd.org:88/api/Audit/Schedule
 http://10.99.1.107:88/api/AudSchedule	
 http://10.99.1.107:88/api/Audit/FileUpload
 
+https://audittest.gcfd.org:1443/     (testing)
+https://audit.gcfd.org/  (production)
+
 
 Weekend tasks.
 keyboard covering tasks

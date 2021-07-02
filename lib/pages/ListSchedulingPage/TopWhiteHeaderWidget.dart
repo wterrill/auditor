@@ -112,7 +112,7 @@ class _TopWhiteHeaderWidgetState extends State<TopWhiteHeaderWidget> {
                     ),
                     hintStyle: TextStyle(fontSize: 15.0, color: Colors.grey),
                     filled: true,
-                    fillColor: portNumber == "88" ? Colors.white : Colors.red,
+                    fillColor: portNumber == "https://audit.gcfd.org" ? Colors.white : Colors.red,
                     hintText: 'Agency / Program Number Filter'),
               ),
             ),
@@ -121,7 +121,7 @@ class _TopWhiteHeaderWidgetState extends State<TopWhiteHeaderWidget> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  if (portNumber == "90") Text("TEST TEST", style: ColorDefs.textRedTest),
+                  if (portNumber == "https://audittest.gcfd.org:1443") Text("TEST TEST", style: ColorDefs.textRedTest),
                   if (Provider.of<GeneralData>(context).individualAuditEdit)
                     Text("AUDIT EDIT", style: ColorDefs.textRedTest)
                 ],

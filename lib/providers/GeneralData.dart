@@ -31,7 +31,7 @@ class GeneralData with ChangeNotifier {
 
   //SchedulingPage
   bool backgroundDisable;
-  String portNumber = "88"; // todo this needs to be changed to 88 from 90!!!!!
+  String portNumber = "https://audit.gcfd.org"; // todo this needs to be changed to 88 from 90!!!!!
 
   GeneralData() {
     initializeApp();
@@ -51,7 +51,7 @@ class GeneralData with ChangeNotifier {
       deviceid = "website";
     }
     if (kIsWeb) {
-      portNumber = "90";
+      portNumber = "https://audittest.gcfd.org:1443";
     }
     notifyListeners();
   }

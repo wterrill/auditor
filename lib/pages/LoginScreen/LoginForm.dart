@@ -277,7 +277,7 @@ class _LoginFormState extends State<LoginForm> {
         }
         if (_username.toLowerCase().contains("mxotestaud1")) {
           // This opens the app in TEST mode for an mxotestaud1 account"
-          Provider.of<GeneralData>(context, listen: false).portNumber = "90";
+          Provider.of<GeneralData>(context, listen: false).portNumber = "https://audittest.gcfd.org:1443";
         }
 
         isAuthenticated = await Authentication.authenticate(username: _username, password: _password, context: context);

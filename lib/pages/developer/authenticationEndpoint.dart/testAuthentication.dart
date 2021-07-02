@@ -396,7 +396,7 @@ class _TestAuthenticationState extends State<TestAuthentication> {
       String portNumber = Provider.of<GeneralData>(context, listen: false).portNumber;
       result = "";
       bool doIt = false;
-      if (portNumber == "88") {
+      if (portNumber == "https://audit.gcfd.org") {
         Function callBack = () {
           doIt = true;
         };
